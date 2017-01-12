@@ -1,10 +1,12 @@
-
-
-
+BUILDINGS:
 -pub:
 	- sell alcohol (need supply it)
-	- recruit soldiers (depends on social skills of barman, amount of people in district)
 -distillery (gorzelnia):
 	- produce alcohol (depends on level of this building)
 -night club:
-	- 
+	- recruit soldiers (depends on social skills of barman, amount of people in district)
+	- gain money depending on local level
+-local business:
+	- tribute depending on percent settings
+-cassino:
+	- set win percent
