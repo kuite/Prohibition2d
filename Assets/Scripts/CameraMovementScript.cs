@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovementScript : MonoBehaviour {
-	private float speed = 1.5f;
+	private float speed = 4.5f;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,13 +11,13 @@ public class CameraMovementScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		keyboardMovement ();
+		KeyboardMovement ();
 	}
 
-	private void keyboardMovement()
+	private void KeyboardMovement()
 	{
-		//var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-		var move = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f).normalized;
+		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+		//var move = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f).normalized;
 		transform.position += move * speed * Time.deltaTime;
 	}
 }
