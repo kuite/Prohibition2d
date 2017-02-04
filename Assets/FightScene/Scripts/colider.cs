@@ -9,11 +9,13 @@ public class colider : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "me" || collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "fighter" || collision.gameObject.tag == "fighter")
         {
             Instantiate(blood, transform.position, transform.rotation);
+			Destroy(gameObject);
         }
-        Destroy(gameObject);
+		if(collision.gameObject.tag == "Obstacle")
+        	Destroy(gameObject);
     }
     void Update () {
 	  
