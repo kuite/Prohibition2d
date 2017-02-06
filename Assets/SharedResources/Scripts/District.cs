@@ -34,6 +34,7 @@ namespace Assets.SharedResources.Scripts
         public void PlusOne()
         {
             Population++;
+            Debug.Log(Application.persistentDataPath);
         }
 
     }
