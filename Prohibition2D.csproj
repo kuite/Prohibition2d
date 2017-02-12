@@ -52,6 +52,9 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -67,15 +70,49 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Data.SqliteClient">
+      <HintPath>Assets\Plugins\Mono.Data.SqliteClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets\Plugins\System.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\HeroControll.cs" />
+    <Compile Include="Assets\CityScene\Scripts\Buildings\Casino.cs" />
+    <Compile Include="Assets\CityScene\Scripts\Buildings\Distillery.cs" />
+    <Compile Include="Assets\CityScene\Scripts\Buildings\LocalBussines.cs" />
+    <Compile Include="Assets\CityScene\Scripts\Buildings\NightClub.cs" />
+    <Compile Include="Assets\CityScene\Scripts\Buildings\Pub.cs" />
+    <Compile Include="Assets\CityScene\Scripts\Button.cs" />
+    <Compile Include="Assets\CityScene\Scripts\ImageControll.cs" />
+    <Compile Include="Assets\CityScene\Scripts\MenuScript.cs" />
+    <Compile Include="Assets\CityScene\Scripts\Panel.cs" />
+    <Compile Include="Assets\FightScene\Scripts\Grid.cs" />
+    <Compile Include="Assets\FightScene\Scripts\Heap.cs" />
+    <Compile Include="Assets\FightScene\Scripts\Node.cs" />
+    <Compile Include="Assets\FightScene\Scripts\PathFindingScript.cs" />
+    <Compile Include="Assets\FightScene\Scripts\SoldierScript.cs" />
+    <Compile Include="Assets\FightScene\Scripts\colider.cs" />
+    <Compile Include="Assets\Model\Context\IContext.cs" />
+    <Compile Include="Assets\Model\Context\ProhibitionContext.cs" />
+    <Compile Include="Assets\SharedResources\Scripts\CameraMovementScript.cs" />
+    <Compile Include="Assets\SharedResources\Scripts\CameraPositionScript.cs" />
+    <Compile Include="Assets\SharedResources\Scripts\Canvas.cs" />
+    <Compile Include="Assets\SharedResources\Scripts\District.cs" />
+    <Compile Include="Assets\SharedResources\Scripts\HeroControll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\SharedResources\(opcjonalnie) sounds\tmp.txt" />
+    <None Include="Assets\SharedResources\(opcjonalnie) sprites\tmp.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

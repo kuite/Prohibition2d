@@ -8,15 +8,15 @@ namespace Assets.CityScene.Scripts
 {
     public class Panel : MonoBehaviour {
         public District WorkingDistrict;
-
         public Text Logger;
 
+        private IContext _context;
         private int population = 0;
 
         // Use this for initialization
         void Start () {
-            var dd = "C:\\Users\\kuite\\AppData\\LocalLow\\DefaultCompany\\Prohibition2D\\data.s3db";
-            var context = new ProhibitionContext(dd);
+            var dd = "C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db";
+            _context = new ProhibitionContext(dd);
             WorkingDistrict = new District();
         }
 	
@@ -33,7 +33,7 @@ namespace Assets.CityScene.Scripts
         public void PlusOne()
         {
             WorkingDistrict.PlusOne();
-
+            _context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
         }
     }
 }
