@@ -33,7 +33,7 @@ namespace Assets.CityScene.Scripts
         public void PlusOne()
         {
             WorkingDistrict.PlusOne();
-            _context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
+            //_context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
         }
     }
 }
