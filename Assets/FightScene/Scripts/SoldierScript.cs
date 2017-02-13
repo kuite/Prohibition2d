@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+
 public class SoldierScript : MonoBehaviour {
 	private Rigidbody2D rigi;
 	private Stack waypointsStack = new Stack ();
@@ -13,15 +14,16 @@ public class SoldierScript : MonoBehaviour {
 	private GameObject enemy;
 	public GameObject[] enemies;
 	public LayerMask unwalkableMask;
+	public bool isStereable;
 	private int hp = 100;
 	bool stop = false;
-	public string team;
+	public string teamEnemy;
 	public bool alive = true;
 	float deltaTime = 0.0f;
 	int fps = 0;
 	// Use this for initialization
-
 	void Start () {
+		enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
 		enemy = enemies [0];
 		reloaded = Time.time;
 		rigi = GetComponent<Rigidbody2D>();
@@ -30,7 +32,7 @@ public class SoldierScript : MonoBehaviour {
 
 	void Fire(Vector2 enemyPos)
 	{
-		if (Time.time - reloaded > 1)
+		if (Time.time - reloaded > 0.5f)
 		{
 			float bulletSpeed = 5.0f;
 			reloaded = Time.time;
@@ -42,8 +44,12 @@ public class SoldierScript : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-
-		BehaviourOne ();
+		if (!isStereable) {
+			BehaviourOne ();
+		}
+		else {
+			BehaviourTwo ();
+		}
 		fpsCounter ();
 		if (hp <= 0) {
 			alive = false;
@@ -101,16 +107,23 @@ public class SoldierScript : MonoBehaviour {
 
 	bool stopAndShoot(){
 		int enemyInRange = 0;
-		foreach (GameObject enemyIterator in enemies) {
-			Vector3 directionToTarget = (enemyIterator.transform.position - transform.position).normalized; 
-			if (!Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemyIterator.transform.position), unwalkableMask)) {
-				enemyInRange++;
-				Fire (enemyIterator.transform.position);
-				enemy = enemyIterator;
-				break;
+		Vector3 directionToTarget = (enemy.transform.position - transform.position).normalized; 
+		if (Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemy.transform.position), unwalkableMask)) {
+			foreach (GameObject enemyIterator in enemies) {
+				directionToTarget = (enemyIterator.transform.position - transform.position).normalized; 
+				if (!Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemyIterator.transform.position), unwalkableMask)) {
+					enemyInRange++;
+					Fire (enemyIterator.transform.position);
+					enemy = enemyIterator;
+					break;
+				}
 			}
-		}
-		if (enemyInRange > 0) {
+			if (enemyInRange > 0) {
+				stop = true;
+				return true;
+			}
+		} else {
+			Fire (enemy.transform.position);
 			stop = true;
 			return true;
 		}
@@ -137,18 +150,32 @@ public class SoldierScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		Debug.Log (collision.gameObject.tag);
 		if (collision.gameObject.tag == "bullet") {
 			hp -= 50;
 		}
 	}
+		
+	void runAway(){
+		Vector2 runningDirrection = new Vector2(0.0f, 0.0f);
+		int numOfEnemies = 0;
+		foreach (GameObject enemyIterator in enemies) {
+		//	runningDirrection += enemyIterator.transform.position;
+			numOfEnemies++;
+		}
+		runningDirrection /= numOfEnemies;
+	}
+
 	void BehaviourOne(){//go to closest enemies and shoot closest oponent in range
-		if ((int)(10 * Time.time) % 10 == 0 && !stopAndShoot()) {
+		if ( !stopAndShoot() && (int)(10 * Time.time) % 15 == 0) {
 			waypoints = FindClosest ();
 			fillWaypointsStack ();
 		}
 		lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
 		FollowWaypoints ();
+	}
+
+	void BehaviourTwo(){//stered by user
+		
 	}
 
 }
