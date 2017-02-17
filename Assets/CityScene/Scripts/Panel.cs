@@ -6,28 +6,31 @@ using UnityEngine.UI;
 
 namespace Assets.CityScene.Scripts
 {
-    public class Panel : MonoBehaviour {
+    public class Panel : MonoBehaviour
+    {
         public District WorkingDistrict;
         public Text Logger;
 
         private IContext _context;
-        private int population = 0;
+        private int _population = 0;
 
         // Use this for initialization
-        void Start () {
+        private void Start ()
+        {
             var dd = "C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db";
             _context = new ProhibitionContext(dd);
             WorkingDistrict = new District();
         }
 	
         // Update is called once per frame
-        void Update () {
+        private void Update ()
+        {
             if (WorkingDistrict != null)
             {
-                population = WorkingDistrict.Population;
+                _population = WorkingDistrict.Population;
             }
 
-            Logger.text = String.Format("Population {0}", population);
+            Logger.text = String.Format("Population {0}", _population);
         }
 
         public void PlusOne()
