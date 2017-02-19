@@ -1,39 +1,47 @@
 ﻿using System;
+using System.Collections.Generic;
+using Assets.Model.Buildings;
 using Assets.Model.Context;
+using Assets.Model.Repositories;
 using Assets.SharedResources.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.CityScene.Scripts
 {
-    public class Panel : MonoBehaviour {
+    public class Panel : MonoBehaviour
+    {
         public District WorkingDistrict;
         public Text Logger;
 
-        private IContext _context;
-        private int population = 0;
+        private IRepository<DistrictSettings> _districtRepository;
+        private SqliteContext _context;
+        private int _population = 0;
 
         // Use this for initialization
-        void Start () {
-            var dd = "C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db";
-            _context = new ProhibitionContext(dd);
+        private void Start ()
+        {
+            _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
+            _districtRepository = new DistrictRepository(_context);
             WorkingDistrict = new District();
         }
 	
         // Update is called once per frame
-        void Update () {
+        private void Update ()
+        {
             if (WorkingDistrict != null)
             {
-                population = WorkingDistrict.Population;
+                _population = WorkingDistrict.Population;
             }
 
-            Logger.text = String.Format("Population {0}", population);
+            Logger.text = String.Format("Population {0}", _population);
         }
 
         public void PlusOne()
         {
+            IEnumerable<DistrictSettings> dadad = _districtRepository.GetAll();
             WorkingDistrict.PlusOne();
-            _context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
+            //_context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
         }
     }
 }
