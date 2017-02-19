@@ -175,7 +175,16 @@ public class SoldierScript : MonoBehaviour {
 	}
 
 	void BehaviourTwo(){//stered by user
-		
+		/*	if (Input.GetMouseButtonDown (0)) {
+			Vector3 pos = Input.mousePosition;
+			pos.z = 0;
+			RaycastHit hit;
+			pos = Camera.main.ScreenToWorldPoint (pos);
+			Ray = new Ray (pos, Vector3.down);
+			if (Physics.Raycast (Ray, out hit)) {
+				destinationVector = hit.
+			}
+		}*/
 	}
 
 }
