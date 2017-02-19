@@ -1,17 +1,13 @@
 ﻿using Assets.CityScene.Scripts;
-using Assets.CityScene.Scripts.Buildings;
+using Assets.Model.Buildings;
+using Assets.Model.Context;
 using UnityEngine;
 
 namespace Assets.SharedResources.Scripts
 {
     public class District : MonoBehaviour {
-        public Pub Pub { get; set; }
-        public NightClub NightClub { get; set; }
-        public Distillery Distillery { get; set; }
-        public LocalBussines LocalBusiness { get; set; }
-        public int LocalBusinessesCount { get; set; }
-        public Casino Casino { get; set; }
 
+        public int SettingsId { get; set; }
         public int Population;
         public Panel Panel;
 

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -52,9 +54,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -70,9 +69,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -87,11 +83,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CityScene\Scripts\Buildings\Casino.cs" />
-    <Compile Include="Assets\CityScene\Scripts\Buildings\Distillery.cs" />
-    <Compile Include="Assets\CityScene\Scripts\Buildings\LocalBussines.cs" />
-    <Compile Include="Assets\CityScene\Scripts\Buildings\NightClub.cs" />
-    <Compile Include="Assets\CityScene\Scripts\Buildings\Pub.cs" />
     <Compile Include="Assets\CityScene\Scripts\Button.cs" />
     <Compile Include="Assets\CityScene\Scripts\ImageControll.cs" />
     <Compile Include="Assets\CityScene\Scripts\MenuScript.cs" />
@@ -101,9 +92,20 @@
     <Compile Include="Assets\FightScene\Scripts\Node.cs" />
     <Compile Include="Assets\FightScene\Scripts\PathFindingScript.cs" />
     <Compile Include="Assets\FightScene\Scripts\SoldierScript.cs" />
+    <Compile Include="Assets\FightScene\Scripts\bloodScript.cs" />
     <Compile Include="Assets\FightScene\Scripts\colider.cs" />
-    <Compile Include="Assets\Model\Context\IContext.cs" />
-    <Compile Include="Assets\Model\Context\ProhibitionContext.cs" />
+    <Compile Include="Assets\Model\Buildings\Casino.cs" />
+    <Compile Include="Assets\Model\Buildings\Distillery.cs" />
+    <Compile Include="Assets\Model\Buildings\DistrictSettings.cs" />
+    <Compile Include="Assets\Model\Buildings\LocalBussines.cs" />
+    <Compile Include="Assets\Model\Buildings\NightClub.cs" />
+    <Compile Include="Assets\Model\Buildings\Pub.cs" />
+    <Compile Include="Assets\Model\Context\SQLite.cs" />
+    <Compile Include="Assets\Model\Context\SqliteContext.cs" />
+    <Compile Include="Assets\Model\GameSettings\GameSettings.cs" />
+    <Compile Include="Assets\Model\GameSettings\User.cs" />
+    <Compile Include="Assets\Model\Repositories\DistrictRepository.cs" />
+    <Compile Include="Assets\Model\Repositories\IRepository.cs" />
     <Compile Include="Assets\SharedResources\Scripts\CameraMovementScript.cs" />
     <Compile Include="Assets\SharedResources\Scripts\CameraPositionScript.cs" />
     <Compile Include="Assets\SharedResources\Scripts\Canvas.cs" />

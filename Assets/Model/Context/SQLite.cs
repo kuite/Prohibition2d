@@ -44,7 +44,7 @@ using Sqlite3DatabaseHandle = System.IntPtr;
 using Sqlite3Statement = System.IntPtr;
 #endif
 
-namespace Assets.Model
+namespace Assets.Model.Context
 {
 	public class SqLiteException : Exception
 	{

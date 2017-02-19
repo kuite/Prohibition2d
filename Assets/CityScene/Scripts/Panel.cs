@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using Assets.Model.Buildings;
 using Assets.Model.Context;
+using Assets.Model.Repositories;
 using Assets.SharedResources.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,14 +14,15 @@ namespace Assets.CityScene.Scripts
         public District WorkingDistrict;
         public Text Logger;
 
-        private IContext _context;
+        private IRepository<DistrictSettings> _districtRepository;
+        private SqliteContext _context;
         private int _population = 0;
 
         // Use this for initialization
         private void Start ()
         {
-            var dd = "C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db";
-            _context = new ProhibitionContext(dd);
+            _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
+            _districtRepository = new DistrictRepository(_context);
             WorkingDistrict = new District();
         }
 	
@@ -35,6 +39,7 @@ namespace Assets.CityScene.Scripts
 
         public void PlusOne()
         {
+            IEnumerable<DistrictSettings> dadad = _districtRepository.GetAll();
             WorkingDistrict.PlusOne();
             //_context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
         }
