@@ -136,8 +136,8 @@ public class Grid : MonoBehaviour{
 				Gizmos.color = Color.red;
 				if (n.walkable)
 					Gizmos.color = Color.white;
-				if (n == NodeFromWorldPoint (new Vector2(player.transform.position.x, player.transform.position.y)))
-					Gizmos.color = Color.green;
+				//if (n == NodeFromWorldPoint (new Vector2(player.transform.position.x, player.transform.position.y)))
+				//	Gizmos.color = Color.green;
 				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.04f));
 			}
 		}

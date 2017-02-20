@@ -68,7 +68,7 @@ public class SoldierScript : MonoBehaviour {
 	private bool Approach(Vector2 wayP)//float x, float y)
 	{
 		if (!stop) {
-			float approachSpeed = 0.5f;
+			float approachSpeed = 1.5f;
 			Vector2 approachDestination = new Vector2 (wayP.x, wayP.y);
 			Vector2 myPoss = rigi.position;
 
@@ -131,8 +131,22 @@ public class SoldierScript : MonoBehaviour {
 		return false;
 	}
 
-	void fillWaypointsStack(){
+	void runAndShoot(){
+		foreach (GameObject enemyIterator in enemies) {
+			//Vector3 directionToTarget = new Vector3 (0, 0, 0);
+			Vector3 directionToTarget = (enemyIterator.transform.position - transform.position).normalized; 
+			if (!Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemyIterator.transform.position), unwalkableMask)) {
+				Fire (enemyIterator.transform.position);
+				enemy = enemyIterator;
+				break;
+			}
+		}
+	}
+
+	void fillWaypointsStack(Vector2 lastPosition){
 		waypointsStack.Clear ();
+		if(isStereable)
+			waypointsStack.Push (lastPosition);
 		foreach (Vector2 point in waypoints) {
 			waypointsStack.Push (point);
 		}
@@ -168,23 +182,29 @@ public class SoldierScript : MonoBehaviour {
 	void BehaviourOne(){//go to closest enemies and shoot closest oponent in range
 		if ( !stopAndShoot() && (int)(10 * Time.time) % 15 == 0) {
 			waypoints = FindClosest ();
-			fillWaypointsStack ();
+			fillWaypointsStack (new Vector2(0,0));
 		}
 		lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
 		FollowWaypoints ();
 	}
 
 	void BehaviourTwo(){//stered by user
-		/*	if (Input.GetMouseButtonDown (0)) {
-			Vector3 pos = Input.mousePosition;
-			pos.z = 0;
-			RaycastHit hit;
-			pos = Camera.main.ScreenToWorldPoint (pos);
-			Ray = new Ray (pos, Vector3.down);
-			if (Physics.Raycast (Ray, out hit)) {
-				destinationVector = hit.
-			}
-		}*/
-	}
+		Vector2 clickPosition = new Vector2(0,0) ;
+		if (Input.GetMouseButtonDown (0)) {
+			var v3 = Input.mousePosition;
+			v3.z = 10.0f;
+			v3 = Camera.main.ScreenToWorldPoint (v3);
 
+			clickPosition = new Vector2 (v3.x, v3.y);
+			Debug.Log (clickPosition);
+			waypoints = PathFindingScript.RequestPath (transform.position, clickPosition);
+
+			fillWaypointsStack (clickPosition);
+		}
+		runAndShoot ();
+
+		lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
+		FollowWaypoints ();
+
+	}
 }
