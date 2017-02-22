@@ -6,15 +6,21 @@ using System.Linq;
 public class SoldierScript : MonoBehaviour {
 	private Rigidbody2D rigi;
 	private Stack waypointsStack = new Stack ();
+
 	public Vector2 destinationVector;
 	private Vector2[] waypoints;
+	private Vector2 mousePosition;
+
 	private float reloaded;
 	public GameObject bulletPref;
 	public GameObject bulletSpawn;
 	private GameObject enemy;
 	public GameObject[] enemies;
 	public LayerMask unwalkableMask;
+
 	public bool isStereable;
+	public bool choosen;
+
 	private int hp = 100;
 	bool stop = false;
 	public string teamEnemy;
@@ -28,6 +34,7 @@ public class SoldierScript : MonoBehaviour {
 		reloaded = Time.time;
 		rigi = GetComponent<Rigidbody2D>();
 		destinationVector = transform.position;
+		choosen = false;
 	}
 
 	void Fire(Vector2 enemyPos)
@@ -54,6 +61,7 @@ public class SoldierScript : MonoBehaviour {
 		if (hp <= 0) {
 			alive = false;
 		}
+		SquareChoice ();
 	}
 
 
@@ -188,9 +196,36 @@ public class SoldierScript : MonoBehaviour {
 		FollowWaypoints ();
 	}
 
+	void SquareChoice(){
+		Debug.Log ("weszlo");
+		if (isStereable) {
+			if (Input.GetMouseButtonDown (0)) {
+				var v3 = Input.mousePosition;
+				v3.z = 10.0f;
+				v3 = Camera.main.ScreenToWorldPoint (v3);
+				choosen = false;
+				mousePosition = new Vector2 (v3.x, v3.y);
+				Debug.Log (mousePosition);
+			}
+			if (Input.GetMouseButtonUp (0)) {
+				Vector2 clickPosition = new Vector2 (0, 0);
+				var v3 = Input.mousePosition;
+				v3.z = 10.0f;
+				v3 = Camera.main.ScreenToWorldPoint (v3);
+				clickPosition = new Vector2 (v3.x, v3.y);
+				Debug.Log (clickPosition);
+				if ((transform.position.x < clickPosition.x && transform.position.x > mousePosition.x) || (transform.position.x > clickPosition.x && transform.position.x < mousePosition.x)) {
+					if ((transform.position.y < clickPosition.y && transform.position.y > mousePosition.y) || (transform.position.y > clickPosition.y && transform.position.y < mousePosition.y)) {
+						choosen = true;
+					}
+				}
+			}
+		}
+	}
+
 	void BehaviourTwo(){//stered by user
 		Vector2 clickPosition = new Vector2(0,0) ;
-		if (Input.GetMouseButtonDown (0)) {
+		if (choosen && Input.GetMouseButtonDown (1)) {
 			var v3 = Input.mousePosition;
 			v3.z = 10.0f;
 			v3 = Camera.main.ScreenToWorldPoint (v3);
@@ -201,6 +236,7 @@ public class SoldierScript : MonoBehaviour {
 
 			fillWaypointsStack (clickPosition);
 		}
+		
 		runAndShoot ();
 
 		lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
