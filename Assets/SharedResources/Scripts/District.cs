@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Assets.SharedResources.Scripts
 {
-    public class District : MonoBehaviour {
-
+    public class District : MonoBehaviour
+    {
         public int SettingsId { get; set; }
         public int Population;
         public Panel Panel;
@@ -32,6 +32,5 @@ namespace Assets.SharedResources.Scripts
             Population++;
             Debug.Log(Application.persistentDataPath);
         }
-
     }
 }
