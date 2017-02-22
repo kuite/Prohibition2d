@@ -7,8 +7,7 @@ namespace Assets.SharedResources.Scripts
 {
     public class District : MonoBehaviour
     {
-        public int SettingsId { get; set; }
-        public int Population;
+        public int SettingsId;
         public Panel Panel;
 
         // Use this for initialization
@@ -29,7 +28,6 @@ namespace Assets.SharedResources.Scripts
 
         public void PlusOne()
         {
-            Population++;
             Debug.Log(Application.persistentDataPath);
         }
     }

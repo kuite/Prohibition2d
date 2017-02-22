@@ -31,7 +31,7 @@ namespace Assets.CityScene.Scripts
         {
             if (WorkingDistrict != null)
             {
-                _population = WorkingDistrict.Population;
+
             }
 
             Logger.text = String.Format("Population {0}", _population);
