@@ -153,8 +153,8 @@ public class SoldierScript : MonoBehaviour {
 
 	void fillWaypointsStack(Vector2 lastPosition){
 		waypointsStack.Clear ();
-		if(isStereable)
-			waypointsStack.Push (lastPosition);
+		//if(isStereable)
+	//		waypointsStack.Push (lastPosition);
 		foreach (Vector2 point in waypoints) {
 			waypointsStack.Push (point);
 		}
