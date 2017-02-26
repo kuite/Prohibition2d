@@ -19,9 +19,8 @@ namespace Assets.CityScene.Scripts
         {
             _context = context;
             var districtRepository = new DistrictRepository(_context);
-            var casinoRepository = new CasinoRepository(_cotenxt);
+            var casinoRepository = new CasinoRepository(_context);
             Settings = districtRepository.GetById(SettingsId);
-
 
         }
 
@@ -41,6 +40,7 @@ namespace Assets.CityScene.Scripts
         public void OnMouseDown(){
             Debug.Log(Application.persistentDataPath);
             Panel.WorkingDistrict = this;
+            //PanelDetails.WorkingDistrict = this; //panel details jest globalny (arma, eko, budynki)
         }
 
         private void GetSettings()

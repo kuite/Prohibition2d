@@ -14,16 +14,18 @@ namespace Assets.CityScene.Scripts
         public District WorkingDistrict;
         public Text Logger;
         public DetailsPanel DetailsPanel;
+        public EcoPanel EcoPanel;
 
         private IRepository<DistrictSettings> _districtRepository;
         private SqliteContext _context;
+        public int SelectedPanel;
 
         // Use this for initialization
         private void Start ()
         {
-            _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
-            _districtRepository = new DistrictRepository(_context);
-            WorkingDistrict = new District(_context);
+//            _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
+//            _districtRepository = new DistrictRepository(_context);
+//            WorkingDistrict = new District(_context);
         }
 	
         // Update is called once per frame
@@ -34,7 +36,20 @@ namespace Assets.CityScene.Scripts
 
             }
 
-            Logger.text = String.Format("Population {0}", 777);
+            switch (SelectedPanel)
+            {
+                case 1:
+                    EcoPanel.gameObject.SetActive(false);
+                    DetailsPanel.gameObject.SetActive(true);
+                    Logger.text = "DetailsPanel";
+                    break;
+                case 2:
+                    EcoPanel.gameObject.SetActive(true);
+                    DetailsPanel.gameObject.SetActive(false);
+                    Logger.text = "EcoPanel";
+                    break;
+            }
+            
         }
 
 //        public void UpgradeAttribute()
@@ -46,7 +61,7 @@ namespace Assets.CityScene.Scripts
 
         public void CasioDetailsButton()
         {
-            DetailsPanel = new DetailsPanel(WorkingDistrict.Casino);
+            //DetailsPanel = new DetailsPanel(WorkingDistrict.Casino);
         }
     }
 }

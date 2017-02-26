@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 namespace Assets.CityScene.Scripts
 {
-    public class DetailsPanel : MonoBehaviour
+    public class EcoPanel : MonoBehaviour
     {
         public string PanelType;
         public Text Logger;
 
         public void MakeVisible()
         {
-
+            
         }
 
         private void Update()
