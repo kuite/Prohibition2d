@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -82,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CityScene\Scripts\Button.cs" />
+    <Compile Include="Assets\Model\Repositories\CasinoRepository.cs" />
+    <Compile Include="Assets\CityScene\Scripts\DetailsPanel.cs" />
+    <Compile Include="Assets\CityScene\Scripts\District.cs" />
     <Compile Include="Assets\CityScene\Scripts\ImageControll.cs" />
     <Compile Include="Assets\CityScene\Scripts\MenuScript.cs" />
     <Compile Include="Assets\CityScene\Scripts\Panel.cs" />
@@ -96,6 +101,7 @@
     <Compile Include="Assets\Model\Buildings\Casino.cs" />
     <Compile Include="Assets\Model\Buildings\Distillery.cs" />
     <Compile Include="Assets\Model\Buildings\DistrictSettings.cs" />
+    <Compile Include="Assets\Model\Buildings\IStructure.cs" />
     <Compile Include="Assets\Model\Buildings\LocalBussines.cs" />
     <Compile Include="Assets\Model\Buildings\NightClub.cs" />
     <Compile Include="Assets\Model\Buildings\Pub.cs" />
@@ -108,7 +114,6 @@
     <Compile Include="Assets\SharedResources\Scripts\CameraMovementScript.cs" />
     <Compile Include="Assets\SharedResources\Scripts\CameraPositionScript.cs" />
     <Compile Include="Assets\SharedResources\Scripts\Canvas.cs" />
-    <Compile Include="Assets\SharedResources\Scripts\District.cs" />
     <Compile Include="Assets\SharedResources\Scripts\HeroControll.cs" />
   </ItemGroup>
   <ItemGroup>

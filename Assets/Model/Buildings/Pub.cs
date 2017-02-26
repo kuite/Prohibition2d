@@ -7,6 +7,7 @@ namespace Assets.Model.Buildings
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public int AlocoholSellings { get; set; }
+        public int AlcoholPrice { get; set; }
+        public int Income { get; private set; }
     }
 }

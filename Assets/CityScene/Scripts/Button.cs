@@ -12,7 +12,7 @@ namespace Assets.CityScene.Scripts
 
         public void OnClick()
         {
-            Panel.PlusOne();
+            Panel.UpgradeAttribute();
         }
     }
 }

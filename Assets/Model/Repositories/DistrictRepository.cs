@@ -36,10 +36,5 @@ namespace Assets.Model.Repositories
         {
             throw new NotImplementedException();
         }
-
-        public bool Delete(DistrictSettings obj)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

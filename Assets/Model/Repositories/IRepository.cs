@@ -8,6 +8,5 @@ namespace Assets.Model.Repositories
         T GetById(int id);
         bool Update(T obj);
         bool Delete(int id);
-        bool Delete(T obj);
     }
 }

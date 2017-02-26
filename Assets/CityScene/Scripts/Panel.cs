@@ -13,17 +13,17 @@ namespace Assets.CityScene.Scripts
     {
         public District WorkingDistrict;
         public Text Logger;
+        public DetailsPanel DetailsPanel;
 
         private IRepository<DistrictSettings> _districtRepository;
         private SqliteContext _context;
-        private int _population = 0;
 
         // Use this for initialization
         private void Start ()
         {
             _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
             _districtRepository = new DistrictRepository(_context);
-            WorkingDistrict = new District();
+            WorkingDistrict = new District(_context);
         }
 	
         // Update is called once per frame
@@ -34,14 +34,19 @@ namespace Assets.CityScene.Scripts
 
             }
 
-            Logger.text = String.Format("Population {0}", _population);
+            Logger.text = String.Format("Population {0}", 777);
         }
 
-        public void PlusOne()
+//        public void UpgradeAttribute()
+//        {
+//            IEnumerable<DistrictSettings> dadad = _districtRepository.GetAll();
+//            //WorkingDistrict.UpgradeAttribute();
+//            //_context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
+//        }
+
+        public void CasioDetailsButton()
         {
-            IEnumerable<DistrictSettings> dadad = _districtRepository.GetAll();
-            WorkingDistrict.PlusOne();
-            //_context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
+            DetailsPanel = new DetailsPanel(WorkingDistrict.Casino);
         }
     }
 }
