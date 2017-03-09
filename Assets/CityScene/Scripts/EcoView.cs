@@ -1,10 +1,11 @@
 ﻿using Assets.Model.Buildings;
+using Assets.Model.Views;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.CityScene.Scripts
 {
-    public class EcoPanel : MonoBehaviour
+    public class EcoView : MonoBehaviour, IView
     {
         public string PanelType;
         public Text Logger;
@@ -14,20 +15,9 @@ namespace Assets.CityScene.Scripts
             
         }
 
-        private void Update()
+        public void UpdateDistrictData(DistrictData districtData)
         {
-            Logger.text = PanelType;
-        }
-
-        public bool UpgradeAttribute()
-        {
-
-            return true;
-        }
-
-        public void Save()
-        {
-            
+            throw new System.NotImplementedException();
         }
     }
 }

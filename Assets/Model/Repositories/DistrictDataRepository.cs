@@ -8,26 +8,26 @@ using Assets.SharedResources.Scripts;
 
 namespace Assets.Model.Repositories
 {
-    public class DistrictRepository : IRepository<DistrictSettings>
+    public class DistrictDataRepository : IRepository<DistrictData>
     {
         private SqliteContext _context;
 
-        public DistrictRepository(SqliteContext context)
+        public DistrictDataRepository(SqliteContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<DistrictSettings> GetAll()
+        public IEnumerable<DistrictData> GetAll()
         {
             return _context.DistrictSettings();
         }
 
-        public DistrictSettings GetById(int id)
+        public DistrictData GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Table(new Casino {Id = id});
         }
 
-        public bool Update(DistrictSettings obj)
+        public bool Update(DistrictData obj)
         {
             throw new NotImplementedException();
         }

@@ -38,8 +38,8 @@ namespace Assets.Model.Context
             _connection.DropTable<LocalBussines>();
             _connection.CreateTable<LocalBussines>();
 
-            _connection.DropTable<DistrictSettings>();
-            _connection.CreateTable<DistrictSettings>();
+            _connection.DropTable<DistrictData>();
+            _connection.CreateTable<DistrictData>();
 
             _connection.InsertOrReplace(new User { Name = "TestUser" });
 
@@ -131,10 +131,10 @@ namespace Assets.Model.Context
             });
             #endregion
 
-            #region DistrictSettings
-            _connection.InsertAll(new List<DistrictSettings>
+            #region DistrictData
+            _connection.InsertAll(new List<DistrictData>
             {
-                new DistrictSettings
+                new DistrictData
                 {
                     PubId = 1,
                     NightClubId = 1,
@@ -143,7 +143,7 @@ namespace Assets.Model.Context
                     LocalBusinessesCount = 4,
                     CasinoId = 2
                 },
-                new DistrictSettings
+                new DistrictData
                 {
                     PubId = 2,
                     NightClubId = 3,
@@ -152,7 +152,7 @@ namespace Assets.Model.Context
                     LocalBusinessesCount = 8,
                     CasinoId = 1
                 },
-                new DistrictSettings
+                new DistrictData
                 {
                     PubId = 3,
                     NightClubId = 2,
@@ -161,7 +161,7 @@ namespace Assets.Model.Context
                     LocalBusinessesCount = 15,
                     CasinoId = 3
                 },
-                new DistrictSettings
+                new DistrictData
                 {
                     PubId = 3,
                     NightClubId = 4,
@@ -170,7 +170,7 @@ namespace Assets.Model.Context
                     LocalBusinessesCount = 4,
                     CasinoId = 4
                 },
-                new DistrictSettings
+                new DistrictData
                 {
                     PubId = 4,
                     NightClubId = 2,
@@ -184,9 +184,21 @@ namespace Assets.Model.Context
 
         }
 
-        public IEnumerable<DistrictSettings> DistrictSettings()
+        public DistrictData Table(IEntity entity)
         {
-            return _connection.Table<DistrictSettings>();
+            //dynamic v2 = entity.GetType().GetProperty("Value").GetValue(entity, null);
+            return null;
         }
+
+        public IEnumerable<DistrictData> DistrictSettings()
+        {
+            return _connection.Table<DistrictData>();
+        }
+
+        public Casino GetCasinoById(int id)
+        {
+            return _connection.Table<Casino>().First();
+        }
+
     }
 }
