@@ -7,7 +7,7 @@ namespace Assets.CityScene.Scripts
 {
     public class District : MonoBehaviour
     {
-        public DistrictSettings Settings { get; set; }
+        public DistrictData Data { get; set; }
         public Casino Casino { get; set; }
 
         public int SettingsId;
@@ -18,10 +18,10 @@ namespace Assets.CityScene.Scripts
         public District(SqliteContext context)
         {
             _context = context;
-            var districtRepository = new DistrictRepository(_context);
+            var districtRepository = new DistrictDataRepository(_context);
             var casinoRepository = new CasinoRepository(_context);
-            Settings = districtRepository.GetById(SettingsId);
-
+            //Data = districtRepository.GetById(SettingsId);
+            Casino = casinoRepository.GetById(5);
         }
 
 

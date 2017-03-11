@@ -1,13 +1,18 @@
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using Assets.Model.Buildings;
+using Assets.Model.Context;
 
 namespace Assets.Model.Repositories
 {
     public class CasinoRepository : IRepository<Casino>
     {
-        public CasinoRepository(object cotenxt)
+        private SqliteContext _context;
+        private IDictionary<int, Casino> _casinos;
+
+        public CasinoRepository(SqliteContext context)
         {
-            throw new System.NotImplementedException();
+            _context = context;
         }
 
         public IEnumerable<Casino> GetAll()
@@ -17,7 +22,13 @@ namespace Assets.Model.Repositories
 
         public Casino GetById(int id)
         {
-            throw new System.NotImplementedException();
+//            if (_casinos.ContainsKey(id))
+//            {
+//                Casino cas;
+//                _casinos.TryGetValue(id, out cas);
+//                return cas;
+//            }
+            return _context.GetCasinoById(id);
         }
 
         public bool Update(Casino obj)
