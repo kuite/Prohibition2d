@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class SoldierScript : MonoBehaviour {
@@ -51,17 +52,27 @@ public class SoldierScript : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (!isStereable) {
-			BehaviourOne ();
+		if ((enemies.Length == 0)) {
+			EndGamebehaviour ();
 		}
-		else {
-			BehaviourTwo ();
+		else if (alive) {
+			if (enemies.Length == 0){
+				EndGamebehaviour();
+			}
+			enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
+			if (!isStereable) {
+				BehaviourOne ();
+			} else {
+				BehaviourTwo ();
+			}
+			fpsCounter ();
+			if (hp <= 0) {
+				alive = false;
+			}
+			SquareChoice ();
+		} else {
+			Destroy (gameObject);
 		}
-		fpsCounter ();
-		if (hp <= 0) {
-			alive = false;
-		}
-		SquareChoice ();
 	}
 
 
@@ -141,7 +152,6 @@ public class SoldierScript : MonoBehaviour {
 
 	void runAndShoot(){
 		foreach (GameObject enemyIterator in enemies) {
-			//Vector3 directionToTarget = new Vector3 (0, 0, 0);
 			Vector3 directionToTarget = (enemyIterator.transform.position - transform.position).normalized; 
 			if (!Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemyIterator.transform.position), unwalkableMask)) {
 				Fire (enemyIterator.transform.position);
@@ -153,8 +163,6 @@ public class SoldierScript : MonoBehaviour {
 
 	void fillWaypointsStack(Vector2 lastPosition){
 		waypointsStack.Clear ();
-		//if(isStereable)
-	//		waypointsStack.Push (lastPosition);
 		foreach (Vector2 point in waypoints) {
 			waypointsStack.Push (point);
 		}
@@ -197,7 +205,6 @@ public class SoldierScript : MonoBehaviour {
 	}
 
 	void SquareChoice(){
-		Debug.Log ("weszlo");
 		if (isStereable) {
 			if (Input.GetMouseButtonDown (0)) {
 				var v3 = Input.mousePosition;
@@ -239,8 +246,15 @@ public class SoldierScript : MonoBehaviour {
 		
 		runAndShoot ();
 
-		lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
+		if (enemies.Length > 0)
+			lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
 		FollowWaypoints ();
 
 	}
+
+	void EndGamebehaviour(){
+		Debug.Log("End of the figth");
+		SceneManager.LoadScene ("EndfightScene");
+	}
 }
+
