@@ -43,27 +43,38 @@ namespace Assets.CityScene.Scripts
 
         public void ShowEcoPanel()
         {
-            
+            EcoView.gameObject.SetActive(true);
+            DetailsView.gameObject.SetActive(false);
+//            DetailsView.Panel = this;
         }
 
         public void ShowArmyPanel()
         {
-            
+            EcoView.gameObject.SetActive(false);
+            ArmyView.gameObject.SetActive(true);
+//            DetailsView.Panel = this;
+        }
+
+        public void ShowDetailedView()
+        {
+            DetailsView.gameObject.SetActive(true);
+            EcoView.gameObject.SetActive(false);
+            ArmyView.gameObject.SetActive(false);
         }
 
         public void ShowCasinoView()
         {
-            EcoView.gameObject.SetActive(false);
-            DetailsView.gameObject.SetActive(true);
-            DetailsView.Panel = this;
+//            EcoView.gameObject.SetActive(false);
+//            DetailsView.gameObject.SetActive(true);
+//            DetailsView.Panel = this;
             Logger.text = "CasinoPanel";
         }
 
         public void ShowPubView()
         {
-            EcoView.gameObject.SetActive(true);
-            DetailsView.gameObject.SetActive(false);
-            DetailsView.Panel = this;
+//            EcoView.gameObject.SetActive(true);
+//            DetailsView.gameObject.SetActive(false);
+//            DetailsView.Panel = this;
             Logger.text = "PubPanel";
         }
 
