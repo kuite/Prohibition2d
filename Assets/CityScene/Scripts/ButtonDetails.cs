@@ -16,6 +16,7 @@ namespace Assets.CityScene.Scripts
 
         private SqliteContext _context;
         private CasinoRepository _casinoRepository;
+        private PubRepository _pubRepository;
 
         // Use this for initialization
         private void Start()
@@ -23,9 +24,19 @@ namespace Assets.CityScene.Scripts
             _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
             //_districtRepository = new DistrictDataRepository(_context);
             _casinoRepository = new CasinoRepository(_context);
-            var cas = _casinoRepository.GetById(1);
+            _pubRepository = new PubRepository(_context);
             //WorkingDistrict = new District(_context);
             var h = 5;
+        }
+
+        public void EcoButton()
+        {
+            MainPanel.ShowEcoPanel();
+        }
+
+        public void ArmyButton()
+        {
+            MainPanel.ShowArmyPanel();
         }
 
         public void CasinoDetailsButton()
@@ -40,7 +51,7 @@ namespace Assets.CityScene.Scripts
             {
                 Casino casino = _casinoRepository.GetById(1);
                 MainPanel.DetailsView.UpdateStructure(casino);
-                MainPanel.ShowCasinoView();
+                MainPanel.ShowDetailedView();
             }
             catch (Exception e)
             {
@@ -53,7 +64,22 @@ namespace Assets.CityScene.Scripts
         {
             Debug.Log("PubDetailsButton");
             MainPanel.SelectedPanel = PanelType.PubPanel;
-            MainPanel.ShowPubView();
+
+            if (_casinoRepository == null)
+            {
+                _casinoRepository = new CasinoRepository(_context);
+            }
+            try
+            {
+                Pub pub = _pubRepository.GetById(1);
+                MainPanel.DetailsView.UpdateStructure(pub);
+                MainPanel.ShowDetailedView();
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+            var h = 6;
         }
     }
 }

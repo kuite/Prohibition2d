@@ -119,6 +119,7 @@
     <Compile Include="Assets\Model\Repositories\CasinoRepository.cs" />
     <Compile Include="Assets\Model\Repositories\DistrictDataRepository.cs" />
     <Compile Include="Assets\Model\Repositories\IRepository.cs" />
+    <Compile Include="Assets\Model\Repositories\PubRepository.cs" />
     <Compile Include="Assets\Model\Views\IDetailsView.cs" />
     <Compile Include="Assets\Model\Views\IView.cs" />
     <Compile Include="Assets\Model\Views\PanelType.cs" />
