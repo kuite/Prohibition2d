@@ -40,6 +40,7 @@ public class SoldierScript : MonoBehaviour {
 
 	void Fire(Vector2 enemyPos)
 	{
+		Debug.Log (rigi.velocity);
 		if (Time.time - reloaded > 0.5f)
 		{
 			float bulletSpeed = 5.0f;
