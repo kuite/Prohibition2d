@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-public class SoldierScript : MonoBehaviour {
+public class SoldierScript : MonoBehaviour
+{
+    public int SoldierISettingsId;
 	private Rigidbody2D rigi;
 	private Stack waypointsStack = new Stack ();
 

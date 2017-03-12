@@ -1,8 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{18FACA0A-7707-AA61-B4F2-DEB9095E9907}"
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prohibition2D", "Prohibition2D.csproj", "{F3EF56B3-77E8-070A-3DE3-42E3331801C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{18FACA0A-7707-AA61-B4F2-DEB9095E9907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18FACA0A-7707-AA61-B4F2-DEB9095E9907}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18FACA0A-7707-AA61-B4F2-DEB9095E9907}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18FACA0A-7707-AA61-B4F2-DEB9095E9907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EF56B3-77E8-070A-3DE3-42E3331801C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EF56B3-77E8-070A-3DE3-42E3331801C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EF56B3-77E8-070A-3DE3-42E3331801C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EF56B3-77E8-070A-3DE3-42E3331801C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Assets.Model.Buildings;
 using Assets.Model.Context;
-using Assets.Model.Repositories;
 using Assets.Model.Views;
 using Assets.SharedResources.Scripts;
 using UnityEngine;
@@ -14,21 +13,18 @@ namespace Assets.CityScene.Scripts
     {
         public District WorkingDistrict;
         public Text Logger;
-        public DetailsView DetailsView;
-        public EcoView EcoView;
-        public ArmyView ArmyView;
-
         public PanelType SelectedPanel;
+        public EcoPanel EcoPanel;
+        public ArmyPanel ArmyPanel;
 
-        private IRepository<DistrictData> _districtRepository;
         private SqliteContext _context;
 
         // Use this for initialization
         private void Start()
         {
-            // = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
-            //_districtRepository = new DistrictDataRepository(_context);
+            _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
             //WorkingDistrict = new District(_context);
+            var gg = _context.Table<DistrictData>();
             var h = 6;
         }
 
@@ -43,46 +39,34 @@ namespace Assets.CityScene.Scripts
 
         public void ShowEcoPanel()
         {
-            EcoView.gameObject.SetActive(true);
-            DetailsView.gameObject.SetActive(false);
-//            DetailsView.Panel = this;
+            EcoPanel.gameObject.SetActive(true);
+            ArmyPanel.gameObject.SetActive(false);
         }
 
-        public void ShowArmyPanel()
+        public void ShowArmyManagementPanel()
         {
-            EcoView.gameObject.SetActive(false);
-            ArmyView.gameObject.SetActive(true);
-//            DetailsView.Panel = this;
+            EcoPanel.gameObject.SetActive(false);
+            ArmyPanel.gameObject.SetActive(true);
         }
 
-        public void ShowDetailedView()
+        public void ShowArmyRecruitPanel()
         {
-            DetailsView.gameObject.SetActive(true);
-            EcoView.gameObject.SetActive(false);
-            ArmyView.gameObject.SetActive(false);
+
         }
 
-        public void ShowCasinoView()
+        public void ShowCasinoPanel()
         {
-//            EcoView.gameObject.SetActive(false);
-//            DetailsView.gameObject.SetActive(true);
-//            DetailsView.Panel = this;
             Logger.text = "CasinoPanel";
         }
 
-        public void ShowPubView()
+        public void ShowPubPanel()
         {
-//            EcoView.gameObject.SetActive(true);
-//            DetailsView.gameObject.SetActive(false);
-//            DetailsView.Panel = this;
             Logger.text = "PubPanel";
         }
 
-        public void UpgradeAttribute()
+        public void UpdateDistrict(District district)
         {
-            DetailsView.Structure.UpgradeAttribute();
-            //WorkingDistrict.UpgradeAttribute();
-            //_context.ExecuteQuery("INSERT INTO Players (Name) VALUES (\'UserCreatedFromUnity\')");
+            WorkingDistrict = district;
         }
     }
 }

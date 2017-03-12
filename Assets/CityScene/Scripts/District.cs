@@ -1,6 +1,5 @@
 ﻿using Assets.Model.Buildings;
 using Assets.Model.Context;
-using Assets.Model.Repositories;
 using UnityEngine;
 
 namespace Assets.CityScene.Scripts
@@ -18,10 +17,8 @@ namespace Assets.CityScene.Scripts
         public District(SqliteContext context)
         {
             _context = context;
-            var districtRepository = new DistrictDataRepository(_context);
-            var casinoRepository = new CasinoRepository(_context);
             //Data = districtRepository.GetById(SettingsId);
-            Casino = casinoRepository.GetById(5);
+            Casino = _context.GetById<Casino>(5);
         }
 
 
@@ -39,8 +36,8 @@ namespace Assets.CityScene.Scripts
 
         public void OnMouseDown(){
             Debug.Log(Application.persistentDataPath);
-            Panel.WorkingDistrict = this;
-            //PanelDetails.WorkingDistrict = this; //panel details jest globalny (arma, eko, budynki)
+            //Panel.WorkingDistrict = this;
+            Panel.UpdateDistrict(this);
         }
 
         private void GetSettings()

@@ -17,6 +17,9 @@ namespace Assets.Model.Context
         {
             _connection = new SQLiteConnection(connString, SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
 
+            _connection.DropTable<SoldierSettings>();
+            _connection.CreateTable<SoldierSettings>();
+
             _connection.DropTable<Pub>();
             _connection.CreateTable<Pub>();
 
@@ -140,7 +143,6 @@ namespace Assets.Model.Context
                     NightClubId = 1,
                     DistilleryId = 1,
                     LocalBusinessId = 1,
-                    LocalBusinessesCount = 4,
                     CasinoId = 2
                 },
                 new DistrictData
@@ -149,7 +151,6 @@ namespace Assets.Model.Context
                     NightClubId = 3,
                     DistilleryId = 3,
                     LocalBusinessId = 4,
-                    LocalBusinessesCount = 8,
                     CasinoId = 1
                 },
                 new DistrictData
@@ -158,7 +159,6 @@ namespace Assets.Model.Context
                     NightClubId = 2,
                     DistilleryId = 1,
                     LocalBusinessId = 2,
-                    LocalBusinessesCount = 15,
                     CasinoId = 3
                 },
                 new DistrictData
@@ -167,7 +167,6 @@ namespace Assets.Model.Context
                     NightClubId = 4,
                     DistilleryId = 1,
                     LocalBusinessId = 2,
-                    LocalBusinessesCount = 4,
                     CasinoId = 4
                 },
                 new DistrictData
@@ -176,28 +175,20 @@ namespace Assets.Model.Context
                     NightClubId = 2,
                     DistilleryId = 4,
                     LocalBusinessId = 1,
-                    LocalBusinessesCount = 11,
                     CasinoId = 4
                 },
             });
             #endregion
 
         }
-
-        public DistrictData Table(IEntity entity)
+        public IEnumerable<T> Table<T>() where T : new()
         {
-            //dynamic v2 = entity.GetType().GetProperty("Value").GetValue(entity, null);
-            return null;
+            return _connection.Table<T>();
         }
 
-        public IEnumerable<DistrictData> DistrictSettings()
+        public T GetById<T>(int id) where T : new()
         {
-            return _connection.Table<DistrictData>();
-        }
-
-        public Casino GetCasinoById(int id)
-        {
-            return _connection.Table<Casino>().First();
+            return _connection.Get<T>(id);
         }
 
     }
