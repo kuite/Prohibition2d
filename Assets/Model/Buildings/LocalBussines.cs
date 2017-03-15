@@ -20,5 +20,6 @@ namespace Assets.Model.Buildings
             TaxRatePercentage--;
             return true;
         }
+
     }
 }

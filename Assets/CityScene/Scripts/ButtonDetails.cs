@@ -19,7 +19,7 @@ namespace Assets.CityScene.Scripts
         // Use this for initialization
         private void Start()
         {
-            _context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
+            //_context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
             //_districtRepository = new DistrictDataRepository(_context);
             //WorkingDistrict = new District(_context);
             var h = 5;
@@ -30,10 +30,35 @@ namespace Assets.CityScene.Scripts
             MainPanel.ShowEcoPanel();
         }
 
+		public void DistillaryButton()
+		{
+			MainPanel.ShowDistilleryPanel();
+		}
+
+		public void PubButton()
+		{
+			MainPanel.ShowPubPanel();
+		}
+
         public void ArmyButton()
         {
             MainPanel.ShowArmyManagementPanel();
         }
+
+		public void CasinoButton()
+		{
+			MainPanel.ShowCasinoPanel ();
+		}
+
+		public void NightClubButton()
+		{
+			MainPanel.ShowNightClubPanel ();
+		}
+
+		public void LocalBuisnessButton()
+		{
+			MainPanel.ShowBuisnessPanel ();
+		}
 
         public void CasinoDetailsButton()
         {
