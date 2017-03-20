@@ -60,11 +60,6 @@ namespace Assets.CityScene.Scripts
         {
             _panels.ForEach(p => p.gameObject.SetActive(false));
         }
-
-        public void ShowArmyRecruitPanel()
-        {
-
-        }
 			
         public void UpdateDistrict(District district)
         {

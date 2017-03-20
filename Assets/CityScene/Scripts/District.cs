@@ -6,7 +6,6 @@ namespace Assets.CityScene.Scripts
 {
     public class District : MonoBehaviour
     {
-        public DistrictData Data { get; set; }
         public Casino Casino { get; set; }
 
         public int SettingsId;
@@ -26,7 +25,6 @@ namespace Assets.CityScene.Scripts
         void Start ()
         {
             GetSettings();
-            //Panel =  GameObject.FindGameObjectWithTag("panel_Tag");
         }
 	
         // Update is called once per frame
@@ -36,7 +34,6 @@ namespace Assets.CityScene.Scripts
 
         public void OnMouseDown(){
             Debug.Log(Application.persistentDataPath);
-            //Panel.WorkingDistrict = this;
             Panel.UpdateDistrict(this);
         }
 
