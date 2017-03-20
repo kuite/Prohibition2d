@@ -67,7 +67,6 @@ namespace Assets.CityScene.Scripts
             try
             {
                 Casino casino = _context.GetById<Casino>(1);
-                MainPanel.ShowCasinoPanel();
             }
             catch (Exception e)
             {
@@ -83,7 +82,6 @@ namespace Assets.CityScene.Scripts
             try
             {
                 Pub pub = _context.GetById<Pub>(1);
-                MainPanel.ShowPubPanel();
             }
             catch (Exception e)
             {
