@@ -29,7 +29,7 @@ namespace Assets.CityScene.Scripts
         private void Start()
         {
             //_context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
-			_context = new SqliteContext("C:\\programmingProjects\\Prohibition1.30.17\\Prohibition2d\\Assets\\SharedResources\\data.s3db");
+            _context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             //WorkingDistrict = new District(_context);
             var gg = _context.Table<DistrictData>();
             var h = 6;
