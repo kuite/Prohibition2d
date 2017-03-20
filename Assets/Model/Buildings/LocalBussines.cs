@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Model.Buildings
 {
-    public class LocalBussines : IStructure, IEntity
+    public class LocalBussines : IStructure
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

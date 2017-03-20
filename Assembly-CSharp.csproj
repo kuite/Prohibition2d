@@ -54,7 +54,7 @@
      <Compile Include="Assets\CityScene\Scripts\District.cs" />
      <Compile Include="Assets\CityScene\Scripts\EcoPanel.cs" />
      <Compile Include="Assets\CityScene\Scripts\ImageControll.cs" />
-     <Compile Include="Assets\CityScene\Scripts\LocalBuisness.cs" />
+     <Compile Include="Assets\CityScene\Scripts\LocalBuisnessPanel.cs" />
      <Compile Include="Assets\CityScene\Scripts\MenuScript.cs" />
      <Compile Include="Assets\CityScene\Scripts\NightClubPanel.cs" />
      <Compile Include="Assets\CityScene\Scripts\Panel.cs" />
@@ -82,12 +82,10 @@
      <Compile Include="Assets\Model\GameSettings\GameSettings.cs" />
      <Compile Include="Assets\Model\GameSettings\SoldierSettings.cs" />
      <Compile Include="Assets\Model\GameSettings\User.cs" />
-     <Compile Include="Assets\Model\IEntity.cs" />
      <Compile Include="Assets\Model\PlayableEntities\SoldierStats.cs" />
      <Compile Include="Assets\Model\PlayableEntities\WeaponStats.cs" />
      <Compile Include="Assets\Model\Views\IDetailsView.cs" />
      <Compile Include="Assets\Model\Views\IView.cs" />
-     <Compile Include="Assets\Model\Views\PanelType.cs" />
      <Compile Include="Assets\SharedResources\Scripts\CameraMovementScript.cs" />
      <Compile Include="Assets\SharedResources\Scripts\CameraPositionScript.cs" />
      <Compile Include="Assets\SharedResources\Scripts\Canvas.cs" />

@@ -27,38 +27,38 @@ namespace Assets.CityScene.Scripts
 
         public void EcoButton()
         {
-            MainPanel.ShowEcoPanel();
+            MainPanel.ShowSelectedPanel(MainPanel.EcoPanel);
         }
 
 		public void DistillaryButton()
 		{
-			MainPanel.ShowDistilleryPanel();
-		}
+            MainPanel.ShowSelectedPanel(MainPanel.DistilleryPanel);
+        }
 
 		public void PubButton()
 		{
-			MainPanel.ShowPubPanel();
-		}
+            MainPanel.ShowSelectedPanel(MainPanel.PubPanel);
+        }
 
         public void ArmyButton()
         {
-            MainPanel.ShowArmyManagementPanel();
+            MainPanel.ShowSelectedPanel(MainPanel.ArmyPanel);
         }
 
 		public void CasinoButton()
 		{
-			MainPanel.ShowCasinoPanel ();
-		}
+            MainPanel.ShowSelectedPanel(MainPanel.CasinoPanel);
+        }
 
 		public void NightClubButton()
 		{
-			MainPanel.ShowNightClubPanel ();
-		}
+            MainPanel.ShowSelectedPanel(MainPanel.NightClubPanel);
+        }
 
 		public void LocalBuisnessButton()
 		{
-			MainPanel.ShowBuisnessPanel ();
-		}
+            MainPanel.ShowSelectedPanel(MainPanel.LocalBuisnessPanel);
+        }
 
         public void CasinoDetailsButton()
         {
@@ -67,7 +67,6 @@ namespace Assets.CityScene.Scripts
             try
             {
                 Casino casino = _context.GetById<Casino>(1);
-                MainPanel.ShowCasinoPanel();
             }
             catch (Exception e)
             {
@@ -79,12 +78,10 @@ namespace Assets.CityScene.Scripts
         public void PubDetailsButton()
         {
             Debug.Log("PubDetailsButton");
-            MainPanel.SelectedPanel = PanelType.PubPanel;
 
             try
             {
                 Pub pub = _context.GetById<Pub>(1);
-                MainPanel.ShowPubPanel();
             }
             catch (Exception e)
             {

@@ -7,13 +7,7 @@ namespace Assets.CityScene.Scripts
 {
 	public class NightClubPanel : MonoBehaviour, IView
 	{
-		public string PanelType;
 		public Text Logger;
-
-		public void MakeVisible()
-		{
-
-		}
 
 		public void UpdateDistrictData(DistrictData districtData)
 		{
