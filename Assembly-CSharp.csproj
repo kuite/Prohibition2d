@@ -83,6 +83,8 @@
      <Compile Include="Assets\Model\GameSettings\SoldierSettings.cs" />
      <Compile Include="Assets\Model\GameSettings\User.cs" />
      <Compile Include="Assets\Model\IEntity.cs" />
+     <Compile Include="Assets\Model\PlayableEntities\SoldierStats.cs" />
+     <Compile Include="Assets\Model\PlayableEntities\WeaponStats.cs" />
      <Compile Include="Assets\Model\Views\IDetailsView.cs" />
      <Compile Include="Assets\Model\Views\IView.cs" />
      <Compile Include="Assets\Model\Views\PanelType.cs" />
@@ -92,9 +94,6 @@
      <Compile Include="Assets\SharedResources\Scripts\HeroControll.cs" />
      <None Include="Assets\SharedResources\(opcjonalnie) sprites\tmp.txt" />
      <None Include="Assets\SharedResources\(opcjonalnie) sounds\tmp.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -109,9 +108,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
