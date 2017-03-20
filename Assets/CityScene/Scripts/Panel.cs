@@ -13,26 +13,32 @@ namespace Assets.CityScene.Scripts
     {
         public District WorkingDistrict;
         public Text Logger;
-        public PanelType SelectedPanel;
+
 		public PubPanel PubPanel;
         public EcoPanel EcoPanel;
         public ArmyPanel ArmyPanel;
 		public DistillertyPanel DistilleryPanel;
-		public LocalBuisness LocalBuisness;
+		public LocalBuisnessPanel LocalBuisnessPanel;
 		public CasinoPanel CasinoPanel;
 		public NightClubPanel NightClubPanel;
 
+        private List<MonoBehaviour> _panels = new List<MonoBehaviour>();
 
         private SqliteContext _context;
 
         // Use this for initialization
         private void Start()
         {
-            //_context = new SqliteContext("C:\\projects\\Prohibition2D\\Assets\\SharedResources\\data.s3db");
             _context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             //WorkingDistrict = new District(_context);
             var gg = _context.Table<DistrictData>();
-            var h = 6;
+            _panels.Add(PubPanel);
+            _panels.Add(EcoPanel);
+            _panels.Add(ArmyPanel);
+            _panels.Add(DistilleryPanel);
+            _panels.Add(LocalBuisnessPanel);
+            _panels.Add(CasinoPanel);
+            _panels.Add(NightClubPanel);
         }
 
         // Update is called once per frame
@@ -44,82 +50,16 @@ namespace Assets.CityScene.Scripts
             }
         }
 
-        public void ShowEcoPanel()
+        public void ShowSelectedPanel(MonoBehaviour panel)
         {
-			EcoPanel.gameObject.SetActive			(true);
-			DistilleryPanel.gameObject.SetActive	(false);
-            ArmyPanel.gameObject.SetActive			(false);
-			PubPanel.gameObject.SetActive			(false);
-			LocalBuisness.gameObject.SetActive		(false);
-			NightClubPanel.gameObject.SetActive		(false);
-			CasinoPanel.gameObject.SetActive		(false);
+            HideAllPanels();
+            panel.gameObject.SetActive(true);
         }
 
-		public void ShowDistilleryPanel()
-		{
-			DistilleryPanel.gameObject.SetActive	(true);
-			ArmyPanel.gameObject.SetActive			(false);
-			EcoPanel.gameObject.SetActive			(false);
-			PubPanel.gameObject.SetActive			(false);
-			LocalBuisness.gameObject.SetActive		(false);
-			NightClubPanel.gameObject.SetActive		(false);
-			CasinoPanel.gameObject.SetActive		(false);
-		}
-
-		public void ShowPubPanel()
-		{
-			PubPanel.gameObject.SetActive			(true);
-			DistilleryPanel.gameObject.SetActive	(false);
-			ArmyPanel.gameObject.SetActive			(false);
-			EcoPanel.gameObject.SetActive			(false);
-			LocalBuisness.gameObject.SetActive		(false);
-			NightClubPanel.gameObject.SetActive		(false);
-			CasinoPanel.gameObject.SetActive		(false);
-		}
-
-        public void ShowArmyManagementPanel()
+        private void HideAllPanels()
         {
-			ArmyPanel.gameObject.SetActive			(true);
-			EcoPanel.gameObject.SetActive			(false);
-			DistilleryPanel.gameObject.SetActive	(false);
-			PubPanel.gameObject.SetActive			(false);
-			LocalBuisness.gameObject.SetActive		(false);
-			NightClubPanel.gameObject.SetActive		(false);
-			CasinoPanel.gameObject.SetActive		(false);
+            _panels.ForEach(p => p.gameObject.SetActive(false));
         }
-
-		public void ShowBuisnessPanel()
-		{
-			LocalBuisness.gameObject.SetActive		(true);
-			ArmyPanel.gameObject.SetActive			(false);
-			EcoPanel.gameObject.SetActive			(false);
-			DistilleryPanel.gameObject.SetActive	(false);
-			PubPanel.gameObject.SetActive			(false);
-			NightClubPanel.gameObject.SetActive		(false);
-			CasinoPanel.gameObject.SetActive		(false);
-		}
-
-		public void ShowNightClubPanel()
-		{
-			NightClubPanel.gameObject.SetActive		(true);
-			LocalBuisness.gameObject.SetActive		(false);
-			ArmyPanel.gameObject.SetActive			(false);
-			EcoPanel.gameObject.SetActive			(false);
-			DistilleryPanel.gameObject.SetActive	(false);
-			PubPanel.gameObject.SetActive			(false);
-			CasinoPanel.gameObject.SetActive		(false);
-		}
-
-		public void ShowCasinoPanel()
-		{
-			CasinoPanel.gameObject.SetActive		(true);
-			LocalBuisness.gameObject.SetActive		(false);
-			ArmyPanel.gameObject.SetActive			(false);
-			EcoPanel.gameObject.SetActive			(false);
-			DistilleryPanel.gameObject.SetActive	(false);
-			PubPanel.gameObject.SetActive			(false);
-			NightClubPanel.gameObject.SetActive		(false);
-		}
 
         public void ShowArmyRecruitPanel()
         {

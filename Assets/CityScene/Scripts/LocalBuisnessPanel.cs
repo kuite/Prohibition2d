@@ -4,14 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.CityScene.Scripts{
-	public class LocalBuisness : MonoBehaviour {
-		public string PanelType;
+	public class LocalBuisnessPanel : MonoBehaviour {
 		public Text Logger;
-
-		public void MakeVisible()
-		{
-
-		}
 
 		public void UpdateDistrictData(DistrictData districtData)
 		{

@@ -6,7 +6,7 @@ using Assets.Model.Context;
 
 namespace Assets.Model.Buildings
 {
-    public class DistrictData : IEntity
+    public class DistrictData
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

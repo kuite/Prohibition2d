@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Model.Buildings
 {
-    public class Pub : IStructure, IEntity
+    public class Pub : IStructure
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
