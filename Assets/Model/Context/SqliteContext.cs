@@ -5,6 +5,7 @@ using System.Text;
 using Assets.CityScene.Scripts;
 using Assets.Model.Buildings;
 using Assets.Model.GameSettings;
+using Assets.Model.PlayableEntities;
 using Assets.SharedResources.Scripts;
 
 namespace Assets.Model.Context
