@@ -9,13 +9,13 @@ namespace Assets.Model.Buildings
         public int Id { get; set; }
         public int WinMarginPercentage { get; set; }
 
-        public bool UpgradeAttribute()
+        public bool UpgradeLevel()
         {
             WinMarginPercentage++;
             return true;
         }
 
-        public bool DowngradeAttribute()
+        public bool DowngradeLevel()
         {
             WinMarginPercentage--;
             return true;

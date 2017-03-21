@@ -10,12 +10,12 @@ namespace Assets.Model.Buildings
         public int AlcoholPrice { get; set; }
         public int Income { get; private set; }
 
-        public bool UpgradeAttribute()
+        public bool UpgradeLevel()
         {
             throw new System.NotImplementedException();
         }
 
-        public bool DowngradeAttribute()
+        public bool DowngradeLevel()
         {
             throw new System.NotImplementedException();
         }

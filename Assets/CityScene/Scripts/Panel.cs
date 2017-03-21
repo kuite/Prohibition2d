@@ -31,7 +31,6 @@ namespace Assets.CityScene.Scripts
         {
             _context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             //WorkingDistrict = new District(_context);
-            var gg = _context.Table<DistrictData>();
             _panels.Add(PubPanel);
             _panels.Add(EcoPanel);
             _panels.Add(ArmyPanel);

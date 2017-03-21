@@ -7,7 +7,7 @@ namespace Assets.Model.Buildings
 {
     public interface IStructure
     {
-        bool UpgradeAttribute();
-        bool DowngradeAttribute();
+        bool UpgradeLevel();
+        bool DowngradeLevel();
     }
 }

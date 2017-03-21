@@ -9,13 +9,13 @@ namespace Assets.Model.Buildings
         public int Id { get; set; }
         public int Income { get; set; }
 
-        public bool UpgradeAttribute()
+        public bool UpgradeLevel()
         {
             Income++;
             return true;
         }
 
-        public bool DowngradeAttribute()
+        public bool DowngradeLevel()
         {
             Income--;
             return true;

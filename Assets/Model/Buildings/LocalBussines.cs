@@ -9,13 +9,13 @@ namespace Assets.Model.Buildings
         public int Id { get; set; }
         public int TaxRatePercentage { get; set; }
 
-        public bool UpgradeAttribute()
+        public bool UpgradeLevel()
         {
             TaxRatePercentage++;
             return true;
         }
 
-        public bool DowngradeAttribute()
+        public bool DowngradeLevel()
         {
             TaxRatePercentage--;
             return true;

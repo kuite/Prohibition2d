@@ -117,19 +117,19 @@ namespace Assets.Model.Context
             {
                 new Distillery
                 {
-                    AlcoholProduction = 250
+                    Level = 250
                 },
                 new Distillery
                 {
-                    AlcoholProduction = 200
+                    Level = 200
                 },
                 new Distillery
                 {
-                    AlcoholProduction = 500
+                    Level = 500
                 },
                 new Distillery
                 {
-                    AlcoholProduction = 800
+                    Level = 800
                 }
             });
             #endregion

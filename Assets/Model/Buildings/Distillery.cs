@@ -7,17 +7,17 @@ namespace Assets.Model.Buildings
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public int AlcoholProduction { get; set; }
+        public int Level { get; set; }
 
-        public bool UpgradeAttribute()
+        public bool UpgradeLevel()
         {
-            AlcoholProduction++;
+            Level++;
             return true;
         }
 
-        public bool DowngradeAttribute()
+        public bool DowngradeLevel()
         {
-            AlcoholProduction--;
+            Level--;
             return true;
         }
     }
