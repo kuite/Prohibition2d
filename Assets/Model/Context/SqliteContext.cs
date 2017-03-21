@@ -17,8 +17,8 @@ namespace Assets.Model.Context
         {
             _connection = new SQLiteConnection(connString, SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
 
-            _connection.DropTable<SoldierSettings>();
-            _connection.CreateTable<SoldierSettings>();
+            _connection.DropTable<SoldierStats>();
+			_connection.CreateTable<SoldierStats>();
 
             _connection.DropTable<Pub>();
             _connection.CreateTable<Pub>();
@@ -45,6 +45,45 @@ namespace Assets.Model.Context
             _connection.CreateTable<DistrictData>();
 
             _connection.InsertOrReplace(new User { Name = "TestUser" });
+
+			#region SoldierStats
+			_connection.InsertAll(new List<SoldierStats>
+				{
+					new SoldierStats
+					{
+						Hp = 5,
+						Speed = 3,
+						Aim = 2,
+						WeaponSkill = 4,
+						Level = 1,
+					},
+					new SoldierStats
+					{
+						Hp = 3,
+						Speed = 4,
+						Aim = 3,
+						WeaponSkill = 4,
+						Level = 1,
+					},
+					new SoldierStats
+					{
+						Hp = 2,
+						Speed = 2,
+						Aim = 5,
+						WeaponSkill = 5,
+						Level = 1,
+					},
+					new SoldierStats
+					{
+						Hp = 6,
+						Speed = 1,
+						Aim = 4,
+						WeaponSkill = 3,
+						Level = 1,
+					}
+				});
+			#endregion
+
 
             #region NightClubs
             _connection.InsertAll(new List<NightClub>
