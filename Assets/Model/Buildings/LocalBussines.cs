@@ -3,23 +3,8 @@ using UnityEngine;
 
 namespace Assets.Model.Buildings
 {
-    public class LocalBussines : IStructure
+    public class LocalBussines : Structure
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public int TaxRatePercentage { get; set; }
-
-        public bool UpgradeLevel()
-        {
-            TaxRatePercentage++;
-            return true;
-        }
-
-        public bool DowngradeLevel()
-        {
-            TaxRatePercentage--;
-            return true;
-        }
-
+        public double Tribute { get; set; }
     }
 }

@@ -47,63 +47,62 @@ namespace Assets.Model.Context
 
             _connection.InsertOrReplace(new User { Name = "TestUser" });
 
-			#region SoldierStats
-			_connection.InsertAll(new List<SoldierStats>
-				{
-					new SoldierStats
-					{
-						Hp = 5,
-						Speed = 3,
-						Aim = 2,
-						WeaponSkill = 4,
-						Level = 1,
-					},
-					new SoldierStats
-					{
-						Hp = 3,
-						Speed = 4,
-						Aim = 3,
-						WeaponSkill = 4,
-						Level = 1,
-					},
-					new SoldierStats
-					{
-						Hp = 2,
-						Speed = 2,
-						Aim = 5,
-						WeaponSkill = 5,
-						Level = 1,
-					},
-					new SoldierStats
-					{
-						Hp = 6,
-						Speed = 1,
-						Aim = 4,
-						WeaponSkill = 3,
-						Level = 1,
-					}
-				});
-			#endregion
-
+            #region SoldierStats
+            _connection.InsertAll(new List<SoldierStats>
+                {
+                    new SoldierStats
+                    {
+                        Hp = 5,
+                        Speed = 3,
+                        Aim = 2,
+                        WeaponSkill = 4,
+                        Level = 1,
+                    },
+                    new SoldierStats
+                    {
+                        Hp = 3,
+                        Speed = 4,
+                        Aim = 3,
+                        WeaponSkill = 4,
+                        Level = 1,
+                    },
+                    new SoldierStats
+                    {
+                        Hp = 2,
+                        Speed = 2,
+                        Aim = 5,
+                        WeaponSkill = 5,
+                        Level = 1,
+                    },
+                    new SoldierStats
+                    {
+                        Hp = 6,
+                        Speed = 1,
+                        Aim = 4,
+                        WeaponSkill = 3,
+                        Level = 1,
+                    }
+                });
+            #endregion
 
             #region NightClubs
             _connection.InsertAll(new List<NightClub>
             {
                 new NightClub
                 {
-                    Income = 10
+                    Girls = 10
                 },
                 new NightClub
                 {
-                    Income = 15
+                    Girls = 5
                 },
                 new NightClub
                 {
-                    Income = 19
+                    Girls = 9
                 },
                 new NightClub
                 {
-                    Income = 25
+                    Girls = 2
                 }
             });
             #endregion
@@ -135,19 +134,19 @@ namespace Assets.Model.Context
             {
                 new Casino
                 {
-                    WinMarginPercentage = 12
+                    HomeWin = 0.12
                 },
                 new Casino
                 {
-                    WinMarginPercentage = 2
+                    HomeWin = 0.2
                 },
                 new Casino
                 {
-                    WinMarginPercentage = 5
+                    HomeWin = 0.15
                 },
                 new Casino
                 {
-                    WinMarginPercentage = 8
+                    HomeWin = 0.18
                 }
             });
             #endregion
@@ -157,19 +156,19 @@ namespace Assets.Model.Context
             {
                 new Distillery
                 {
-                    Level = 250
+                    Level = 2
                 },
                 new Distillery
                 {
-                    Level = 200
+                    Level = 1
                 },
                 new Distillery
                 {
-                    Level = 500
+                    Level = 3
                 },
                 new Distillery
                 {
-                    Level = 800
+                    Level = 5
                 }
             });
             #endregion

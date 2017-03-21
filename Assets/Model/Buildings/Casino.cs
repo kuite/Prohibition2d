@@ -3,22 +3,8 @@ using UnityEngine;
 
 namespace Assets.Model.Buildings
 {
-    public class Casino : IStructure
+    public class Casino : Structure
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public int WinMarginPercentage { get; set; }
-
-        public bool UpgradeLevel()
-        {
-            WinMarginPercentage++;
-            return true;
-        }
-
-        public bool DowngradeLevel()
-        {
-            WinMarginPercentage--;
-            return true;
-        }
+        public double HomeWin { get; set; }
     }
 }
