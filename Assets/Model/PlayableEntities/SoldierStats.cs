@@ -1,7 +1,6 @@
 ﻿using Assets.Model.Context;
-using UnityEngine;
 
-namespace Assets.Model.Buildings
+namespace Assets.Model.PlayableEntities
 {
 	public class SoldierStats
 	{
