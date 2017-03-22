@@ -2,18 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Model.Buildings;
+using Assets.Model.Context;
+using UnityEngine;
 
-public class LoadFight : MonoBehaviour {
+namespace Assets.CityScene.Scripts
+{
+	public class LoadFight : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
-			SceneManager.LoadScene ("FightScene");
+		public Panel Panel;
+		bool created = false;
+		public static LoadFight instance;
+		long variable = 0;
+
+		// Use this for initialization		
+		// Update is called once per frame
+		void Update () {
+			variable +=1;
+			Debug.Log (variable);
+			if (Input.GetMouseButtonDown (0)) {
+				//SceneManager.LoadSceneAsync ("FightScene");
+			}
+		}
+
+		public void Awake() {
+			if (instance == null) {
+				instance = this;
+				DontDestroyOnLoad (transform.gameObject);
+			}
+			else {
+				Destroy (this.gameObject);
+				return;
+			}
+		}
+
+		public void LodaThatFight(){
+			SceneManager.LoadSceneAsync ("FightScene");
 		}
 	}
 }

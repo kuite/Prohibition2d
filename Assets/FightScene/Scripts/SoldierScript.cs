@@ -42,7 +42,7 @@ public class SoldierScript : MonoBehaviour
 
 	void Fire(Vector2 enemyPos)
 	{
-		Debug.Log (rigi.velocity);
+		//Debug.Log (rigi.velocity);
 		if (Time.time - reloaded > 0.5f)
 		{
 			float bulletSpeed = 5.0f;
@@ -174,7 +174,7 @@ public class SoldierScript : MonoBehaviour
 	void fpsCounter(){
 		deltaTime += Time.deltaTime;
 		if ( deltaTime> 1.0f) {
-			Debug.Log (fps);
+			//Debug.Log (fps);
 			fps = 0;
 			deltaTime = Time.deltaTime;
 		}
@@ -215,7 +215,7 @@ public class SoldierScript : MonoBehaviour
 				v3 = Camera.main.ScreenToWorldPoint (v3);
 				choosen = false;
 				mousePosition = new Vector2 (v3.x, v3.y);
-				Debug.Log (mousePosition);
+				//Debug.Log (mousePosition);
 			}
 			if (Input.GetMouseButtonUp (0)) {
 				Vector2 clickPosition = new Vector2 (0, 0);
@@ -223,7 +223,7 @@ public class SoldierScript : MonoBehaviour
 				v3.z = 10.0f;
 				v3 = Camera.main.ScreenToWorldPoint (v3);
 				clickPosition = new Vector2 (v3.x, v3.y);
-				Debug.Log (clickPosition);
+				//Debug.Log (clickPosition);
 				if ((transform.position.x < clickPosition.x && transform.position.x > mousePosition.x) || (transform.position.x > clickPosition.x && transform.position.x < mousePosition.x)) {
 					if ((transform.position.y < clickPosition.y && transform.position.y > mousePosition.y) || (transform.position.y > clickPosition.y && transform.position.y < mousePosition.y)) {
 						choosen = true;
@@ -241,7 +241,7 @@ public class SoldierScript : MonoBehaviour
 			v3 = Camera.main.ScreenToWorldPoint (v3);
 
 			clickPosition = new Vector2 (v3.x, v3.y);
-			Debug.Log (clickPosition);
+			//Debug.Log (clickPosition);
 			waypoints = PathFindingScript.RequestPath (transform.position, clickPosition);
 
 			fillWaypointsStack (clickPosition);
@@ -256,8 +256,8 @@ public class SoldierScript : MonoBehaviour
 	}
 
 	void EndGamebehaviour(){
-		Debug.Log("End of the figth");
-		SceneManager.LoadScene ("EndfightScene");
+		Debug.Log ("End of the figth");
+		SceneManager.LoadScene ("StartFightScene");
 	}
 }
 
