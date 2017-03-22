@@ -6,6 +6,7 @@ using Assets.Model.Buildings;
 using Assets.Model.Context;
 using Assets.Model.Views;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.CityScene.Scripts
 {
@@ -27,7 +28,8 @@ namespace Assets.CityScene.Scripts
 
         public void EcoButton()
         {
-            MainPanel.ShowSelectedPanel(MainPanel.EcoPanel);
+//            MainPanel.ShowSelectedPanel(MainPanel.EcoPanel);
+            SceneManager.LoadScene("StartFightScene");
         }
 
 		public void DistillaryButton()

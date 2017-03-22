@@ -7,6 +7,10 @@ namespace Assets.CityScene.Scripts
     public class District : MonoBehaviour
     {
         public Casino Casino { get; set; }
+        public Pub Pub { get; set; }
+        public Distillery Distillery { get; set; }
+        public LocalBussines LocalBussines { get; set; }
+        public NightClub NightClub { get; set; }
 
         public int SettingsId;
         public Panel Panel;
@@ -39,7 +43,8 @@ namespace Assets.CityScene.Scripts
 
         private void GetSettings()
         {
-            
+            DistrictData settings = _context.GetById<DistrictData>(SettingsId);
+            var x = 6;
         }
     }
 }
