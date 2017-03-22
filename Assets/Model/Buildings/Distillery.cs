@@ -3,22 +3,9 @@ using UnityEngine;
 
 namespace Assets.Model.Buildings
 {
-    public class Distillery : IStructure
+    public class Distillery : Structure
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public int Level { get; set; }
-
-        public bool UpgradeLevel()
-        {
-            Level++;
-            return true;
-        }
-
-        public bool DowngradeLevel()
-        {
-            Level--;
-            return true;
-        }
+        public int Workers { get; set; }
+        public double WorkerCost { get; set; }
     }
 }

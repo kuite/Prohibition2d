@@ -4,7 +4,7 @@ namespace Assets.Model.Views
 {
     public interface IDetailsView
     {
-        void UpdateStructure(IStructure structure);
+        void UpdateStructure(Structure structure);
         void UpgradeStructureAttribute();
     }
 }
