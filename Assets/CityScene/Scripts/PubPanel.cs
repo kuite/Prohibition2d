@@ -18,5 +18,11 @@ namespace Assets.CityScene.Scripts
 		{
 			throw new System.NotImplementedException();
 		}
-	}
+
+	    private void Start()
+	    {
+	        var h = 7;
+	    }
+
+    }
 }

@@ -22,15 +22,14 @@ namespace Assets.CityScene.Scripts
 		public CasinoPanel CasinoPanel;
 		public NightClubPanel NightClubPanel;
 
-        private List<MonoBehaviour> _panels = new List<MonoBehaviour>();
+        private List<MonoBehaviour> _panels;
 
         private SqliteContext _context;
 
         // Use this for initialization
         private void Start()
         {
-            _context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
-            //WorkingDistrict = new District(_context);
+            _panels = new List<MonoBehaviour>();
             _panels.Add(PubPanel);
             _panels.Add(EcoPanel);
             _panels.Add(ArmyPanel);
@@ -38,6 +37,8 @@ namespace Assets.CityScene.Scripts
             _panels.Add(LocalBuisnessPanel);
             _panels.Add(CasinoPanel);
             _panels.Add(NightClubPanel);
+
+            //DataScript.Instance.Panel = this;
         }
 
         // Update is called once per frame

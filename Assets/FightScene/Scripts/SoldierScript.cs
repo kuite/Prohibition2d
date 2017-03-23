@@ -257,7 +257,7 @@ public class SoldierScript : MonoBehaviour
 
 	void EndGamebehaviour(){
 		Debug.Log ("End of the figth");
-		SceneManager.LoadScene ("StartFightScene");
+		SceneManager.LoadScene ("EndfightScene");
 	}
 }
 
