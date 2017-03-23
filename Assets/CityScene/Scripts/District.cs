@@ -13,7 +13,6 @@ namespace Assets.CityScene.Scripts
         public int SettingsId;
         public Panel Panel;
 
-        
         private DistrictData _data;
         private SqliteContext _context;
 

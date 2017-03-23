@@ -37,8 +37,6 @@ namespace Assets.CityScene.Scripts
             _panels.Add(LocalBuisnessPanel);
             _panels.Add(CasinoPanel);
             _panels.Add(NightClubPanel);
-
-            //DataScript.Instance.Panel = this;
         }
 
         // Update is called once per frame

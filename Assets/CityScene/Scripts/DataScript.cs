@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Model.Buildings;
 using Assets.Model.Context;
 using Assets.Model.PlayableEntities;
@@ -28,6 +29,11 @@ namespace Assets.CityScene.Scripts
             DistrictCache = new Dictionary<int, District>();
             UserSoldiers = new Dictionary<int, SoldierStats>();
             CompSoldiers = new Dictionary<int, SoldierStats>();
+
+            var soldiers = Context.Table<SoldierStats>().ToList();
+
+            int soldId = 0;
+            soldiers.ForEach(s => UserSoldiers.Add(soldId++, s));
 
             Instance = this;
             GameObject.DontDestroyOnLoad(this.gameObject);
