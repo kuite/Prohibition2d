@@ -8,6 +8,9 @@ namespace Assets.CityScene.Scripts
     {
         public Casino Casino { get; set; }
         public Pub Pub { get; set; }
+        public NightClub NightClub { get; set; }
+        public Distillery Distillery { get; set; }
+        public LocalBussines LocalBussines { get; set; }
 
         public int InstanceId;
         public int SettingsId;
@@ -34,20 +37,23 @@ namespace Assets.CityScene.Scripts
 
         private void GetSettings()
         {
-			if (DataScript.GetInstance().DistrictCache.ContainsKey(InstanceId))
+            if (DataScript.Instance.DistrictCache.ContainsKey(InstanceId))
             {
                 //get data from datascript
                 Debug.Log("found existing district");
             }
             else
             {
-				_context = DataScript.GetInstance().Context;
+                _context = DataScript.Instance.Context;
                 _data = _context.GetById<DistrictData>(SettingsId);
 
                 Casino = _context.GetById<Casino>(_data.CasinoId);
                 Pub = _context.GetById<Pub>(_data.PubId);
+                NightClub = _context.GetById<NightClub>(_data.NightClubId);
+                LocalBussines = _context.GetById<LocalBussines>(_data.LocalBusinessId);
+                Distillery = _context.GetById<Distillery>(_data.DistilleryId);
 
-				DataScript.GetInstance().AddDistrict(InstanceId, this);
+                DataScript.Instance.AddDistrict(InstanceId, this);
             }
 
         }
