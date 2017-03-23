@@ -1,27 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Assets.Model.Buildings;
+using Assets.Model.Context;
+using Assets.Model.PlayableEntities;
 using UnityEngine;
 
-public class DataScript : MonoBehaviour {
+namespace Assets.CityScene.Scripts
+{
+    public class DataScript : MonoBehaviour
+    {
+        public static DataScript Instance;
 
-	static DataScript instance;
+        public Dictionary<int, District> DistrictCache { get; private set; }
+        public Dictionary<int, SoldierStats> UserSoldiers { get; set; }
+        public Dictionary<int, SoldierStats> CompSoldiers { get; set; }
 
-	int variable1;
-	int variable2;
+        public SqliteContext Context { get; private set; }
 
-	// Use this for initialization
-	void Start () {
-		if (instance != null) {		//if theere is another instance (singleton check
-			Destroy(this.gameObject);
-			return;
-		}
+        // Use this for initialization
+        void Start()
+        {
+            if (Instance != null)
+            {		
+                Destroy(this.gameObject);
+                return;
+            }
+            Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
+            DistrictCache = new Dictionary<int, District>();
+            UserSoldiers = new Dictionary<int, SoldierStats>();
+            CompSoldiers = new Dictionary<int, SoldierStats>();
 
-		instance = this;
-		GameObject.DontDestroyOnLoad (this.gameObject);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+            Instance = this;
+            GameObject.DontDestroyOnLoad(this.gameObject);
+        }
+
+        public void AddDistrict(int key, District value)
+        {
+            DistrictCache.Add(key, value);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
 }
