@@ -936,7 +936,6 @@ GameObject:
   m_Component:
   - component: {fileID: 153778270}
   - component: {fileID: 153778269}
-  - component: {fileID: 153778271}
   m_Layer: 0
   m_Name: district3
   m_TagString: Untagged
@@ -993,17 +992,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.193}
---- !u!114 &153778271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 153778268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2e3dbf3ec68574b92d264c7e0a20ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &165180851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,8 +2397,8 @@ GameObject:
   m_Component:
   - component: {fileID: 514996610}
   - component: {fileID: 514996609}
-  - component: {fileID: 514996608}
   - component: {fileID: 514996611}
+  - component: {fileID: 514996608}
   m_Layer: 0
   m_Name: district1
   m_TagString: Untagged
@@ -2426,9 +2414,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 514996607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2e3dbf3ec68574b92d264c7e0a20ae, type: 3}
+  m_Script: {fileID: 11500000, guid: c9430750b825f5e42ab20546e44dab70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InstanceId: 1
+  SettingsId: 1
+  Panel: {fileID: 815732661}
 --- !u!212 &514996609
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4526,7 +4517,6 @@ GameObject:
   m_Component:
   - component: {fileID: 859045598}
   - component: {fileID: 859045597}
-  - component: {fileID: 859045596}
   - component: {fileID: 859045599}
   m_Layer: 0
   m_Name: district2
@@ -4535,17 +4525,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &859045596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 859045595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2e3dbf3ec68574b92d264c7e0a20ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &859045597
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5381,7 +5360,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1003750675}
   - component: {fileID: 1003750674}
-  - component: {fileID: 1003750673}
   m_Layer: 0
   m_Name: district4
   m_TagString: Untagged
@@ -5389,17 +5367,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1003750673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1003750672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2e3dbf3ec68574b92d264c7e0a20ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1003750674
 SpriteRenderer:
   m_ObjectHideFlags: 0
