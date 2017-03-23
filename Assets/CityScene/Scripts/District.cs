@@ -8,6 +8,9 @@ namespace Assets.CityScene.Scripts
     {
         public Casino Casino { get; set; }
         public Pub Pub { get; set; }
+        public NightClub NightClub { get; set; }
+        public Distillery Distillery { get; set; }
+        public LocalBussines LocalBussines { get; set; }
 
         public int InstanceId;
         public int SettingsId;
@@ -46,6 +49,9 @@ namespace Assets.CityScene.Scripts
 
                 Casino = _context.GetById<Casino>(_data.CasinoId);
                 Pub = _context.GetById<Pub>(_data.PubId);
+                NightClub = _context.GetById<NightClub>(_data.NightClubId);
+                LocalBussines = _context.GetById<LocalBussines>(_data.LocalBusinessId);
+                Distillery = _context.GetById<Distillery>(_data.DistilleryId);
 
                 DataScript.Instance.AddDistrict(InstanceId, this);
             }
