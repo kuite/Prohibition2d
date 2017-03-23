@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.CityScene.Scripts;
 
 public class ChangeSoldierScript : MonoBehaviour {
 	List <int> Soldiers = new List<int>();
@@ -15,6 +16,8 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public Sprite SoldierSprite3;
 	public Sprite SoldierSprite4;
 
+	DataScript Data;
+
 	int SpriteNumber;
 	int SpriteNumber1;
 	int SpriteNumber2;
@@ -23,6 +26,8 @@ public class ChangeSoldierScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Data = DataScript.GetInstance ();
+
 		SpriteNumber = 0;
      	SpriteNumber1 = 0;
 		SpriteNumber2 = 0;
@@ -30,12 +35,6 @@ public class ChangeSoldierScript : MonoBehaviour {
 		Soldier1Image.sprite = SoldierSprite0;
      	Soldier2Image.sprite = SoldierSprite1;
      	Soldier3Image.sprite = SoldierSprite2;
-
-		Soldiers.Add (0);
-		Soldiers.Add (1);
-		Soldiers.Add (2);
-		Soldiers.Add (3);
-		Soldiers.Add (4);
 	}
 	
 	// Update is called once per frame
@@ -46,10 +45,10 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public void ChangeOnButton1(int upOrDown){
 		SpriteNumber += upOrDown;
 		if (SpriteNumber < 0)
-			SpriteNumber = Soldiers.Count;
-		else if (SpriteNumber >= Soldiers.Count)
+			SpriteNumber = Data.UserSoldiers.Count;
+		else if (SpriteNumber >= Data.UserSoldiers.Count)
 			SpriteNumber = 0;
-		switch (SpriteNumber) {
+		switch (Data.UserSoldiers[SpriteNumber].ImageId) {
 		case 0:
 			Soldier1Image.sprite = SoldierSprite0;			
 			break;

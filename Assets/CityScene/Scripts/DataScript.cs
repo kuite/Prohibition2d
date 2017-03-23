@@ -9,7 +9,7 @@ namespace Assets.CityScene.Scripts
 {
     public class DataScript : MonoBehaviour
     {
-        public static DataScript Instance;
+        static DataScript Instance;
 
         public Dictionary<int, District> DistrictCache { get; private set; }
         public Dictionary<int, SoldierStats> UserSoldiers { get; set; }
@@ -39,11 +39,15 @@ namespace Assets.CityScene.Scripts
             GameObject.DontDestroyOnLoad(this.gameObject);
         }
 
+		static public DataScript GetInstance(){
+			return Instance;
+		}
+
         public void AddDistrict(int key, District value)
         {
             DistrictCache.Add(key, value);
         }
-
+		int k = 0;
         // Update is called once per frame
         void Update()
         {

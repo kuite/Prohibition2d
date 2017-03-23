@@ -57,6 +57,7 @@ namespace Assets.Model.Context
                         Aim = 2,
                         WeaponSkill = 4,
                         Level = 1,
+						ImageId = 0
                     },
                     new SoldierStats
                     {
@@ -65,6 +66,7 @@ namespace Assets.Model.Context
                         Aim = 3,
                         WeaponSkill = 4,
                         Level = 1,
+						ImageId = 1
                     },
                     new SoldierStats
                     {
@@ -73,6 +75,7 @@ namespace Assets.Model.Context
                         Aim = 5,
                         WeaponSkill = 5,
                         Level = 1,
+						ImageId = 2
                     },
                     new SoldierStats
                     {
@@ -81,6 +84,7 @@ namespace Assets.Model.Context
                         Aim = 4,
                         WeaponSkill = 3,
                         Level = 1,
+						ImageId = 3
                     }
                 });
             #endregion

@@ -34,20 +34,20 @@ namespace Assets.CityScene.Scripts
 
         private void GetSettings()
         {
-            if (DataScript.Instance.DistrictCache.ContainsKey(InstanceId))
+			if (DataScript.GetInstance().DistrictCache.ContainsKey(InstanceId))
             {
                 //get data from datascript
                 Debug.Log("found existing district");
             }
             else
             {
-                _context = DataScript.Instance.Context;
+				_context = DataScript.GetInstance().Context;
                 _data = _context.GetById<DistrictData>(SettingsId);
 
                 Casino = _context.GetById<Casino>(_data.CasinoId);
                 Pub = _context.GetById<Pub>(_data.PubId);
 
-                DataScript.Instance.AddDistrict(InstanceId, this);
+				DataScript.GetInstance().AddDistrict(InstanceId, this);
             }
 
         }

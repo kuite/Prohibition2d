@@ -11,6 +11,20 @@ namespace Assets.Model.PlayableEntities
 		public int WeaponSkill { get; set; }
 		public int Aim { get; set; }
 		public int Level { get; set; }
+		public int ImageId { get; set; }
+
+		public bool UpgradeImageId()
+		{
+			ImageId++;
+			return true;
+		}
+
+		public bool DowngradeImageId()
+		{
+			ImageId--;
+			return true;
+		}
+
 
 		public bool UpgradeAim()
 		{
