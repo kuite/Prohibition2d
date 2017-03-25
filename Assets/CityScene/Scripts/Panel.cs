@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.CityScene.Scripts.SubPanels;
 using Assets.Model.Buildings;
 using Assets.Model.Context;
 using Assets.Model.Views;
+using Assets.SceneHelpers;
 using Assets.SharedResources.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +28,27 @@ namespace Assets.CityScene.Scripts
 
         private SqliteContext _context;
 
-        // Use this for initialization
+        public void UpdateDistrict(District district)
+        {
+            WorkingDistrict = district;
+        }
+
+        public void ShowSelectedPanel(MonoBehaviour panel)
+        {
+            HideAllPanels();
+            panel.gameObject.SetActive(true);
+        }
+
+        public void UpdateDistrictPanel(ISubPanel panel)
+        {
+            panel.UpdateDistrict(WorkingDistrict);
+        }
+
+        private void HideAllPanels()
+        {
+            _panels.ForEach(p => p.gameObject.SetActive(false));
+        }
+
         private void Start()
         {
             _panels = new List<MonoBehaviour>();
@@ -37,6 +59,8 @@ namespace Assets.CityScene.Scripts
             _panels.Add(LocalBuisnessPanel);
             _panels.Add(CasinoPanel);
             _panels.Add(NightClubPanel);
+
+            //todo: For now in UI starting working district is hardcoded (with id = 1)
         }
 
         // Update is called once per frame
@@ -46,22 +70,6 @@ namespace Assets.CityScene.Scripts
             {
 
             }
-        }
-
-        public void ShowSelectedPanel(MonoBehaviour panel)
-        {
-            HideAllPanels();
-            panel.gameObject.SetActive(true);
-        }
-
-        private void HideAllPanels()
-        {
-            _panels.ForEach(p => p.gameObject.SetActive(false));
-        }
-			
-        public void UpdateDistrict(District district)
-        {
-            WorkingDistrict = district;
         }
     }
 }

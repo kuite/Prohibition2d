@@ -12,6 +12,11 @@ namespace Assets.Model.Buildings
         public int Id { get; set; }
         public int Level { get; set; }
 
+        protected Structure()
+        {
+            Level = 1;
+        }
+
         public bool UpgradeLevel()
         {
             Level++;

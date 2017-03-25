@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 150715345}
   - component: {fileID: 150715344}
   m_Layer: 5
-  m_Name: Levelnumber
+  m_Name: LevelValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,6 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 153778270}
   - component: {fileID: 153778269}
+  - component: {fileID: 153778271}
   m_Layer: 0
   m_Name: district3
   m_TagString: Untagged
@@ -992,6 +993,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.193}
+--- !u!114 &153778271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 153778268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9430750b825f5e42ab20546e44dab70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InstanceId: 3
+  SettingsId: 3
+  Panel: {fileID: 815732661}
 --- !u!1 &165180851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1130,7 @@ GameObject:
   - component: {fileID: 202499519}
   - component: {fileID: 202499518}
   m_Layer: 5
-  m_Name: HireWorker
+  m_Name: PriceUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1193,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 202499519}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 245545203}
+        m_MethodName: AlcoholPriceUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &202499519
@@ -1403,7 +1429,7 @@ GameObject:
   - component: {fileID: 245545204}
   - component: {fileID: 245545203}
   m_Layer: 5
-  m_Name: Pub
+  m_Name: PubPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1424,7 +1450,7 @@ RectTransform:
   - {fileID: 818105294}
   - {fileID: 114019902}
   m_Father: {fileID: 962456285}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -1442,8 +1468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9236b16c09619d42affcd95909280ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PanelType: 
-  Logger: {fileID: 0}
+  PubLevel: {fileID: 454531144}
+  AlcoholPrice: {fileID: 1163855910}
 --- !u!114 &245545204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1953,7 +1979,7 @@ GameObject:
   - component: {fileID: 454531145}
   - component: {fileID: 454531144}
   m_Layer: 5
-  m_Name: LevelNumber
+  m_Name: LevelValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2102,7 +2128,7 @@ GameObject:
   - component: {fileID: 478713666}
   - component: {fileID: 478713665}
   m_Layer: 5
-  m_Name: FireWorker
+  m_Name: SubtractWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2165,7 +2191,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 478713666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025764229}
+        m_MethodName: HomeWinDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &478713666
@@ -2495,7 +2532,7 @@ GameObject:
   - component: {fileID: 555768769}
   - component: {fileID: 555768768}
   m_Layer: 5
-  m_Name: hireWorker
+  m_Name: AddWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2558,7 +2595,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 555768769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025764229}
+        m_MethodName: HomeWinUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &555768769
@@ -2605,7 +2653,7 @@ GameObject:
   - component: {fileID: 563098943}
   - component: {fileID: 563098942}
   m_Layer: 5
-  m_Name: WorkersNumber
+  m_Name: HomeWinValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3761,7 +3809,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 756706598}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 245545203}
+        m_MethodName: LevelDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &756706598
@@ -4245,8 +4304,6 @@ RectTransform:
   - {fileID: 871157033}
   - {fileID: 1445477099}
   - {fileID: 451603760}
-  - {fileID: 1859679087}
-  - {fileID: 1707781447}
   - {fileID: 1386241164}
   m_Father: {fileID: 962456285}
   m_RootOrder: 0
@@ -4518,6 +4575,7 @@ GameObject:
   - component: {fileID: 859045598}
   - component: {fileID: 859045597}
   - component: {fileID: 859045599}
+  - component: {fileID: 859045596}
   m_Layer: 0
   m_Name: district2
   m_TagString: Untagged
@@ -4525,6 +4583,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &859045596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859045595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9430750b825f5e42ab20546e44dab70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InstanceId: 2
+  SettingsId: 2
+  Panel: {fileID: 815732661}
 --- !u!212 &859045597
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4927,7 +4999,7 @@ GameObject:
   - component: {fileID: 897208924}
   - component: {fileID: 897208923}
   m_Layer: 5
-  m_Name: LowerLevel
+  m_Name: LevelDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4990,7 +5062,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 897208924}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025764229}
+        m_MethodName: LevelDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &897208924
@@ -5190,6 +5273,7 @@ RectTransform:
   m_Children:
   - {fileID: 815732658}
   - {fileID: 71954103}
+  - {fileID: 1707781447}
   - {fileID: 1686256160}
   - {fileID: 1944723211}
   - {fileID: 245545202}
@@ -5360,6 +5444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003750675}
   - component: {fileID: 1003750674}
+  - component: {fileID: 1003750673}
   m_Layer: 0
   m_Name: district4
   m_TagString: Untagged
@@ -5367,6 +5452,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1003750673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003750672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9430750b825f5e42ab20546e44dab70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InstanceId: 4
+  SettingsId: 4
+  Panel: {fileID: 815732661}
 --- !u!212 &1003750674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5576,7 +5675,7 @@ GameObject:
   - component: {fileID: 1025764227}
   - component: {fileID: 1025764229}
   m_Layer: 5
-  m_Name: Casino
+  m_Name: CasinoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5597,7 +5696,7 @@ RectTransform:
   - {fileID: 1036416316}
   - {fileID: 1387236476}
   m_Father: {fileID: 962456285}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -5648,8 +5747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67b3861fd6093d4aaa7f0a270355fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PanelType: 
-  Logger: {fileID: 0}
+  CasinoLevel: {fileID: 150715344}
+  HomeWin: {fileID: 563098942}
 --- !u!1 &1036416315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5661,7 +5760,7 @@ GameObject:
   - component: {fileID: 1036416318}
   - component: {fileID: 1036416317}
   m_Layer: 5
-  m_Name: PubName
+  m_Name: CasinoName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6055,7 +6154,7 @@ GameObject:
   - component: {fileID: 1163855911}
   - component: {fileID: 1163855910}
   m_Layer: 5
-  m_Name: WorkerNumber
+  m_Name: PriceValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6760,7 +6859,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1268135232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 245545203}
+        m_MethodName: LevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1268135232
@@ -7091,7 +7201,7 @@ GameObject:
   - component: {fileID: 1362819222}
   - component: {fileID: 1362819221}
   m_Layer: 5
-  m_Name: FireWorker
+  m_Name: PriceDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7154,7 +7264,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1362819222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 245545203}
+        m_MethodName: LevelDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1362819222
@@ -7265,7 +7386,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1367092476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1025764229}
+        m_MethodName: LevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1367092476
@@ -7314,7 +7446,7 @@ GameObject:
   - component: {fileID: 1386241166}
   - component: {fileID: 1386241165}
   m_Layer: 5
-  m_Name: StartFight
+  m_Name: StartFightButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7332,7 +7464,7 @@ RectTransform:
   m_Children:
   - {fileID: 1022204137}
   m_Father: {fileID: 815732658}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -7447,7 +7579,7 @@ GameObject:
   - component: {fileID: 1387236478}
   - component: {fileID: 1387236477}
   m_Layer: 5
-  m_Name: PubDescription
+  m_Name: CasinoDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8063,7 +8195,7 @@ GameObject:
   - component: {fileID: 1686256161}
   - component: {fileID: 1686256163}
   m_Layer: 5
-  m_Name: LocalBuisnes
+  m_Name: LocalBuisnesPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8084,7 +8216,7 @@ RectTransform:
   - {fileID: 487454131}
   - {fileID: 567581638}
   m_Father: {fileID: 962456285}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8135,7 +8267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6621399176e1134ebea0a51edde025d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Logger: {fileID: 0}
 --- !u!1 &1707781446
 GameObject:
   m_ObjectHideFlags: 0
@@ -8160,12 +8291,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1707781446}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 815732658}
-  m_RootOrder: 13
+  m_Father: {fileID: 962456285}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8687,80 +8818,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818510687}
---- !u!1 &1859679086
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1859679087}
-  - component: {fileID: 1859679089}
-  - component: {fileID: 1859679088}
-  m_Layer: 5
-  m_Name: MainPanel Logger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1859679087
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1859679086}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 815732658}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 587, y: -343}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1859679088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1859679086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 1
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: MainPanel Logger
---- !u!222 &1859679089
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1859679086}
 --- !u!1 &1866263748
 GameObject:
   m_ObjectHideFlags: 0
@@ -9094,7 +9151,7 @@ GameObject:
   - component: {fileID: 1944723212}
   - component: {fileID: 1944723214}
   m_Layer: 5
-  m_Name: NightClub
+  m_Name: NightClubPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9115,7 +9172,7 @@ RectTransform:
   - {fileID: 1866263749}
   - {fileID: 232532974}
   m_Father: {fileID: 962456285}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9166,7 +9223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2eb501dfd21f684482c7992fd3a5653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Logger: {fileID: 0}
 --- !u!1 &1957743750
 GameObject:
   m_ObjectHideFlags: 0
@@ -9179,7 +9235,7 @@ GameObject:
   - component: {fileID: 1957743753}
   - component: {fileID: 1957743752}
   m_Layer: 5
-  m_Name: Distillary
+  m_Name: DistillaryPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9200,7 +9256,7 @@ RectTransform:
   - {fileID: 1814382487}
   - {fileID: 1934635784}
   m_Father: {fileID: 962456285}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9218,8 +9274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361f03a1f33de78498da2a5e8507034f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PanelType: 
-  Logger: {fileID: 0}
 --- !u!114 &1957743753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9486,7 +9540,7 @@ GameObject:
   - component: {fileID: 2072861789}
   - component: {fileID: 2072861788}
   m_Layer: 5
-  m_Name: WorkerLabel
+  m_Name: AlcoholPrice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9542,7 +9596,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Workers
+  m_Text: Alcohol Price
 --- !u!222 &2072861789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9560,7 +9614,7 @@ GameObject:
   - component: {fileID: 2092019294}
   - component: {fileID: 2092019293}
   m_Layer: 5
-  m_Name: WorkerLabel
+  m_Name: HomeWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9616,7 +9670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Workers
+  m_Text: Home Win
 --- !u!222 &2092019294
 CanvasRenderer:
   m_ObjectHideFlags: 0

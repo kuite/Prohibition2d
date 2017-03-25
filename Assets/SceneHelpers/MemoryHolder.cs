@@ -1,32 +1,46 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Assets.Model.Buildings;
+using Assets.CityScene.Scripts;
 using Assets.Model.Context;
 using Assets.Model.PlayableEntities;
 using UnityEngine;
 
-namespace Assets.CityScene.Scripts
+namespace Assets.SceneHelpers
 {
-    public class DataScript : MonoBehaviour
+    public class MemoryHolder : MonoBehaviour
     {
-        static DataScript Instance;
+        private static MemoryHolder _instance;
 
-        public Dictionary<int, District> DistrictCache { get; private set; }
+        public List<int> UserDistricts { get; set; }
+        public List<int> CompDistricts { get; set; }
+        public Dictionary<int, District> CaschedDistricts { get; set; }
         public Dictionary<int, SoldierStats> UserSoldiers { get; set; }
         public Dictionary<int, SoldierStats> CompSoldiers { get; set; }
 
         public SqliteContext Context { get; private set; }
 
-        // Use this for initialization
-        void Start()
+        public static MemoryHolder GetInstance()
         {
-            if (Instance != null)
-            {		
+//            if (_instance == null)
+//            {
+//                _instance = new MemoryHolder();
+//            }
+
+			return _instance;
+		}
+
+        // Use this for initialization
+        private void Start()
+        {
+            if (_instance != null)
+            {
                 Destroy(this.gameObject);
                 return;
             }
             Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
-            DistrictCache = new Dictionary<int, District>();
+            UserDistricts = new List<int>();
+            CompDistricts = new List<int>();
+            CaschedDistricts = new Dictionary<int, District>();
             UserSoldiers = new Dictionary<int, SoldierStats>();
             CompSoldiers = new Dictionary<int, SoldierStats>();
 
@@ -35,21 +49,12 @@ namespace Assets.CityScene.Scripts
             int soldId = 0;
             soldiers.ForEach(s => UserSoldiers.Add(soldId++, s));
 
-            Instance = this;
+            _instance = this;
             GameObject.DontDestroyOnLoad(this.gameObject);
         }
 
-		static public DataScript GetInstance(){
-			return Instance;
-		}
-
-        public void AddDistrict(int key, District value)
-        {
-            DistrictCache.Add(key, value);
-        }
-		int k = 0;
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
 
         }

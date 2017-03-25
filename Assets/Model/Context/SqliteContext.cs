@@ -223,6 +223,32 @@ namespace Assets.Model.Context
             });
             #endregion
 
+            #region LocalBussines
+            _connection.InsertAll(new List<LocalBussines>
+            {
+                new LocalBussines
+                {
+                    Tribute = 0.1
+                },
+                new LocalBussines
+                {
+                    Tribute = 0.12
+                },
+                new LocalBussines
+                {
+                    Tribute = 0.15
+                },
+                new LocalBussines
+                {
+                    Tribute = 0.2
+                },
+                new LocalBussines
+                {
+                    Tribute = 0.25
+                }
+            });
+            #endregion
+
         }
         public IEnumerable<T> Table<T>() where T : new()
         {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Assets.CityScene.Scripts
 {
-    public class EcoPanel : MonoBehaviour, IView
+    public class EcoPanel : MonoBehaviour, ISubPanel
     {
         public string PanelType;
         public Text Logger;
@@ -15,8 +15,8 @@ namespace Assets.CityScene.Scripts
             
         }
 
-        public void UpdateDistrictData(DistrictData districtData)
-		{
+        public void UpdateDistrict(District districtData)
+        {
             throw new System.NotImplementedException();
         }
     }
