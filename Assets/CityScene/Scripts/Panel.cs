@@ -19,7 +19,7 @@ namespace Assets.CityScene.Scripts
 		public PubPanel PubPanel;
         public EcoPanel EcoPanel;
         public ArmyPanel ArmyPanel;
-		public DistillertyPanel DistilleryPanel;
+		public DistilleryPanel DistilleryPanel;
 		public LocalBuisnessPanel LocalBuisnessPanel;
 		public CasinoPanel CasinoPanel;
 		public NightClubPanel NightClubPanel;

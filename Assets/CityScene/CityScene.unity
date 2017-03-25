@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7812260}
   - component: {fileID: 7812259}
   m_Layer: 5
-  m_Name: WorkerLabel
+  m_Name: TributeLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Workers
+  m_Text: Tribute
 --- !u!222 &7812260
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -817,7 +817,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 120027632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1944723214}
+        m_MethodName: GirlsDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &120027632
@@ -2404,7 +2415,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 503981786}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1686256163}
+        m_MethodName: TributeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &503981786
@@ -2954,7 +2976,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 574994307}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1944723214}
+        m_MethodName: LevelDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &574994307
@@ -3980,7 +4013,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 786423960}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1944723214}
+        m_MethodName: GirlsUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &786423960
@@ -4091,7 +4135,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 803542071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957743752}
+        m_MethodName: WorkersUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &803542071
@@ -4202,7 +4257,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 811044117}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1944723214}
+        m_MethodName: LevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &811044117
@@ -4710,7 +4776,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 864045783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957743752}
+        m_MethodName: LevelDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &864045783
@@ -6123,7 +6200,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: In distillary you can produce alkohol that can be sold in pubs you have
+  m_Text: In distillery you can produce alkohol that can be sold in pubs you have
     in your districts. The higher level this building has more alkohol is produced
     by single worker but you have to pay each worker higher wage so balance is going
     to be a key to success.
@@ -6356,7 +6433,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1190750627}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957743752}
+        m_MethodName: LevelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1190750627
@@ -6533,7 +6621,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Distillary
+  m_Text: Distillery
 --- !u!222 &1217901001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7841,7 +7929,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1462860567}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957743752}
+        m_MethodName: WorkersDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1462860567
@@ -8210,7 +8309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -609.5, y: -337.5}
+  m_AnchoredPosition: {x: -610.5, y: -338.5}
   m_SizeDelta: {x: -1220, y: -677}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686256161
@@ -8257,6 +8356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6621399176e1134ebea0a51edde025d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LocalBussinesLevel: {fileID: 1646803823}
+  Tribute: {fileID: 1214880900}
 --- !u!1 &1707781446
 GameObject:
   m_ObjectHideFlags: 0
@@ -9166,7 +9267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 351, y: -877.5}
+  m_AnchoredPosition: {x: 351, y: -876.5}
   m_SizeDelta: {x: 701, y: 403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944723212
@@ -9213,6 +9314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2eb501dfd21f684482c7992fd3a5653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NightClubLevel: {fileID: 2094303049}
+  GirlsCount: {fileID: 76491819}
 --- !u!1 &1957743750
 GameObject:
   m_ObjectHideFlags: 0
@@ -9264,6 +9367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361f03a1f33de78498da2a5e8507034f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DistilleryLevel: {fileID: 61452869}
+  WorkersCount: {fileID: 2119482769}
 --- !u!114 &1957743753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9372,7 +9477,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1973765726}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1686256163}
+        m_MethodName: TributeDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1973765726
@@ -9678,7 +9794,7 @@ GameObject:
   - component: {fileID: 2094303050}
   - component: {fileID: 2094303049}
   m_Layer: 5
-  m_Name: Levelnumber
+  m_Name: LevelValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

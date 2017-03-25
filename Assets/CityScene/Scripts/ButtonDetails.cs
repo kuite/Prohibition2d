@@ -32,7 +32,7 @@ namespace Assets.CityScene.Scripts
         public void DistillaryButton()
 		{
             MainPanel.ShowSelectedPanel(MainPanel.DistilleryPanel);
-            MainPanel.UpdateDistrictPanel(MainPanel.CasinoPanel);
+            MainPanel.UpdateDistrictPanel(MainPanel.DistilleryPanel);
         }
 
 		public void PubButton()
