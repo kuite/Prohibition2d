@@ -26,14 +26,12 @@ namespace Assets.CityScene.Scripts
             Panel.UpdateDistrict(this);
         }
 
-        // Use this for initialization
-        void Start ()
+        private void Start ()
         {
             SetData();
         }
-	
-        // Update is called once per frame
-        void Update () {
+
+        private void Update () {
            
         }
 

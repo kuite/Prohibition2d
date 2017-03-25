@@ -936,8 +936,8 @@ GameObject:
   m_Component:
   - component: {fileID: 153778270}
   - component: {fileID: 153778269}
-  - component: {fileID: 153778271}
   - component: {fileID: 153778272}
+  - component: {fileID: 153778271}
   m_Layer: 0
   m_Name: district3
   m_TagString: Untagged
@@ -1021,7 +1021,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6, y: 6}
 --- !u!1 &165180851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,7 +5504,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6, y: 6}
 --- !u!1 &1005369486
 GameObject:
   m_ObjectHideFlags: 0
