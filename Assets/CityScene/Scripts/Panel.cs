@@ -33,14 +33,12 @@ namespace Assets.CityScene.Scripts
             WorkingDistrict = district;
         }
 
-        public void ShowSelectedPanel(MonoBehaviour panel)
+        public void SelectPanel(MonoBehaviour monoPanel)
         {
             HideAllPanels();
-            panel.gameObject.SetActive(true);
-        }
+            monoPanel.gameObject.SetActive(true);
 
-        public void UpdateDistrictPanel(ISubPanel panel)
-        {
+            var panel = monoPanel as ISubPanel;
             panel.UpdateDistrict(WorkingDistrict);
         }
 

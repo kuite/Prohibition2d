@@ -21,42 +21,37 @@ namespace Assets.CityScene.Scripts
 
         public void EcoButton()
         {
-            MainPanel.ShowSelectedPanel(MainPanel.EcoPanel);
+            MainPanel.SelectPanel(MainPanel.EcoPanel);
         }
 
         public void ArmyButton()
         {
-            MainPanel.ShowSelectedPanel(MainPanel.ArmyPanel);
+            MainPanel.SelectPanel(MainPanel.ArmyPanel);
         }
 
         public void DistillaryButton()
 		{
-            MainPanel.ShowSelectedPanel(MainPanel.DistilleryPanel);
-            MainPanel.UpdateDistrictPanel(MainPanel.DistilleryPanel);
+            MainPanel.SelectPanel(MainPanel.DistilleryPanel);
         }
 
 		public void PubButton()
 		{
-            MainPanel.ShowSelectedPanel(MainPanel.PubPanel);
-            MainPanel.UpdateDistrictPanel(MainPanel.PubPanel);
+            MainPanel.SelectPanel(MainPanel.PubPanel);
         }
 
 		public void CasinoButton()
 		{
-            MainPanel.ShowSelectedPanel(MainPanel.CasinoPanel);
-            MainPanel.UpdateDistrictPanel(MainPanel.CasinoPanel);
+            MainPanel.SelectPanel(MainPanel.CasinoPanel);
         }
 
 		public void NightClubButton()
 		{
-            MainPanel.ShowSelectedPanel(MainPanel.NightClubPanel);
-            MainPanel.UpdateDistrictPanel(MainPanel.NightClubPanel);
+            MainPanel.SelectPanel(MainPanel.NightClubPanel);
         }
 
 		public void LocalBuisnessButton()
 		{
-            MainPanel.ShowSelectedPanel(MainPanel.LocalBuisnessPanel);
-            MainPanel.UpdateDistrictPanel(MainPanel.LocalBuisnessPanel);
+            MainPanel.SelectPanel(MainPanel.LocalBuisnessPanel);
         }
     }
 }
