@@ -20,12 +20,6 @@ namespace Assets.CityScene.Scripts
         private DistrictData _data;
         private SqliteContext _context;
 
-        public District(int settingsId)
-        {
-            SettingsId = settingsId;
-            SetData();
-        }
-
         public void OnMouseDown()
         {
             SetData();

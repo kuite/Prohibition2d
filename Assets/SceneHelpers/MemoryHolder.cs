@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.SceneHelpers
 {
-    public class MemoryHolder : MonoBehaviour
+    public class MemoryHolder
     {
         private static MemoryHolder _instance;
 
@@ -21,22 +21,16 @@ namespace Assets.SceneHelpers
 
         public static MemoryHolder GetInstance()
         {
-//            if (_instance == null)
-//            {
-//                _instance = new MemoryHolder();
-//            }
+            if (_instance == null)
+            {
+                _instance = new MemoryHolder();
+            }
 
 			return _instance;
 		}
 
-        // Use this for initialization
-        private void Start()
+        public MemoryHolder()
         {
-            if (_instance != null)
-            {
-                Destroy(this.gameObject);
-                return;
-            }
             Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             UserDistricts = new List<int>();
             CompDistricts = new List<int>();
@@ -48,15 +42,6 @@ namespace Assets.SceneHelpers
 
             int soldId = 0;
             soldiers.ForEach(s => UserSoldiers.Add(soldId++, s));
-
-            _instance = this;
-            GameObject.DontDestroyOnLoad(this.gameObject);
-        }
-
-        // Update is called once per frame
-        private void Update()
-        {
-
         }
     }
 }

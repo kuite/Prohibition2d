@@ -937,6 +937,7 @@ GameObject:
   - component: {fileID: 153778270}
   - component: {fileID: 153778269}
   - component: {fileID: 153778271}
+  - component: {fileID: 153778272}
   m_Layer: 0
   m_Name: district3
   m_TagString: Untagged
@@ -1007,6 +1008,20 @@ MonoBehaviour:
   InstanceId: 3
   SettingsId: 3
   Panel: {fileID: 815732661}
+--- !u!61 &153778272
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 153778268}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &165180851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,7 +3164,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636156585
 GameObject:
@@ -3694,46 +3709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainPanel: {fileID: 815732661}
---- !u!1 &697626316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 697626318}
-  - component: {fileID: 697626317}
-  m_Layer: 0
-  m_Name: DataObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &697626317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 697626316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ead9c42788631547ac541e51525d76c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &697626318
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 697626316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 786.9585, y: 561.9079, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &756706595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4357,7 +4332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56419de65d4da004db3cb3137ca45a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorkingDistrict: {fileID: 0}
+  WorkingDistrict: {fileID: 514996608}
   Logger: {fileID: 0}
   PubPanel: {fileID: 245545203}
   EcoPanel: {fileID: 71954106}
@@ -5445,6 +5420,7 @@ GameObject:
   - component: {fileID: 1003750675}
   - component: {fileID: 1003750674}
   - component: {fileID: 1003750673}
+  - component: {fileID: 1003750676}
   m_Layer: 0
   m_Name: district4
   m_TagString: Untagged
@@ -5515,6 +5491,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.193}
+--- !u!61 &1003750676
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1003750672}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1 &1005369486
 GameObject:
   m_ObjectHideFlags: 0
