@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Assets.CityScene.Scripts;
+using Assets.SceneHelpers;
 
 public class ChangeSoldierScript : MonoBehaviour {
 	List <int> Soldiers = new List<int>();
@@ -17,7 +18,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public Sprite SoldierSprite3;
 	public Sprite SoldierSprite4;
 
-	DataScript Data;
+	MemoryHolder Data;
 
 	int SpriteNumber;
 	int SpriteNumber1;
@@ -27,7 +28,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Data = DataScript.GetInstance ();
+		Data = MemoryHolder.GetInstance ();
 
 		SpriteNumber = 0;
      	SpriteNumber1 = 0;

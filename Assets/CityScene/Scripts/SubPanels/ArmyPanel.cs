@@ -8,16 +8,16 @@ using UnityEngine;
 
 namespace Assets.CityScene.Scripts
 {
-    public class ArmyPanel : MonoBehaviour, IView
+    public class ArmyPanel : MonoBehaviour, ISubPanel
     {
         public void MakeVisible()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateDistrictData(DistrictData districtData)
+        public void UpdateDistrict(District districtData)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }

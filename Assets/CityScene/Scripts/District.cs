@@ -1,5 +1,6 @@
 ﻿using Assets.Model.Buildings;
 using Assets.Model.Context;
+using Assets.SceneHelpers;
 using UnityEngine;
 
 namespace Assets.CityScene.Scripts
@@ -19,32 +20,38 @@ namespace Assets.CityScene.Scripts
         private DistrictData _data;
         private SqliteContext _context;
 
-        // Use this for initialization
-        void Start ()
+        public void OnMouseDown()
         {
-            //GetSettings();
+            SetData();
+            Panel.UpdateDistrict(this);
         }
-	
-        // Update is called once per frame
-        void Update () {
+
+        private void Start ()
+        {
+            SetData();
+        }
+
+        private void Update () {
            
         }
 
-        public void OnMouseDown(){
-            Panel.UpdateDistrict(this);
-            GetSettings();
-        }
-
-        private void GetSettings()
+        private void SetData()
         {
-			if (DataScript.GetInstance().DistrictCache.ContainsKey(InstanceId))
+			if (MemoryHolder.GetInstance().CaschedDistricts.ContainsKey(InstanceId))
             {
-                //get data from datascript
-                Debug.Log("found existing district");
+                District caschedDist;
+                if (MemoryHolder.GetInstance().CaschedDistricts.TryGetValue(InstanceId, out caschedDist))
+                {
+                    Casino = caschedDist.Casino;
+                    Pub = caschedDist.Pub;
+                    NightClub = caschedDist.NightClub;
+                    LocalBussines = caschedDist.LocalBussines;
+                    Distillery = caschedDist.Distillery;
+                }
             }
             else
             {
-				_context = DataScript.GetInstance().Context;
+				_context = MemoryHolder.GetInstance().Context;
                 _data = _context.GetById<DistrictData>(SettingsId);
 
                 Casino = _context.GetById<Casino>(_data.CasinoId);
@@ -53,7 +60,7 @@ namespace Assets.CityScene.Scripts
                 LocalBussines = _context.GetById<LocalBussines>(_data.LocalBusinessId);
                 Distillery = _context.GetById<Distillery>(_data.DistilleryId);
 
-				DataScript.GetInstance().AddDistrict(InstanceId, this);
+				MemoryHolder.GetInstance().CaschedDistricts.Add(InstanceId, this);
             }
 
         }
