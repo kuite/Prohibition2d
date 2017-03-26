@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Assets.CityScene.Scripts;
 
 public class ChangeSoldierScript : MonoBehaviour {
@@ -70,11 +71,11 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public void ChangeOnButton2(int upOrDown){
 		SpriteNumber1 += upOrDown;
 		if (SpriteNumber1 < 0)
-			SpriteNumber1 = Soldiers.Count;
-		else if (SpriteNumber1 >= Soldiers.Count)
+			SpriteNumber1 = Data.UserSoldiers.Count;
+		else if (SpriteNumber1 >= Data.UserSoldiers.Count)
 			SpriteNumber1 = 0;
 		
-		switch (SpriteNumber1) {
+		switch (Data.UserSoldiers[SpriteNumber1].ImageId) {
 		case 0:
 			Soldier2Image.sprite = SoldierSprite0;			
 			break;
@@ -96,11 +97,11 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public void ChangeOnButton3(int upOrDown){
 		SpriteNumber2 += upOrDown;
 		if (SpriteNumber2 < 0)
-			SpriteNumber2 = Soldiers.Count;
-		else if (SpriteNumber2 >= Soldiers.Count)
+			SpriteNumber2 = Data.UserSoldiers.Count;
+		else if (SpriteNumber2 >= Data.UserSoldiers.Count)
 			SpriteNumber2 = 0;
 		
-		switch (SpriteNumber2) {
+		switch (Data.UserSoldiers[SpriteNumber2].ImageId) {
 		case 0:
 			Soldier3Image.sprite = SoldierSprite0;			
 			break;
@@ -117,5 +118,9 @@ public class ChangeSoldierScript : MonoBehaviour {
 			Soldier3Image.sprite = SoldierSprite4;
 			break;
 		}
+	}
+
+	public void LetTheBodyHitTheFloor(){
+		SceneManager.LoadScene ("FightScene");
 	}
 }
