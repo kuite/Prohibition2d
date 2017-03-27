@@ -720,7 +720,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1956483165}
   - component: {fileID: 1956483164}
-  - component: {fileID: 1956483166}
   m_Layer: 0
   m_Name: SoldiersSetup
   m_TagString: Untagged
@@ -760,24 +759,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1956483166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1956483163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c1caafd100abf418a510fd4129c96c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionsTeamA:
-  - {x: 2, y: 5}
-  positionsTeamB:
-  - {x: 0, y: 0}
-  soldierA: {fileID: 1852530751303042, guid: 7d122a88d3176f64d9100f9ac2da8c91, type: 2}
-  soldierB: {fileID: 1037964363399454, guid: a945d2d550ba2ee468f132dc43718c28, type: 2}
-  guiAppears: {fileID: 0}
 --- !u!1 &1990418307
 GameObject:
   m_ObjectHideFlags: 0

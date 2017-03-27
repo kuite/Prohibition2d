@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using Assets.SceneHelpers;
+using Assets.Model.PlayableEntities;
 
 public class SoldierScript : MonoBehaviour
 {
-    public int SoldierISettingsId;
+	public MemoryHolder Data;
+	public int SoldierISettingsId = 0;
+	SoldierStats soldiersStats;
+
 	private Rigidbody2D rigi;
 	private Stack waypointsStack = new Stack ();
 
@@ -25,7 +29,6 @@ public class SoldierScript : MonoBehaviour
 	public bool isStereable;
 	public bool choosen;
 
-	public MemoryHolder Data;
 	private int hp = 100;
 	bool stop = false;
 	public string teamEnemy;
@@ -34,12 +37,19 @@ public class SoldierScript : MonoBehaviour
 	int fps = 0;
 	// Use this for initialization
 	void Start () {
+		soldiersStats = new SoldierStats ();
+		Data = MemoryHolder.GetInstance ();
 		enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
 		enemy = enemies [0];
 		reloaded = Time.time;
 		rigi = GetComponent<Rigidbody2D>();
 		destinationVector = transform.position;
 		choosen = false;
+		soldiersStats = Data.UserFightingSoldiers [SoldierISettingsId];
+	}
+
+	void TheStartingInformations(int m_id){
+		SoldierISettingsId = m_id;
 	}
 
 	void Fire(Vector2 enemyPos)
@@ -186,7 +196,7 @@ public class SoldierScript : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "bullet") {
-			hp -= 50;
+			hp -= 1;
 		}
 	}
 		
