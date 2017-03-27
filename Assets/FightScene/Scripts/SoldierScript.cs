@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Assets.SceneHelpers;
 
 public class SoldierScript : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class SoldierScript : MonoBehaviour
 	public bool isStereable;
 	public bool choosen;
 
+	public MemoryHolder Data;
 	private int hp = 100;
 	bool stop = false;
 	public string teamEnemy;

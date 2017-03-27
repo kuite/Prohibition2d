@@ -122,6 +122,9 @@ public class ChangeSoldierScript : MonoBehaviour {
 	}
 
 	public void LetTheBodyHitTheFloor(){
+		Data.UserFightingSoldiers.Add (0,Data.UserSoldiers [SpriteNumber]);
+		Data.UserFightingSoldiers.Add (1,Data.UserSoldiers [SpriteNumber]);
+		Data.UserFightingSoldiers.Add (2,Data.UserSoldiers [SpriteNumber]);
 		SceneManager.LoadScene ("FightScene");
 	}
 }
