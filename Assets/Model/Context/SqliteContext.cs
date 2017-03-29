@@ -85,8 +85,17 @@ namespace Assets.Model.Context
                         WeaponSkill = 3,
                         Level = 1,
 						ImageId = 3
-                    }
-                });
+                    },
+					new SoldierStats
+					{
+						Hp = 5,
+						Speed = 2,
+						Aim = 3,
+						WeaponSkill = 4,
+						Level = 3,
+						ImageId = 4
+					},
+				});
             #endregion
 
             #region NightClubs

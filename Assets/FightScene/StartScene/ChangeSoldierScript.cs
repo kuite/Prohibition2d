@@ -29,7 +29,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Data = MemoryHolder.GetInstance ();
-
+		Data.UserFightingSoldiers.Clear ();
 		SpriteNumber = 0;
      	SpriteNumber1 = 0;
 		SpriteNumber2 = 0;
@@ -122,9 +122,10 @@ public class ChangeSoldierScript : MonoBehaviour {
 	}
 
 	public void LetTheBodyHitTheFloor(){
-		Data.UserFightingSoldiers.Add (0,Data.UserSoldiers [SpriteNumber]);
-		Data.UserFightingSoldiers.Add (1,Data.UserSoldiers [SpriteNumber]);
-		Data.UserFightingSoldiers.Add (2,Data.UserSoldiers [SpriteNumber]);
+		Data.UserFightingSoldiers.Add (0, Data.UserSoldiers [0]);
+		Data.UserFightingSoldiers.Add (1, Data.UserSoldiers [1]);
+		Data.UserFightingSoldiers.Add (2, Data.UserSoldiers [2]);
+		Data.EnemyFightingSoldiers.Add (0, Data.UserSoldiers [3]);
 		SceneManager.LoadScene ("FightScene");
 	}
 }

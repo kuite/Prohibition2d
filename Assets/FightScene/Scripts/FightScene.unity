@@ -743,9 +743,13 @@ MonoBehaviour:
   - {x: 5, y: 4}
   positionsTeamB:
   - {x: 1, y: 1}
+  enemies: []
+  friends: []
   soldierA: {fileID: 1852530751303042, guid: 1347f96573e0d6c43bdc80bd665ed886, type: 2}
   soldierB: {fileID: 1037964363399454, guid: 64aa829f6adc19f40b7249f251250232, type: 2}
   guiAppears: {fileID: 1643175946313024, guid: 4290cf2e82709cf45890ca88c7e2940e, type: 2}
+  teamEnemy: teamA
+  teamFriends: teamB
 --- !u!4 &1956483165
 Transform:
   m_ObjectHideFlags: 0

@@ -24,31 +24,47 @@ public class SoldierScript : MonoBehaviour
 	public GameObject bulletSpawn;
 	private GameObject enemy;
 	public GameObject[] enemies;
+	public List <GameObject> enem;
+	public GameObject[] friends;
 	public LayerMask unwalkableMask;
 
 	public bool isStereable;
 	public bool choosen;
 
-	private int hp = 100;
 	bool stop = false;
 	public string teamEnemy;
+	public string teamFriends;
 	public bool alive = true;
 	float deltaTime = 0.0f;
 	int fps = 0;
 	// Use this for initialization
 	void Start () {
+		Debug.Log ("Start");
 		soldiersStats = new SoldierStats ();
 		Data = MemoryHolder.GetInstance ();
 		enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
+		friends = GameObject.FindGameObjectsWithTag (teamFriends);
+		friends = friends.ToArray ();
 		enemy = enemies [0];
 		reloaded = Time.time;
 		rigi = GetComponent<Rigidbody2D>();
 		destinationVector = transform.position;
 		choosen = false;
-		soldiersStats = Data.UserFightingSoldiers [SoldierISettingsId];
+
+		if(teamFriends == "teamA")
+			soldiersStats = Data.UserFightingSoldiers [SoldierISettingsId];
+		else
+			soldiersStats = Data.EnemyFightingSoldiers [SoldierISettingsId];
+
+		Debug.Log (soldiersStats.Aim);
+	}
+
+	void OnDestroy(){
+		Debug.Log ("Dead");
 	}
 
 	void TheStartingInformations(int m_id){
+		Debug.Log ("StartingInformation " + m_id.ToString());
 		SoldierISettingsId = m_id;
 	}
 
@@ -81,11 +97,20 @@ public class SoldierScript : MonoBehaviour
 				BehaviourTwo ();
 			}
 			fpsCounter ();
-			if (hp <= 0) {
+			if (soldiersStats.Hp <= 0) {
 				alive = false;
 			}
 			SquareChoice ();
 		} else {
+			friends [SoldierISettingsId] = null;
+			bool endGame = true;
+			for (int i = 0; i < friends.Length; i++) {
+				Debug.Log (friends [i]);
+				if (friends [i] != null)
+					endGame = false;
+			}			
+			if (endGame)
+				EndGamebehaviour ();
 			Destroy (gameObject);
 		}
 	}
@@ -196,7 +221,7 @@ public class SoldierScript : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "bullet") {
-			hp -= 1;
+			soldiersStats.Hp -= 1;
 		}
 	}
 		
@@ -227,7 +252,6 @@ public class SoldierScript : MonoBehaviour
 				v3 = Camera.main.ScreenToWorldPoint (v3);
 				choosen = false;
 				mousePosition = new Vector2 (v3.x, v3.y);
-				//Debug.Log (mousePosition);
 			}
 			if (Input.GetMouseButtonUp (0)) {
 				Vector2 clickPosition = new Vector2 (0, 0);
@@ -235,7 +259,6 @@ public class SoldierScript : MonoBehaviour
 				v3.z = 10.0f;
 				v3 = Camera.main.ScreenToWorldPoint (v3);
 				clickPosition = new Vector2 (v3.x, v3.y);
-				//Debug.Log (clickPosition);
 				if ((transform.position.x < clickPosition.x && transform.position.x > mousePosition.x) || (transform.position.x > clickPosition.x && transform.position.x < mousePosition.x)) {
 					if ((transform.position.y < clickPosition.y && transform.position.y > mousePosition.y) || (transform.position.y > clickPosition.y && transform.position.y < mousePosition.y)) {
 						choosen = true;
@@ -253,7 +276,6 @@ public class SoldierScript : MonoBehaviour
 			v3 = Camera.main.ScreenToWorldPoint (v3);
 
 			clickPosition = new Vector2 (v3.x, v3.y);
-			//Debug.Log (clickPosition);
 			waypoints = PathFindingScript.RequestPath (transform.position, clickPosition);
 
 			fillWaypointsStack (clickPosition);
@@ -269,7 +291,7 @@ public class SoldierScript : MonoBehaviour
 
 	void EndGamebehaviour(){
 		Debug.Log ("End of the figth");
-		SceneManager.LoadScene ("EndfightScene");
+	//	SceneManager.LoadScene ("EndfightScene");
 	}
 }
 

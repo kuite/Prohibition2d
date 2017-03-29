@@ -151,12 +151,14 @@ MonoBehaviour:
   bulletPref: {fileID: 1951242486618236, guid: 605892e976a5f9b4590e8a26471c5e40, type: 2}
   bulletSpawn: {fileID: 1014848279175066}
   enemies: []
+  friends: []
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 256
   isStereable: 0
   choosen: 0
   teamEnemy: teamA
+  teamFriends: teamB
   alive: 1
 --- !u!212 &212962431770162846
 SpriteRenderer:

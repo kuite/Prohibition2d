@@ -17,6 +17,7 @@ namespace Assets.SceneHelpers
         public Dictionary<int, SoldierStats> UserSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> CompSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> UserFightingSoldiers { get; set; }
+		public Dictionary<int, SoldierStats> EnemyFightingSoldiers { get; set; }
 
         public SqliteContext Context { get; private set; }
 
@@ -39,6 +40,7 @@ namespace Assets.SceneHelpers
             UserSoldiers = new Dictionary<int, SoldierStats>();
             CompSoldiers = new Dictionary<int, SoldierStats>();
 			UserFightingSoldiers = new Dictionary<int, SoldierStats>();
+			EnemyFightingSoldiers = new Dictionary<int, SoldierStats>();
 
             var soldiers = Context.Table<SoldierStats>().ToList();
 

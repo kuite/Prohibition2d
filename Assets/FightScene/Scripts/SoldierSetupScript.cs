@@ -2,15 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Assets.SceneHelpers;
 
 public class SoldierSetupScript : MonoBehaviour {
 	public Vector2 []positionsTeamA;
 	public Vector2 []positionsTeamB;
+	public GameObject[] enemies;
+	public GameObject[] friends;
 	public GameObject soldierA;
 	public GameObject soldierB;
 	public GameObject guiAppears;
 	public MemoryHolder Data;
+	public string teamEnemy;
+	public string teamFriends;
 	//GameObject gui;
 	//GameObject gui2;
 	// Use this for initialization
@@ -22,19 +27,26 @@ public class SoldierSetupScript : MonoBehaviour {
 			var soldat = (GameObject)Instantiate(soldierA, pos, soldierA.transform.rotation); 
 			soldat.SendMessage ("TheStartingInformations", iterator++);	
 		}
+		iterator = 0;
 		foreach (Vector2 pos in positionsTeamB){
 			var soldat = (GameObject)Instantiate(soldierB, pos, soldierB.transform.rotation);
+			soldat.SendMessage ("TheStartingInformations", iterator++);	
 		}
+		enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
+		friends = GameObject.FindGameObjectsWithTag (teamFriends);
 		//gui = (GameObject)Instantiate(guiAppears, guiAppears.transform.position, guiAppears.transform.rotation);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		/*if (Input.GetMouseButtonDown (1)) {
-			Destroy (gui);
+		if (friends.Length == 0) {
+			EndGamebehaviour ();
 		}
-		if (Input.GetMouseButtonDown (0)) {
-			gui2 = (GameObject)Instantiate(guiAppears, guiAppears.transform.position, guiAppears.transform.rotation);
-		}*/
+		if (friends.Length == 0) {
+			EndGamebehaviour ();
+		}
+	}
+	void EndGamebehaviour(){
+		SceneManager.LoadScene ("EndfightScene");
 	}
 }
