@@ -29,6 +29,22 @@ public class ChangeSoldierScript : MonoBehaviour {
 
 	int choice;
 
+	public Text p1hp;
+	public Text p2hp;
+	public Text p3hp;
+
+	public Text p1aim;
+	public Text p2aim;
+	public Text p3aim;
+
+	public Text p1spd;
+	public Text p2spd;
+	public Text p3spd;
+
+	public Text p1wpn;
+	public Text p2wpn;
+	public Text p3wpn;
+
 	// Use this for initialization
 	void Start () {
 		Data = MemoryHolder.GetInstance ();
@@ -81,6 +97,10 @@ public class ChangeSoldierScript : MonoBehaviour {
 			Soldier1Image.sprite = SoldierSprite4;
 			break;
 		}
+		p1aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Aim.ToString ();
+		p1wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].WeaponSkill.ToString ();
+		p1spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Speed.ToString ();
+		p1hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Hp.ToString ();
 	}
 
 	public void ChangeOnButton2(int upOrDown){
@@ -109,6 +129,11 @@ public class ChangeSoldierScript : MonoBehaviour {
 			Soldier2Image.sprite = SoldierSprite4;
 			break;
 		}
+
+		p2aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Aim.ToString ();
+		p2wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].WeaponSkill.ToString ();
+		p2spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Speed.ToString ();
+		p2hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Hp.ToString ();
 	}
 
 	public void ChangeOnButton3(int upOrDown){
@@ -137,6 +162,11 @@ public class ChangeSoldierScript : MonoBehaviour {
 			Soldier3Image.sprite = SoldierSprite4;
 			break;
 		}
+
+		p3aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Aim.ToString ();
+		p3wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].WeaponSkill.ToString ();
+		p3spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Speed.ToString ();
+		p3hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Hp.ToString ();
 	}
 
 	void PrintStats(SoldierStats stats){
