@@ -24,7 +24,7 @@ public class SoldierScript : MonoBehaviour
 	public GameObject bulletSpawn;
 	private GameObject enemy;
 	public GameObject[] enemies;
-	public List <GameObject> enem;
+	public Dictionary <int, GameObject> enem;
 	public GameObject[] friends;
 	public LayerMask unwalkableMask;
 
@@ -39,12 +39,10 @@ public class SoldierScript : MonoBehaviour
 	int fps = 0;
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("Start");
 		soldiersStats = new SoldierStats ();
 		Data = MemoryHolder.GetInstance ();
 		enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
 		friends = GameObject.FindGameObjectsWithTag (teamFriends);
-		friends = friends.ToArray ();
 		enemy = enemies [0];
 		reloaded = Time.time;
 		rigi = GetComponent<Rigidbody2D>();
@@ -60,6 +58,11 @@ public class SoldierScript : MonoBehaviour
 	}
 
 	void OnDestroy(){
+		if(teamFriends == "teamA")
+			Data.UserFightingSoldiers.Remove (SoldierISettingsId);
+		else
+			Data.EnemyFightingSoldiers.Remove (SoldierISettingsId);
+		
 		Debug.Log ("Dead");
 	}
 
@@ -83,13 +86,12 @@ public class SoldierScript : MonoBehaviour
 	}
 	// Update is called once per frame
 	void Update () {
+		if (enemy != null && teamEnemy=="teamA")
+			Debug.Log ("enemy Alive");
 		if ((enemies.Length == 0)) {
 			EndGamebehaviour ();
 		}
 		else if (alive) {
-			if (enemies.Length == 0){
-				EndGamebehaviour();
-			}
 			enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
 			if (!isStereable) {
 				BehaviourOne ();
@@ -102,19 +104,10 @@ public class SoldierScript : MonoBehaviour
 			}
 			SquareChoice ();
 		} else {
-			friends [SoldierISettingsId] = null;
-			bool endGame = true;
-			for (int i = 0; i < friends.Length; i++) {
-				Debug.Log (friends [i]);
-				if (friends [i] != null)
-					endGame = false;
-			}			
-			if (endGame)
-				EndGamebehaviour ();
+			//	EndGamebehaviour ();
 			Destroy (gameObject);
 		}
 	}
-
 
 	private void lookAtXY(float x, float y)
 	{
@@ -156,7 +149,7 @@ public class SoldierScript : MonoBehaviour
 			if (en == null)
 				continue;
 			pretender = PathFindingScript.RequestPath (transform.position, en.transform.position);
-			if (pretender.Length < closest.Length) {
+			if (pretender.Length < closest.Length || enemy == null) {
 				closest = pretender;
 				enemy = en;
 			}
@@ -165,29 +158,31 @@ public class SoldierScript : MonoBehaviour
 	}
 
 	bool stopAndShoot(){
-		int enemyInRange = 0;
-		Vector3 directionToTarget = (enemy.transform.position - transform.position).normalized; 
-		if (Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemy.transform.position), unwalkableMask)) {
-			foreach (GameObject enemyIterator in enemies) {
-				directionToTarget = (enemyIterator.transform.position - transform.position).normalized; 
-				if (!Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemyIterator.transform.position), unwalkableMask)) {
-					enemyInRange++;
-					Fire (enemyIterator.transform.position);
-					enemy = enemyIterator;
-					break;
+		if (enemy != null) {
+			int enemyInRange = 0;
+			Vector3 directionToTarget = (enemy.transform.position - transform.position).normalized; 
+			if (Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemy.transform.position), unwalkableMask)) {
+				foreach (GameObject enemyIterator in enemies) {
+					directionToTarget = (enemyIterator.transform.position - transform.position).normalized; 
+					if (!Physics2D.CircleCast (transform.position, 0.05f, directionToTarget, Vector2.Distance (transform.position, enemyIterator.transform.position), unwalkableMask)) {
+						enemyInRange++;
+						Fire (enemyIterator.transform.position);
+						enemy = enemyIterator;
+						break;
+					}
 				}
-			}
-			if (enemyInRange > 0) {
+				if (enemyInRange > 0) {
+					stop = true;
+					return true;
+				}
+			} else {
+				Fire (enemy.transform.position);
 				stop = true;
 				return true;
 			}
-		} else {
-			Fire (enemy.transform.position);
-			stop = true;
-			return true;
 		}
-		stop = false;
-		return false;
+			stop = false;
+			return false;
 	}
 
 	void runAndShoot(){
@@ -240,7 +235,8 @@ public class SoldierScript : MonoBehaviour
 			waypoints = FindClosest ();
 			fillWaypointsStack (new Vector2(0,0));
 		}
-		lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
+		if(enemy!=null)
+			lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
 		FollowWaypoints ();
 	}
 
@@ -291,7 +287,7 @@ public class SoldierScript : MonoBehaviour
 
 	void EndGamebehaviour(){
 		Debug.Log ("End of the figth");
-	//	SceneManager.LoadScene ("EndfightScene");
+		SceneManager.LoadScene ("EndfightScene");
 	}
 }
 

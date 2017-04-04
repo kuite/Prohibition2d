@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Assets.CityScene.Scripts;
 using Assets.SceneHelpers;
+using Assets.Model.PlayableEntities;
 
 public class ChangeSoldierScript : MonoBehaviour {
 	List <int> Soldiers = new List<int>();
@@ -24,15 +25,20 @@ public class ChangeSoldierScript : MonoBehaviour {
 	int SpriteNumber1;
 	int SpriteNumber2;
 
+	List <int> SoldiersList;
+
 	int choice;
 
 	// Use this for initialization
 	void Start () {
 		Data = MemoryHolder.GetInstance ();
 		Data.UserFightingSoldiers.Clear ();
+
+		SoldiersList = new List <int> (Data.UserSoldiers.Keys);
+
 		SpriteNumber = 0;
-     	SpriteNumber1 = 0;
-		SpriteNumber2 = 0;
+     	SpriteNumber1 = 1;
+		SpriteNumber2 = 2;
 
 		Soldier1Image.sprite = SoldierSprite0;
      	Soldier2Image.sprite = SoldierSprite1;
@@ -121,11 +127,22 @@ public class ChangeSoldierScript : MonoBehaviour {
 		}
 	}
 
+	void PrintStats(SoldierStats stats){
+		Debug.Log ("Aim: ");
+		Debug.Log (stats.Aim);
+		Debug.Log ("Hp: ");
+		Debug.Log (stats.Hp);
+	}
+
 	public void LetTheBodyHitTheFloor(){
-		Data.UserFightingSoldiers.Add (0, Data.UserSoldiers [0]);
-		Data.UserFightingSoldiers.Add (1, Data.UserSoldiers [1]);
-		Data.UserFightingSoldiers.Add (2, Data.UserSoldiers [2]);
+		int iter = 0;
+		foreach (KeyValuePair<int, SoldierStats> entry in Data.UserSoldiers) {
+			if(entry.Value.ImageId==iter)
+				Data.UserFightingSoldiers.Add (entry.Key, entry.Value);
+			iter++;
+		}
 		Data.EnemyFightingSoldiers.Add (0, Data.UserSoldiers [3]);
+		PrintStats (Data.EnemyFightingSoldiers [0]);
 		SceneManager.LoadScene ("FightScene");
 	}
 }

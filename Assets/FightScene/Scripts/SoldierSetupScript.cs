@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.SceneHelpers;
+using Assets.Model.PlayableEntities;
 
 public class SoldierSetupScript : MonoBehaviour {
 	public Vector2 []positionsTeamA;
@@ -21,13 +22,22 @@ public class SoldierSetupScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Data = MemoryHolder.GetInstance ();
+		int iter = 0;
+		foreach (KeyValuePair<int, SoldierStats> entry in Data.UserFightingSoldiers) {
+			var soldat = (GameObject)Instantiate(soldierA, positionsTeamA[iter], soldierA.transform.rotation); 
+			soldat.SendMessage ("TheStartingInformations", entry.Key);	
+			iter++;
+			if (iter == positionsTeamA.Length)
+				break;
+		}
 
-		int iterator = 0; //probably has to changed TODO
+
+		/*int iterator = 0; //probably has to changed TODO
 		foreach (Vector2 pos in positionsTeamA){
 			var soldat = (GameObject)Instantiate(soldierA, pos, soldierA.transform.rotation); 
 			soldat.SendMessage ("TheStartingInformations", iterator++);	
-		}
-		iterator = 0;
+		}*/
+		int iterator = 0;
 		foreach (Vector2 pos in positionsTeamB){
 			var soldat = (GameObject)Instantiate(soldierB, pos, soldierB.transform.rotation);
 			soldat.SendMessage ("TheStartingInformations", iterator++);	
