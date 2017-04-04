@@ -43,6 +43,11 @@ public class ChangeSoldierScript : MonoBehaviour {
 		Soldier1Image.sprite = SoldierSprite0;
      	Soldier2Image.sprite = SoldierSprite1;
      	Soldier3Image.sprite = SoldierSprite2;
+
+		Debug.Log ("S1, S2, S3, number");
+		Debug.Log (SpriteNumber);
+		Debug.Log (SpriteNumber1);
+		Debug.Log (SpriteNumber2);
 	}
 	
 	// Update is called once per frame
@@ -52,11 +57,14 @@ public class ChangeSoldierScript : MonoBehaviour {
 
 	public void ChangeOnButton1(int upOrDown){
 		SpriteNumber += upOrDown;
+		SpriteNumber = checkIfUsed (upOrDown,SpriteNumber);
+		SpriteNumber = checkIfUsed (upOrDown,SpriteNumber);
 		if (SpriteNumber < 0)
 			SpriteNumber = Data.UserSoldiers.Count;
 		else if (SpriteNumber >= Data.UserSoldiers.Count)
 			SpriteNumber = 0;
-		switch (Data.UserSoldiers[SpriteNumber].ImageId) {
+		
+		switch (Data.UserSoldiers[SoldiersList[SpriteNumber]].ImageId) {
 		case 0:
 			Soldier1Image.sprite = SoldierSprite0;			
 			break;
@@ -77,12 +85,14 @@ public class ChangeSoldierScript : MonoBehaviour {
 
 	public void ChangeOnButton2(int upOrDown){
 		SpriteNumber1 += upOrDown;
+		SpriteNumber1 = checkIfUsed (upOrDown, SpriteNumber1);
+		SpriteNumber1 = checkIfUsed (upOrDown, SpriteNumber1);
 		if (SpriteNumber1 < 0)
 			SpriteNumber1 = Data.UserSoldiers.Count;
 		else if (SpriteNumber1 >= Data.UserSoldiers.Count)
 			SpriteNumber1 = 0;
 		
-		switch (Data.UserSoldiers[SpriteNumber1].ImageId) {
+		switch (Data.UserSoldiers[SoldiersList[SpriteNumber1]].ImageId) {
 		case 0:
 			Soldier2Image.sprite = SoldierSprite0;			
 			break;
@@ -104,11 +114,13 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public void ChangeOnButton3(int upOrDown){
 		SpriteNumber2 += upOrDown;
 		if (SpriteNumber2 < 0)
-			SpriteNumber2 = Data.UserSoldiers.Count;
-		else if (SpriteNumber2 >= Data.UserSoldiers.Count)
+			SpriteNumber2 = Data.UserSoldiers.Count-1;
+		else if (SpriteNumber2 >= Data.UserSoldiers.Count)//TOCHECK
 			SpriteNumber2 = 0;
-		
-		switch (Data.UserSoldiers[SpriteNumber2].ImageId) {
+		SpriteNumber2 = checkIfUsed (upOrDown, SpriteNumber2);
+		SpriteNumber2 = checkIfUsed (upOrDown, SpriteNumber2);
+
+		switch (Data.UserSoldiers[SoldiersList[SpriteNumber2]].ImageId) {
 		case 0:
 			Soldier3Image.sprite = SoldierSprite0;			
 			break;
@@ -132,6 +144,27 @@ public class ChangeSoldierScript : MonoBehaviour {
 		Debug.Log (stats.Aim);
 		Debug.Log ("Hp: ");
 		Debug.Log (stats.Hp);
+	}
+
+	int checkIfUsed(int upOrDown, int number){
+		Debug.Log ("S1, S2, S3, number");
+		Debug.Log (SpriteNumber);
+		Debug.Log (SpriteNumber1);
+		Debug.Log (SpriteNumber2);
+		Debug.Log (number);
+		Debug.Log (Data.UserSoldiers.Values.Count);
+		if (((number == SpriteNumber && number == SpriteNumber1) || (number == SpriteNumber && number == SpriteNumber2)) || (number == SpriteNumber1 && number == SpriteNumber2)) {
+			if (upOrDown == -1) {
+				number -= 1;
+				if(number < 0)
+					number = Data.UserSoldiers.Count-1;
+			} else{
+				number += 1;
+				if (number >= Data.UserSoldiers.Count)
+					number = 0;
+			}
+		}
+		return number;
 	}
 
 	public void LetTheBodyHitTheFloor(){
