@@ -9,12 +9,12 @@ public class colider : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "fighter" || collision.gameObject.tag == "fighter")
+        if (collision.gameObject.tag == "fighter")
         {
             Instantiate(blood, transform.position, transform.rotation);
 			Destroy(gameObject);
         }
-		if(collision.gameObject.tag == "Obstacle")
+		if(collision.CompareTag("Obstacle"))
         	Destroy(gameObject);
     }
     void Update () {

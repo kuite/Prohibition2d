@@ -37,6 +37,7 @@ public class SoldierScript : MonoBehaviour
 	public bool alive = true;
 	float deltaTime = 0.0f;
 	int fps = 0;
+
 	// Use this for initialization
 	void Start () {
 		soldiersStats = new SoldierStats ();
@@ -58,8 +59,9 @@ public class SoldierScript : MonoBehaviour
 	}
 
 	void OnDestroy(){
-		if(teamFriends == "teamA")
-			Data.UserFightingSoldiers.Remove (SoldierISettingsId);
+		if (teamFriends == "teamA") {
+			Data.UserSoldiers.Remove (SoldierISettingsId);
+		}
 		else
 			Data.EnemyFightingSoldiers.Remove (SoldierISettingsId);
 		
@@ -73,7 +75,7 @@ public class SoldierScript : MonoBehaviour
 
 	void Fire(Vector2 enemyPos)
 	{
-		//Debug.Log (rigi.velocity);
+		enemyPos += new Vector2(Random.Range (-0.5f, 0.5f), Random.Range (-0.5f, 0.5f));
 		if (Time.time - reloaded > 0.5f)
 		{
 			float bulletSpeed = 5.0f;
@@ -86,8 +88,8 @@ public class SoldierScript : MonoBehaviour
 	}
 	// Update is called once per frame
 	void Update () {
-		if (enemy != null && teamEnemy=="teamA")
-			Debug.Log ("enemy Alive");
+		//if (enemy != null && teamEnemy=="teamA")
+		//	Debug.Log ("enemy Alive");
 		if ((enemies.Length == 0)) {
 			EndGamebehaviour ();
 		}
@@ -120,7 +122,7 @@ public class SoldierScript : MonoBehaviour
 	private bool Approach(Vector2 wayP)//float x, float y)
 	{
 		if (!stop) {
-			float approachSpeed = 1.5f;
+			float approachSpeed = (float)soldiersStats.Speed *0.3f;
 			Vector2 approachDestination = new Vector2 (wayP.x, wayP.y);
 			Vector2 myPoss = rigi.position;
 
@@ -276,11 +278,9 @@ public class SoldierScript : MonoBehaviour
 
 			fillWaypointsStack (clickPosition);
 		}
-		
+		FindEnemy ();
 		runAndShoot ();
-
-		if (enemies.Length > 0)
-			lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
+	    lookAtXY (enemy.transform.position.x, enemy.transform.position.y);
 		FollowWaypoints ();
 
 	}
@@ -288,6 +288,13 @@ public class SoldierScript : MonoBehaviour
 	void EndGamebehaviour(){
 		Debug.Log ("End of the figth");
 		SceneManager.LoadScene ("EndfightScene");
+	}
+
+	void FindEnemy(){
+		foreach (GameObject enemyIterator in enemies) {
+			enemy = enemyIterator;
+			break;
+		}
 	}
 }
 

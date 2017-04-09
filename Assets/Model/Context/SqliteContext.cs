@@ -95,6 +95,51 @@ namespace Assets.Model.Context
 						Level = 3,
 						ImageId = 4
 					},
+					new SoldierStats
+					{
+						Hp = 5,
+						Speed = 2,
+						Aim = 3,
+						WeaponSkill = 4,
+						Level = 3,
+						ImageId = 4
+					},
+					new SoldierStats
+					{
+						Hp = 3,
+						Speed = 5,
+						Aim = 3,
+						WeaponSkill = 2,
+						Level = 4,
+						ImageId = 3
+					},
+					new SoldierStats
+					{
+						Hp = 2,
+						Speed = 2,
+						Aim = 3,
+						WeaponSkill = 4,
+						Level = 5,
+						ImageId = 1
+					},
+					new SoldierStats
+					{
+						Hp = 5,
+						Speed = 2,
+						Aim = 3,
+						WeaponSkill = 4,
+						Level = 3,
+						ImageId = 2
+					},
+					new SoldierStats
+					{
+						Hp = 5,
+						Speed = 2,
+						Aim = 3,
+						WeaponSkill = 4,
+						Level = 3,
+						ImageId = 3
+					},
 				});
             #endregion
 

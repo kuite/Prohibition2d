@@ -30,31 +30,32 @@ public class SoldierSetupScript : MonoBehaviour {
 			if (iter == positionsTeamA.Length)
 				break;
 		}
-
-
-		/*int iterator = 0; //probably has to changed TODO
-		foreach (Vector2 pos in positionsTeamA){
-			var soldat = (GameObject)Instantiate(soldierA, pos, soldierA.transform.rotation); 
-			soldat.SendMessage ("TheStartingInformations", iterator++);	
-		}*/
-		int iterator = 0;
+		iter = 0;
+		foreach (KeyValuePair<int, SoldierStats> entry in Data.EnemyFightingSoldiers) {
+			var soldat = (GameObject)Instantiate(soldierB, positionsTeamB[iter], soldierB.transform.rotation); 
+			soldat.SendMessage ("TheStartingInformations", entry.Key);	
+			iter++;
+			if (iter == positionsTeamB.Length)
+				break;
+		}
+		/*
 		foreach (Vector2 pos in positionsTeamB){
 			var soldat = (GameObject)Instantiate(soldierB, pos, soldierB.transform.rotation);
 			soldat.SendMessage ("TheStartingInformations", iterator++);	
-		}
-		enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
-		friends = GameObject.FindGameObjectsWithTag (teamFriends);
+		}*/
+		//enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
+		//friends = GameObject.FindGameObjectsWithTag (teamFriends);
 		//gui = (GameObject)Instantiate(guiAppears, guiAppears.transform.position, guiAppears.transform.rotation);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (friends.Length == 0) {
+		/*if (friends.Length == 0) {
 			EndGamebehaviour ();
 		}
 		if (friends.Length == 0) {
 			EndGamebehaviour ();
-		}
+		}*/
 	}
 	void EndGamebehaviour(){
 		SceneManager.LoadScene ("EndfightScene");
