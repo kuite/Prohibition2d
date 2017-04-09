@@ -251,6 +251,13 @@ public class SoldierScript : MonoBehaviour
 				choosen = false;
 				mousePosition = new Vector2 (v3.x, v3.y);
 			}
+			if (Input.GetMouseButton (0)) {
+				Vector3 v3 = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				DrawLine (new Vector3 (mousePosition.x, mousePosition.y, 0), new Vector3(mousePosition.x, v3.y, 0), Color.gray, 0.015f);	
+				DrawLine (new Vector3 (mousePosition.x, mousePosition.y, 0), new Vector3(v3.x, mousePosition.y, 0), Color.gray, 0.015f);	
+				DrawLine (new Vector3 (v3.x, v3.y, 0), new Vector3(v3.x, mousePosition.y, 0), Color.gray, 0.015f);	
+				DrawLine (new Vector3 (v3.x, v3.y, 0), new Vector3(mousePosition.x, v3.y, 0), Color.gray, 0.015f);	
+			}
 			if (Input.GetMouseButtonUp (0)) {
 				Vector2 clickPosition = new Vector2 (0, 0);
 				var v3 = Input.mousePosition;
@@ -295,6 +302,20 @@ public class SoldierScript : MonoBehaviour
 			enemy = enemyIterator;
 			break;
 		}
+	}
+
+	void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f)
+	{
+		GameObject myLine = new GameObject();
+		myLine.transform.position = start;
+		myLine.AddComponent<LineRenderer>();
+		LineRenderer lr = myLine.GetComponent<LineRenderer>();
+		lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
+		lr.SetColors(color, color);
+		lr.SetWidth(0.1f, 0.1f);
+		lr.SetPosition(0, start);
+		lr.SetPosition(1, end);
+		GameObject.Destroy(myLine, duration);
 	}
 }
 
