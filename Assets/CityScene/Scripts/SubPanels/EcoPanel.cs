@@ -1,9 +1,7 @@
-﻿using Assets.Model.Buildings;
-using Assets.Model.Views;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.CityScene.Scripts
+namespace Assets.CityScene.Scripts.SubPanels
 {
     public class EcoPanel : MonoBehaviour, ISubPanel
     {
@@ -17,7 +15,7 @@ namespace Assets.CityScene.Scripts
 
         public void UpdateDistrict(District districtData)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }
