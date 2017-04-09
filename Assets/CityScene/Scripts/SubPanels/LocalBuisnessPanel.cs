@@ -1,5 +1,4 @@
 ﻿using Assets.Model.Buildings;
-using Assets.Model.Views;
 using UnityEngine;
 using UnityEngine.UI;
 

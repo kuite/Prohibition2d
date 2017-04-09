@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Assets.CityScene.Scripts.SubPanels;
 using Assets.Model.Buildings;
 using Assets.Model.Context;
-using Assets.Model.Views;
 using Assets.SceneHelpers;
 using Assets.SharedResources.Scripts;
 using UnityEngine;
@@ -31,6 +30,11 @@ namespace Assets.CityScene.Scripts
         public void UpdateDistrict(District district)
         {
             WorkingDistrict = district;
+            foreach (var panel in _panels)
+            {
+                var subPanel = panel as ISubPanel;
+                subPanel.UpdateDistrict(district);
+            }
         }
 
         public void SelectPanel(MonoBehaviour monoPanel)
