@@ -18,6 +18,10 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public Sprite SoldierSprite2;
 	public Sprite SoldierSprite3;
 	public Sprite SoldierSprite4;
+	public Sprite SoldierSprite5;
+	public Sprite SoldierSprite6;
+	public Sprite SoldierSprite7;
+	public Sprite SoldierSprite8;
 
 	MemoryHolder Data;
 
@@ -91,23 +95,8 @@ public class ChangeSoldierScript : MonoBehaviour {
 		SpriteNumber = checkIfUsed (upOrDown,SpriteNumber);
 		SpriteNumber = checkIfUsed (upOrDown,SpriteNumber);
 
-		switch (Data.UserSoldiers[SoldiersList[SpriteNumber]].ImageId) {
-		case 0:
-			Soldier1Image.sprite = SoldierSprite0;			
-			break;
-		case 1:
-			Soldier1Image.sprite = SoldierSprite1;
-			break;
-		case 2:
-			Soldier1Image.sprite = SoldierSprite2;
-			break;
-		case 3:
-			Soldier1Image.sprite = SoldierSprite3;
-			break;
-		case 4:
-			Soldier1Image.sprite = SoldierSprite4;
-			break;
-		}
+		Soldier1Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber]].ImageId);
+
 		p1aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Aim.ToString ();
 		p1wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].WeaponSkill.ToString ();
 		p1spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Speed.ToString ();
@@ -125,23 +114,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 			SpriteNumber1 = checkIfUsed (upOrDown, SpriteNumber1);
 			SpriteNumber1 = checkIfUsed (upOrDown, SpriteNumber1);
 
-			switch (Data.UserSoldiers [SoldiersList [SpriteNumber1]].ImageId) {
-			case 0:
-				Soldier2Image.sprite = SoldierSprite0;			
-				break;
-			case 1:
-				Soldier2Image.sprite = SoldierSprite1;
-				break;
-			case 2:
-				Soldier2Image.sprite = SoldierSprite2;
-				break;
-			case 3:
-				Soldier2Image.sprite = SoldierSprite3;
-				break;
-			case 4:
-				Soldier2Image.sprite = SoldierSprite4;
-				break;
-			}
+			Soldier2Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber1]].ImageId);
 
 			p2aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Aim.ToString ();
 			p2wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].WeaponSkill.ToString ();
@@ -160,23 +133,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 			SpriteNumber2 = checkIfUsed (upOrDown, SpriteNumber2);
 			SpriteNumber2 = checkIfUsed (upOrDown, SpriteNumber2);
 
-			switch (Data.UserSoldiers [SoldiersList [SpriteNumber2]].ImageId) {
-			case 0:
-				Soldier3Image.sprite = SoldierSprite0;			
-				break;
-			case 1:
-				Soldier3Image.sprite = SoldierSprite1;
-				break;
-			case 2:
-				Soldier3Image.sprite = SoldierSprite2;
-				break;
-			case 3:
-				Soldier3Image.sprite = SoldierSprite3;
-				break;
-			case 4:
-				Soldier3Image.sprite = SoldierSprite4;
-				break;
-			}
+			Soldier3Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber2]].ImageId);
 
 			p3aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Aim.ToString ();
 			p3wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].WeaponSkill.ToString ();
@@ -226,6 +183,14 @@ public class ChangeSoldierScript : MonoBehaviour {
 				return SoldierSprite3;
 			case 4:
 				return SoldierSprite4;
+			case 5:
+				return SoldierSprite5;
+			case 6:
+				return SoldierSprite6;
+			case 7:
+				return SoldierSprite7;
+			case 8:
+				return SoldierSprite8;
 			default:
 				return SoldierSprite0; 
 		}

@@ -102,7 +102,7 @@ namespace Assets.Model.Context
 						Aim = 3,
 						WeaponSkill = 4,
 						Level = 3,
-						ImageId = 4
+						ImageId = 5
 					},
 					new SoldierStats
 					{
@@ -111,7 +111,7 @@ namespace Assets.Model.Context
 						Aim = 3,
 						WeaponSkill = 2,
 						Level = 4,
-						ImageId = 3
+						ImageId = 6
 					},
 					new SoldierStats
 					{
@@ -120,7 +120,7 @@ namespace Assets.Model.Context
 						Aim = 3,
 						WeaponSkill = 4,
 						Level = 5,
-						ImageId = 1
+						ImageId = 7
 					},
 					new SoldierStats
 					{
@@ -129,7 +129,7 @@ namespace Assets.Model.Context
 						Aim = 3,
 						WeaponSkill = 4,
 						Level = 3,
-						ImageId = 2
+						ImageId = 8
 					},
 					new SoldierStats
 					{
