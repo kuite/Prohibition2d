@@ -3377,6 +3377,13 @@ MonoBehaviour:
   SoldierSprite2: {fileID: 21300000, guid: c1fd5bd41192c78488ab1021562eb271, type: 3}
   SoldierSprite3: {fileID: 21300000, guid: fe98d5b9197a24b47bcdeaadaa147603, type: 3}
   SoldierSprite4: {fileID: 21300000, guid: b4d01a4a4b57bc6499df8902730530b4, type: 3}
+  SoldierSprite5: {fileID: 21300000, guid: 1df9a445f26819443900c5042a8c76e5, type: 3}
+  SoldierSprite6: {fileID: 21300000, guid: 4ce87ef1c09a74d4a91dd814d9d1f9ca, type: 3}
+  SoldierSprite7: {fileID: 21300000, guid: a87bb453a923c6c4d95f2a4b8bd2c979, type: 3}
+  SoldierSprite8: {fileID: 21300000, guid: 473c7a38ae1c4a640b71b515e64494bf, type: 3}
+  SpriteNumber: 0
+  SpriteNumber1: 0
+  SpriteNumber2: 0
   p1hp: {fileID: 19139888}
   p2hp: {fileID: 356973131}
   p3hp: {fileID: 1637026032}
