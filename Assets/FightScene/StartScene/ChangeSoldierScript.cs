@@ -13,6 +13,10 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public Image Soldier2Image;
 	public Image Soldier3Image;
 
+	public Button button1right;
+	public Button button2right;
+	public Button button3right;
+
 	public Sprite SoldierSprite0;
 	public Sprite SoldierSprite1;
 	public Sprite SoldierSprite2;
@@ -30,6 +34,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public int SpriteNumber2;
 
 	List <int> SoldiersList;
+	List <int> EnemySoldiersList;
 
 	int choice;
 
@@ -53,16 +58,30 @@ public class ChangeSoldierScript : MonoBehaviour {
 	void Start () {
 		Data = MemoryHolder.GetInstance ();
 		Data.UserFightingSoldiers.Clear ();
+		Data.EnemyFightingSoldiers.Clear ();
 
 		SoldiersList = new List <int> (Data.UserSoldiers.Keys);
+		EnemySoldiersList = new List <int> (Data.CompSoldiers.Keys);
 
 		SpriteNumber = 0;
-     	SpriteNumber1 = 1;
+		SpriteNumber1 = 1;
 		SpriteNumber2 = 2;
 
-		Soldier1Image.sprite = SetSprite(Data.UserSoldiers[SoldiersList[SpriteNumber]].ImageId);
-		Soldier2Image.sprite = SetSprite(Data.UserSoldiers[SoldiersList[SpriteNumber1]].ImageId);
-		Soldier3Image.sprite = SetSprite(Data.UserSoldiers[SoldiersList[SpriteNumber2]].ImageId);
+		if (Data.UserSoldiers.Values.Count > 1) {
+			Soldier1Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber]].ImageId);
+		} else {
+			button1right.interactable = false;
+		}
+		if (Data.UserSoldiers.Values.Count > 2) {
+			Soldier2Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber1]].ImageId);
+		} else {
+			button2right.interactable = false;
+		}
+		if (Data.UserSoldiers.Values.Count > 3) {
+			Soldier3Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber2]].ImageId);
+		} else {
+			button3right.interactable = false;
+		}
 
 		p1aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Aim.ToString ();
 		p1wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].WeaponSkill.ToString ();
@@ -142,13 +161,6 @@ public class ChangeSoldierScript : MonoBehaviour {
 		}
 	}
 
-	void PrintStats(SoldierStats stats){
-		Debug.Log ("Aim: ");
-		Debug.Log (stats.Aim);
-		Debug.Log ("Hp: ");
-		Debug.Log (stats.Hp);
-	}
-
 	int checkIfUsed(int upOrDown, int number){
 		Debug.Log ("S1, S2, S3, number");
 		Debug.Log (SpriteNumber);
@@ -201,9 +213,9 @@ public class ChangeSoldierScript : MonoBehaviour {
 		Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber1], Data.UserSoldiers[SoldiersList [SpriteNumber1]]);
 		Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber2], Data.UserSoldiers[SoldiersList [SpriteNumber2]]);
 
-		Data.EnemyFightingSoldiers.Add(4, Data.UserSoldiers[4]);
-		Data.EnemyFightingSoldiers.Add(5, Data.UserSoldiers[5]);
-		Data.EnemyFightingSoldiers.Add(6, Data.UserSoldiers[6]);
+		Data.EnemyFightingSoldiers.Add(0, Data.CompSoldiers[EnemySoldiersList[0]]);
+		Data.EnemyFightingSoldiers.Add(1, Data.CompSoldiers[EnemySoldiersList[1]]);
+		Data.EnemyFightingSoldiers.Add(2, Data.CompSoldiers[EnemySoldiersList[2]]);
 
 		SceneManager.LoadScene ("FightScene");
 	}

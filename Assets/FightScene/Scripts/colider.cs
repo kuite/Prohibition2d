@@ -14,7 +14,7 @@ public class colider : MonoBehaviour {
             Instantiate(blood, transform.position, transform.rotation);
 			Destroy(gameObject);
         }
-		if(collision.CompareTag("Obstacle"))
+		if (collision.gameObject.tag == "Obstacle")
         	Destroy(gameObject);
     }
     void Update () {

@@ -3372,6 +3372,9 @@ MonoBehaviour:
   Soldier1Image: {fileID: 1505932344}
   Soldier2Image: {fileID: 1517257680}
   Soldier3Image: {fileID: 531809470}
+  button1right: {fileID: 1860499623}
+  button2right: {fileID: 587660062}
+  button3right: {fileID: 301632586}
   SoldierSprite0: {fileID: 21300000, guid: 6798728c48d16d44b96cfad2963cf910, type: 3}
   SoldierSprite1: {fileID: 21300000, guid: 78bd41ff8a00d91479fac639e6af7822, type: 3}
   SoldierSprite2: {fileID: 21300000, guid: c1fd5bd41192c78488ab1021562eb271, type: 3}

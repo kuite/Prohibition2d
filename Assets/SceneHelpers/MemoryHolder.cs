@@ -43,9 +43,12 @@ namespace Assets.SceneHelpers
 			EnemyFightingSoldiers = new Dictionary<int, SoldierStats>();
 
             var soldiers = Context.Table<SoldierStats>().ToList();
+			var enemySoldiers = Context.Table<SoldierStats>().ToList();
 
             int soldId = 0;
             soldiers.ForEach(s => UserSoldiers.Add(soldId++, s));
+			soldId = 0;
+			enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
         }
     }
 }

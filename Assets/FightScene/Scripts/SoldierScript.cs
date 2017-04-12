@@ -58,13 +58,7 @@ public class SoldierScript : MonoBehaviour
 		Debug.Log (soldiersStats.Aim);
 	}
 
-	void OnDestroy(){
-		if (teamFriends == "teamA") {
-			Data.UserSoldiers.Remove (SoldierISettingsId);
-		}
-		else
-			Data.EnemyFightingSoldiers.Remove (SoldierISettingsId);
-		
+	void OnDestroy(){		
 		Debug.Log ("Dead");
 	}
 
@@ -100,8 +94,14 @@ public class SoldierScript : MonoBehaviour
 			} else {
 				BehaviourTwo ();
 			}
-			fpsCounter ();
 			if (soldiersStats.Hp <= 0) {
+				if (teamFriends == "teamA") {
+					Debug.Log ("teamA REmoved" + (SoldierISettingsId.ToString()));
+					Data.UserSoldiers.Remove (SoldierISettingsId);
+				} else {
+					Debug.Log ("teamB REmoved" + (SoldierISettingsId.ToString()));
+					Data.CompSoldiers.Remove (SoldierISettingsId);
+				}
 				alive = false;
 			}
 			SquareChoice ();

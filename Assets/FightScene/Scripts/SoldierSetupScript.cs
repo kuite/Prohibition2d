@@ -31,9 +31,9 @@ public class SoldierSetupScript : MonoBehaviour {
 				break;
 		}
 		iter = 0;
-		foreach (KeyValuePair<int, SoldierStats> entry in Data.EnemyFightingSoldiers) {
+		foreach (KeyValuePair<int, SoldierStats> obj in Data.EnemyFightingSoldiers) {
 			var soldat = (GameObject)Instantiate(soldierB, positionsTeamB[iter], soldierB.transform.rotation); 
-			soldat.SendMessage ("TheStartingInformations", entry.Key);	
+			soldat.SendMessage ("TheStartingInformations", obj.Key);	
 			iter++;
 			if (iter == positionsTeamB.Length)
 				break;
