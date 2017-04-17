@@ -67,19 +67,18 @@ public class ChangeSoldierScript : MonoBehaviour {
 		SpriteNumber1 = 1;
 		SpriteNumber2 = 2;
 
-		if (Data.UserSoldiers.Values.Count > 1) {
+		if (Data.UserSoldiers.Values.Count >= 1) {
 			Soldier1Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber]].ImageId);
-		} else {
-			button1right.interactable = false;
 		}
-		if (Data.UserSoldiers.Values.Count > 2) {
+		if (Data.UserSoldiers.Values.Count >= 2) {
 			Soldier2Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber1]].ImageId);
-		} else {
-			button2right.interactable = false;
-		}
-		if (Data.UserSoldiers.Values.Count > 3) {
+		} 
+		if (Data.UserSoldiers.Values.Count >= 3) {
 			Soldier3Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber2]].ImageId);
-		} else {
+		} 
+		if (Data.UserSoldiers.Values.Count < 4) {
+			button1right.interactable = false;
+			button2right.interactable = false;
 			button3right.interactable = false;
 		}
 
@@ -97,6 +96,10 @@ public class ChangeSoldierScript : MonoBehaviour {
 		p3wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].WeaponSkill.ToString ();
 		p3spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Speed.ToString ();
 		p3hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Hp.ToString ();
+
+		Debug.Log ("SoldiersCount");
+		Debug.Log (SoldiersList.Count);
+		Debug.Log (EnemySoldiersList.Count);
 	}
 	
 	// Update is called once per frame
@@ -209,14 +212,18 @@ public class ChangeSoldierScript : MonoBehaviour {
 	}
 
 	public void LetTheBodyHitTheFloor(){
-		Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber], Data.UserSoldiers[SoldiersList [SpriteNumber]]);
-		Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber1], Data.UserSoldiers[SoldiersList [SpriteNumber1]]);
-		Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber2], Data.UserSoldiers[SoldiersList [SpriteNumber2]]);
+		if(SoldiersList.Count > 1)
+			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber], Data.UserSoldiers[SoldiersList [SpriteNumber]]);
+		if(SoldiersList.Count > 2)
+			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber1], Data.UserSoldiers[SoldiersList [SpriteNumber1]]);
+		if(SoldiersList.Count > 3)
+			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber2], Data.UserSoldiers[SoldiersList [SpriteNumber2]]);	
 
-		Data.EnemyFightingSoldiers.Add(0, Data.CompSoldiers[EnemySoldiersList[0]]);
-		Data.EnemyFightingSoldiers.Add(1, Data.CompSoldiers[EnemySoldiersList[1]]);
-		Data.EnemyFightingSoldiers.Add(2, Data.CompSoldiers[EnemySoldiersList[2]]);
-
+		for (int i =  0; i < EnemySoldiersList.Count; i++) {
+			Data.EnemyFightingSoldiers.Add (EnemySoldiersList [i], Data.CompSoldiers [EnemySoldiersList [i]]);
+			if (i == 3)
+				break;
+		}
 		SceneManager.LoadScene ("FightScene");
 	}
 }
