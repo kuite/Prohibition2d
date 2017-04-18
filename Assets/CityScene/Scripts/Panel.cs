@@ -22,6 +22,9 @@ namespace Assets.CityScene.Scripts
 		public LocalBuisnessPanel LocalBuisnessPanel;
 		public CasinoPanel CasinoPanel;
 		public NightClubPanel NightClubPanel;
+        public EnemyDistrictPanel EnemyDistrictPanel;
+
+        public ISubPanel SelectedPanel;
 
         private List<MonoBehaviour> _panels;
 
@@ -29,7 +32,7 @@ namespace Assets.CityScene.Scripts
 
         public void UpdateDistrict(District district)
         {
-            WorkingDistrict = district;
+            SelectPanel(SelectedPanel as MonoBehaviour);
             foreach (var panel in _panels)
             {
                 var subPanel = panel as ISubPanel;
@@ -43,7 +46,11 @@ namespace Assets.CityScene.Scripts
             monoPanel.gameObject.SetActive(true);
 
             var panel = monoPanel as ISubPanel;
-            panel.UpdateDistrict(WorkingDistrict);
+            if (panel != null)
+            {
+                panel.UpdateDistrict(WorkingDistrict);
+                SelectedPanel = panel;
+            }
         }
 
         private void HideAllPanels()
@@ -61,7 +68,9 @@ namespace Assets.CityScene.Scripts
             _panels.Add(LocalBuisnessPanel);
             _panels.Add(CasinoPanel);
             _panels.Add(NightClubPanel);
+            _panels.Add(EnemyDistrictPanel);
 
+            HideAllPanels();
             //todo: For now in UI starting working district is hardcoded (with id = 1)
         }
 

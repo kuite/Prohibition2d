@@ -2,6 +2,7 @@
 using System.Linq;
 using Assets.CityScene.Scripts;
 using Assets.Model.Context;
+using Assets.Model.GameSettings;
 using Assets.Model.PlayableEntities;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ namespace Assets.SceneHelpers
     {
         private static MemoryHolder _instance;
 
-        public List<int> UserDistricts { get; set; }
+        public EnemyUser EnemyUser { get; set; }
+        public User User { get; set; }
+
         public List<int> CompDistricts { get; set; }
         public Dictionary<int, District> CaschedDistricts { get; set; }
         public Dictionary<int, SoldierStats> UserSoldiers { get; set; }
@@ -31,10 +34,9 @@ namespace Assets.SceneHelpers
 			return _instance;
 		}
 
-        public MemoryHolder()
+        private MemoryHolder()
         {
             Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
-            UserDistricts = new List<int>();
             CompDistricts = new List<int>();
             CaschedDistricts = new Dictionary<int, District>();
             UserSoldiers = new Dictionary<int, SoldierStats>();
@@ -49,6 +51,22 @@ namespace Assets.SceneHelpers
             soldiers.ForEach(s => UserSoldiers.Add(soldId++, s));
 			soldId = 0;
 			enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
+
+
+            CompDistricts.Add(1);
+//            User = new User
+//            {
+//                Districts = new List<int>(),
+//                Soldiers = new Dictionary<int, SoldierStats>(),
+//                FightingSoldiers = new Dictionary<int, SoldierStats>()
+//            };
+//
+//            EnemyUser = new EnemyUser
+//            {
+//                Districts = new List<int>(),
+//                Soldiers = new Dictionary<int, SoldierStats>(),
+//                FightingSoldiers = new Dictionary<int, SoldierStats>()
+//            };
         }
     }
 }
