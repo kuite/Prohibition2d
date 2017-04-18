@@ -21,6 +21,7 @@ namespace Assets.SceneHelpers
 		public Dictionary<int, SoldierStats> CompSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> UserFightingSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> EnemyFightingSoldiers { get; set; }
+		public Dictionary<int, SoldierStats> AvailableSoldiers { get; set; }
 
         public SqliteContext Context { get; private set; }
 
@@ -43,14 +44,14 @@ namespace Assets.SceneHelpers
             CompSoldiers = new Dictionary<int, SoldierStats>();
 			UserFightingSoldiers = new Dictionary<int, SoldierStats>();
 			EnemyFightingSoldiers = new Dictionary<int, SoldierStats>();
-
+			AvailableSoldiers = new Dictionary<int, SoldierStats>();
             var soldiers = Context.Table<SoldierStats>().ToList();
 			var enemySoldiers = Context.Table<SoldierStats>().ToList();
 
             int soldId = 0;
-            soldiers.ForEach(s => UserSoldiers.Add(soldId++, s));
-			soldId = 0;
-			enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
+			soldiers.ForEach(s => AvailableSoldiers.Add(soldId++, s));
+			//soldId = 0;
+			//enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
 
 
             CompDistricts.Add(1);
