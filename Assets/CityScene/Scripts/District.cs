@@ -1,4 +1,5 @@
-﻿using Assets.Model.Buildings;
+﻿using Assets.CityScene.Scripts.SubPanels;
+using Assets.Model.Buildings;
 using Assets.Model.Context;
 using Assets.SceneHelpers;
 using UnityEngine;
@@ -22,8 +23,21 @@ namespace Assets.CityScene.Scripts
 
         public void OnMouseDown()
         {
-            SetData();
-            Panel.UpdateDistrict(this);
+            if (MemoryHolder.GetInstance().CompDistricts.Contains(InstanceId))
+            {
+                Panel.UpdateDistrict(this);
+                Panel.SelectPanel(Panel.EnemyDistrictPanel);
+            }
+            else
+            {
+                SetData();
+                if (Panel.SelectedPanel is EnemyDistrictPanel ||
+                    Panel.SelectedPanel == null)
+                {
+                    Panel.SelectedPanel = Panel.PubPanel;
+                }
+                Panel.UpdateDistrict(this);
+            }
         }
 
         private void Start ()

@@ -6,7 +6,7 @@ using Assets.Model.Context;
 
 namespace Assets.Model.GameSettings
 {
-    public class User : Player
+    public class EnemyUser : Player
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
