@@ -212,6 +212,8 @@ public class ChangeSoldierScript : MonoBehaviour {
 	}
 
 	public void LetTheBodyHitTheFloor(){
+		if (SoldiersList.Count < 1)
+			return;
 		if(SoldiersList.Count > 1)
 			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber], Data.UserSoldiers[SoldiersList [SpriteNumber]]);
 		if(SoldiersList.Count > 2)
@@ -225,5 +227,9 @@ public class ChangeSoldierScript : MonoBehaviour {
 				break;
 		}
 		SceneManager.LoadScene ("FightScene");
+	}
+
+	public void GoBackToCityScene(){
+		SceneManager.LoadScene ("CityScene");
 	}
 }

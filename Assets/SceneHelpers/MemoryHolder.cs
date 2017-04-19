@@ -50,8 +50,8 @@ namespace Assets.SceneHelpers
 
             int soldId = 0;
 			soldiers.ForEach(s => AvailableSoldiers.Add(soldId++, s));
-			//soldId = 0;
-			//enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
+			soldId = 0;
+			enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
 
 
             CompDistricts.Add(1);

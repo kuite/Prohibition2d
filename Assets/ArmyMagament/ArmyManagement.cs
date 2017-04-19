@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.SceneHelpers;
+using UnityEngine.SceneManagement;
 
 public class ArmyManagement : MonoBehaviour {
 	public Sprite SoldierSprite0;
@@ -129,5 +130,9 @@ public class ArmyManagement : MonoBehaviour {
 			default:
 				return SoldierSprite0; 
 		}
+	}
+
+	public void ChagneLevel(){
+		SceneManager.LoadScene ("CityScene");
 	}
 }

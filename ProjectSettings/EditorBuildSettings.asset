@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/CityScene/CityScene.unity
   - enabled: 1
     path: Assets/FightScene/EndScene/EndfightScene.unity
+  - enabled: 1
+    path: Assets/ArmyMagament/ArmyMenagement.unity
