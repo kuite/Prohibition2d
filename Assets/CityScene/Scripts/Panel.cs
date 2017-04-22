@@ -32,7 +32,7 @@ namespace Assets.CityScene.Scripts
 
         public void UpdateDistrict(District district)
         {
-            SelectPanel(SelectedPanel as MonoBehaviour);
+            WorkingDistrict = district;
             foreach (var panel in _panels)
             {
                 var subPanel = panel as ISubPanel;
@@ -42,18 +42,17 @@ namespace Assets.CityScene.Scripts
 
         public void SelectPanel(MonoBehaviour monoPanel)
         {
-            HideAllPanels();
-            monoPanel.gameObject.SetActive(true);
-
             var panel = monoPanel as ISubPanel;
             if (panel != null)
             {
                 panel.UpdateDistrict(WorkingDistrict);
                 SelectedPanel = panel;
             }
+            HideAllPanels();
+            monoPanel.gameObject.SetActive(true);
         }
 
-        private void HideAllPanels()
+        public void HideAllPanels()
         {
             _panels.ForEach(p => p.gameObject.SetActive(false));
         }

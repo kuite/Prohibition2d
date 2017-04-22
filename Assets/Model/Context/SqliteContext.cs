@@ -45,6 +45,12 @@ namespace Assets.Model.Context
             _connection.DropTable<DistrictData>();
             _connection.CreateTable<DistrictData>();
 
+            _connection.DropTable<EnemyDistrict>();
+            _connection.CreateTable<EnemyDistrict>();
+
+            _connection.DropTable<UserDistrict>();
+            _connection.CreateTable<UserDistrict>();
+
             _connection.InsertOrReplace(new User { Name = "TestUser" });
 
             #region SoldierStats
@@ -299,6 +305,31 @@ namespace Assets.Model.Context
                 new LocalBussines
                 {
                     Tribute = 0.25
+                }
+            });
+            #endregion
+
+            #region DistrictAssignment
+            _connection.InsertAll(new List<EnemyDistrict>
+            {
+                new EnemyDistrict
+                {
+                    DistrictId = 1
+                },
+                new EnemyDistrict
+                {
+                    DistrictId = 2
+                }
+            });
+            _connection.InsertAll(new List<UserDistrict>
+            {
+                new UserDistrict
+                {
+                    DistrictId = 3
+                },
+                new UserDistrict
+                {
+                    DistrictId = 4
                 }
             });
             #endregion
