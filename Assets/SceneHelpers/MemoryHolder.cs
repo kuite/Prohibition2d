@@ -16,7 +16,10 @@ namespace Assets.SceneHelpers
         public User User { get; set; }
 
         public List<int> CompDistricts { get; set; }
+        public List<int> UserDistricts { get; set; }
+
         public Dictionary<int, District> CaschedDistricts { get; set; }
+
         public Dictionary<int, SoldierStats> UserSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> CompSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> UserFightingSoldiers { get; set; }
@@ -39,6 +42,8 @@ namespace Assets.SceneHelpers
         {
             Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             CompDistricts = new List<int>();
+            UserDistricts = new List<int>();
+
             CaschedDistricts = new Dictionary<int, District>();
             UserSoldiers = new Dictionary<int, SoldierStats>();
             CompSoldiers = new Dictionary<int, SoldierStats>();
@@ -53,21 +58,17 @@ namespace Assets.SceneHelpers
 			soldId = 0;
 			enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
 
+            var enemyDistricts = Context.Table<EnemyDistrict>().ToList();
+            var userDistricts = Context.Table<UserDistrict>().ToList();
 
-            CompDistricts.Add(1);
-//            User = new User
-//            {
-//                Districts = new List<int>(),
-//                Soldiers = new Dictionary<int, SoldierStats>(),
-//                FightingSoldiers = new Dictionary<int, SoldierStats>()
-//            };
-//
-//            EnemyUser = new EnemyUser
-//            {
-//                Districts = new List<int>(),
-//                Soldiers = new Dictionary<int, SoldierStats>(),
-//                FightingSoldiers = new Dictionary<int, SoldierStats>()
-//            };
+            foreach (EnemyDistrict district in enemyDistricts)
+            {
+                CompDistricts.Add(district.DistrictId);
+            }
+            foreach (UserDistrict district in userDistricts)
+            {
+                UserDistricts.Add(district.DistrictId);
+            }
         }
     }
 }

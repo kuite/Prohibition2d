@@ -28,13 +28,13 @@ namespace Assets.CityScene.Scripts
                 Panel.UpdateDistrict(this);
                 Panel.SelectPanel(Panel.EnemyDistrictPanel);
             }
-            else
+            if (MemoryHolder.GetInstance().UserDistricts.Contains(InstanceId))
             {
                 SetData();
                 if (Panel.SelectedPanel is EnemyDistrictPanel ||
                     Panel.SelectedPanel == null)
                 {
-                    Panel.SelectedPanel = Panel.PubPanel;
+                    Panel.SelectPanel(Panel.PubPanel);
                 }
                 Panel.UpdateDistrict(this);
             }
@@ -42,7 +42,16 @@ namespace Assets.CityScene.Scripts
 
         private void Start ()
         {
-            SetData();
+            _context = MemoryHolder.GetInstance().Context;
+            _data = _context.GetById<DistrictData>(SettingsId);
+
+            Casino = _context.GetById<Casino>(_data.CasinoId);
+            Pub = _context.GetById<Pub>(_data.PubId);
+            NightClub = _context.GetById<NightClub>(_data.NightClubId);
+            LocalBussines = _context.GetById<LocalBussines>(_data.LocalBusinessId);
+            Distillery = _context.GetById<Distillery>(_data.DistilleryId);
+
+            MemoryHolder.GetInstance().CaschedDistricts.Add(InstanceId, this);
         }
 
         private void Update () {
@@ -63,20 +72,6 @@ namespace Assets.CityScene.Scripts
                     Distillery = caschedDist.Distillery;
                 }
             }
-            else
-            {
-				_context = MemoryHolder.GetInstance().Context;
-                _data = _context.GetById<DistrictData>(SettingsId);
-
-                Casino = _context.GetById<Casino>(_data.CasinoId);
-                Pub = _context.GetById<Pub>(_data.PubId);
-                NightClub = _context.GetById<NightClub>(_data.NightClubId);
-                LocalBussines = _context.GetById<LocalBussines>(_data.LocalBusinessId);
-                Distillery = _context.GetById<Distillery>(_data.DistilleryId);
-
-				MemoryHolder.GetInstance().CaschedDistricts.Add(InstanceId, this);
-            }
-
         }
     }
 }
