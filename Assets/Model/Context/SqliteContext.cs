@@ -138,7 +138,7 @@ namespace Assets.Model.Context
 						Aim = 3,
 						WeaponSkill = 4,
 						Level = 3,
-						ImageId = 3
+						ImageId = 5
 					},
 				});
             #endregion

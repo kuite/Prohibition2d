@@ -53,7 +53,6 @@ namespace Assets.SceneHelpers
 			soldId = 0;
 			enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
 
-
             CompDistricts.Add(1);
 //            User = new User
 //            {
