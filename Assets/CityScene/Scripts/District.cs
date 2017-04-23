@@ -19,14 +19,13 @@ namespace Assets.CityScene.Scripts
 		public GameObject canvas;
         public Panel Panel;
 
+		public SpriteRenderer renderer;
 
         private DistrictData _data;
         private SqliteContext _context;
 
         public void OnMouseDown()
         {
-			canvas = GameObject.Find ("Panel");
-			Panel = canvas.GetComponent<Panel> ();
             if (MemoryHolder.GetInstance().CompDistricts.Contains(InstanceId))
             {
                 Panel.UpdateDistrict(this);
@@ -45,7 +44,15 @@ namespace Assets.CityScene.Scripts
         }
 
         private void Start ()
-        {
+		{ 
+			if (MemoryHolder.GetInstance ().CompDistricts.Contains (InstanceId)) {
+				renderer.color = Color.red;
+			} else if (MemoryHolder.GetInstance ().UserDistricts.Contains (InstanceId)) {
+				renderer.color = Color.white;
+			}
+			Debug.Log ("start");
+			canvas = GameObject.Find ("Panel");
+			Panel = canvas.GetComponent<Panel> ();
 			if (!MemoryHolder.GetInstance ().CaschedDistricts.ContainsKey (InstanceId)) {
 				_context = MemoryHolder.GetInstance ().Context;
 				_data = _context.GetById<DistrictData> (SettingsId);
@@ -78,5 +85,9 @@ namespace Assets.CityScene.Scripts
                 }
             }
         }
+
+		public void SetIdOnCreation(int id){
+			InstanceId = id;
+		}
     }
 }

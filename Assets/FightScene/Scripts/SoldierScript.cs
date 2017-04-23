@@ -55,7 +55,8 @@ public class SoldierScript : MonoBehaviour
 		else
 			soldiersStats = Data.EnemyFightingSoldiers [SoldierISettingsId];
 
-		Debug.Log (soldiersStats.Aim);
+		SpriteRenderer renderer = GetComponent<SpriteRenderer> ();
+		renderer.color = Color.red;
 	}
 
 	void OnDestroy(){		

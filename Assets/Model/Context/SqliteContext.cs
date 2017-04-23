@@ -319,7 +319,15 @@ namespace Assets.Model.Context
                 new EnemyDistrict
                 {
                     DistrictId = 2
-                }
+                },
+				new EnemyDistrict
+				{
+					DistrictId = 5
+				},
+				new EnemyDistrict
+				{
+					DistrictId = 6
+				}
             });
             _connection.InsertAll(new List<UserDistrict>
             {
@@ -330,7 +338,15 @@ namespace Assets.Model.Context
                 new UserDistrict
                 {
                     DistrictId = 4
-                }
+                },
+				new UserDistrict
+				{
+					DistrictId = 7
+				},
+				new UserDistrict
+				{
+					DistrictId = 8
+				}
             });
             #endregion
 
