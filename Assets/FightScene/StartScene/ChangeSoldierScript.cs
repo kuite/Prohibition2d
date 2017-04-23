@@ -214,11 +214,11 @@ public class ChangeSoldierScript : MonoBehaviour {
 	public void LetTheBodyHitTheFloor(){
 		if (SoldiersList.Count < 1)
 			return;
-		if(SoldiersList.Count > 1)
+		if(SoldiersList.Count >= 1)
 			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber], Data.UserSoldiers[SoldiersList [SpriteNumber]]);
-		if(SoldiersList.Count > 2)
+		if(SoldiersList.Count >= 2)
 			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber1], Data.UserSoldiers[SoldiersList [SpriteNumber1]]);
-		if(SoldiersList.Count > 3)
+		if(SoldiersList.Count >= 3)
 			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber2], Data.UserSoldiers[SoldiersList [SpriteNumber2]]);	
 
 		for (int i =  0; i < EnemySoldiersList.Count; i++) {

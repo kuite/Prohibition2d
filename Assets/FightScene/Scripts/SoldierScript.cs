@@ -85,7 +85,7 @@ public class SoldierScript : MonoBehaviour
 		//if (enemy != null && teamEnemy=="teamA")
 		//	Debug.Log ("enemy Alive");
 		if ((enemies.Length == 0)) {
-			EndGamebehaviour ();
+			EndGamebehaviour (teamFriends);
 		}
 		else if (alive) {
 			enemies = GameObject.FindGameObjectsWithTag (teamEnemy);
@@ -106,7 +106,6 @@ public class SoldierScript : MonoBehaviour
 			}
 			SquareChoice ();
 		} else {
-			//	EndGamebehaviour ();
 			Destroy (gameObject);
 		}
 	}
@@ -292,8 +291,21 @@ public class SoldierScript : MonoBehaviour
 
 	}
 
-	void EndGamebehaviour(){
-		Debug.Log ("End of the figth");
+	void EndGamebehaviour(string winner){
+		Debug.Log ("End of the figth in favor of " + winner);
+		Debug.Log (Data.UserDistricts.Contains (Data.AttackedDistrict));
+		Debug.Log (Data.CompDistricts.Contains (Data.AttackedDistrict));
+		Debug.Log (winner == "teamA");
+		/*if (winner == "teamA" && !Data.UserDistricts.Contains (Data.AttackedDistrict)) {
+			Debug.Log ("adding disctrict");
+			Data.UserDistricts.Add (Data.AttackedDistrict);
+			Data.CompDistricts.Remove (Data.AttackedDistrict);
+		}
+		else if (!Data.CompDistricts.Contains (Data.AttackedDistrict)) {
+			Data.CompDistricts.Add (Data.AttackedDistrict);
+			Data.UserDistricts.Remove (Data.AttackedDistrict);
+		}*/
+		Data.Winner = winner;
 		SceneManager.LoadScene ("EndfightScene");
 	}
 

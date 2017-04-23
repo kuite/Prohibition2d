@@ -17,6 +17,8 @@ namespace Assets.SceneHelpers
 
         public List<int> CompDistricts { get; set; }
         public List<int> UserDistricts { get; set; }
+		public int AttackedDistrict;
+		public string Winner;
 
         public Dictionary<int, District> CaschedDistricts { get; set; }
 
@@ -25,6 +27,7 @@ namespace Assets.SceneHelpers
 		public Dictionary<int, SoldierStats> UserFightingSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> EnemyFightingSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> AvailableSoldiers { get; set; }
+		public List<int> Map { get; set; }
 
         public SqliteContext Context { get; private set; }
 
@@ -69,6 +72,13 @@ namespace Assets.SceneHelpers
             {
                 UserDistricts.Add(district.DistrictId);
             }
+
+			//WIP Map
+			/*for(int i = 0 ; i < 4; i++){
+				for (int j = 0; j < 4; j++) {
+					Map.Add (i * 4 + j);
+				}
+			}*/
         }
     }
 }

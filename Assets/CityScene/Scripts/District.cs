@@ -16,13 +16,17 @@ namespace Assets.CityScene.Scripts
 
         public int InstanceId;
         public int SettingsId;
+		public GameObject canvas;
         public Panel Panel;
+
 
         private DistrictData _data;
         private SqliteContext _context;
 
         public void OnMouseDown()
         {
+			canvas = GameObject.Find ("Panel");
+			Panel = canvas.GetComponent<Panel> ();
             if (MemoryHolder.GetInstance().CompDistricts.Contains(InstanceId))
             {
                 Panel.UpdateDistrict(this);
@@ -42,16 +46,17 @@ namespace Assets.CityScene.Scripts
 
         private void Start ()
         {
-            _context = MemoryHolder.GetInstance().Context;
-            _data = _context.GetById<DistrictData>(SettingsId);
+			if (!MemoryHolder.GetInstance ().CaschedDistricts.ContainsKey (InstanceId)) {
+				_context = MemoryHolder.GetInstance ().Context;
+				_data = _context.GetById<DistrictData> (SettingsId);
 
-            Casino = _context.GetById<Casino>(_data.CasinoId);
-            Pub = _context.GetById<Pub>(_data.PubId);
-            NightClub = _context.GetById<NightClub>(_data.NightClubId);
-            LocalBussines = _context.GetById<LocalBussines>(_data.LocalBusinessId);
-            Distillery = _context.GetById<Distillery>(_data.DistilleryId);
-
-            MemoryHolder.GetInstance().CaschedDistricts.Add(InstanceId, this);
+				Casino = _context.GetById<Casino> (_data.CasinoId);
+				Pub = _context.GetById<Pub> (_data.PubId);
+				NightClub = _context.GetById<NightClub> (_data.NightClubId);
+				LocalBussines = _context.GetById<LocalBussines> (_data.LocalBusinessId);
+				Distillery = _context.GetById<Distillery> (_data.DistilleryId);
+				MemoryHolder.GetInstance ().CaschedDistricts.Add (InstanceId, this);
+			}
         }
 
         private void Update () {
