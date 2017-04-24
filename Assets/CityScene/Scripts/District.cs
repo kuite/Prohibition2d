@@ -19,6 +19,7 @@ namespace Assets.CityScene.Scripts
         public int SettingsId;
 		public GameObject canvas;
         public Panel Panel;
+		public Vector2 position;
 
 		public SpriteRenderer renderer;
 
@@ -90,6 +91,9 @@ namespace Assets.CityScene.Scripts
 
 		public void SetIdOnCreation(int id){
 			InstanceId = id;
+		}
+		public void SetPosOnCreation(Vector2 pos){
+			position = pos;
 		}
     }
 }

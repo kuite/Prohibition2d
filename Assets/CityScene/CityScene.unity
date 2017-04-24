@@ -5180,14 +5180,16 @@ MonoBehaviour:
   districtPrefab: {fileID: 1787352197857800, guid: 5a0aa40f3fd501746b48893324e144f1,
     type: 2}
   positions:
+  - {x: -6.2, y: -6}
+  - {x: 0, y: -6}
+  - {x: 6.2, y: -6}
+  - {x: -6.2, y: 0}
   - {x: 0, y: 0}
   - {x: 6.2, y: 0}
-  - {x: -6.2, y: 0}
-  - {x: 0, y: 6}
-  - {x: 0, y: -6}
-  - {x: 6.2, y: 6}
   - {x: -6.2, y: 6}
-  - {x: 6.2, y: -6}
+  - {x: 0, y: 6}
+  - {x: 6.2, y: 6}
+  dimentions: 0300000003000000
 --- !u!4 &1021571006
 Transform:
   m_ObjectHideFlags: 0

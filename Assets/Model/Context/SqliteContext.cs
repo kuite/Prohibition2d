@@ -317,11 +317,7 @@ namespace Assets.Model.Context
             {
                 new EnemyDistrict
                 {
-                    DistrictId = 1
-                },
-                new EnemyDistrict
-                {
-                    DistrictId = 2
+                    DistrictId = 9
                 },
             });
 			
@@ -329,11 +325,7 @@ namespace Assets.Model.Context
             {
                 new UserDistrict
                 {
-                    DistrictId = 3
-                },
-                new UserDistrict
-                {
-                    DistrictId = 4
+                    DistrictId = 1
                 },
             });
 
@@ -374,10 +366,6 @@ namespace Assets.Model.Context
 					new AllDistricts
 					{
 						DistrictId = 9
-					},
-					new AllDistricts
-					{
-						DistrictId = 10
 					},
 				});
             #endregion
