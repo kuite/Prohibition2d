@@ -99,7 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InstanceId: 1
   SettingsId: 1
+  canvas: {fileID: 0}
   Panel: {fileID: 0}
+  renderer: {fileID: 212727894948836706}
 --- !u!212 &212509672742949050
 SpriteRenderer:
   m_ObjectHideFlags: 1

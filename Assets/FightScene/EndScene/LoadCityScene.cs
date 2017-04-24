@@ -11,9 +11,11 @@ public class LoadCityScene : MonoBehaviour {
 		Data = MemoryHolder.GetInstance ();
 		if (Data.Winner == "teamA" && !Data.UserDistricts.Contains (Data.AttackedDistrict)) {
 			Data.UserDistricts.Add (Data.AttackedDistrict);
+			Data.CompDistricts.Remove(Data.AttackedDistrict);
 		}
 		else if(!Data.CompDistricts.Contains(Data.AttackedDistrict))
 			Data.CompDistricts.Add(Data.AttackedDistrict);
+			Data.UserDistricts.Remove(Data.AttackedDistrict);
 	}
 	
 	// Update is called once per frame
