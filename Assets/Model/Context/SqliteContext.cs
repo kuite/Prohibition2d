@@ -51,6 +51,9 @@ namespace Assets.Model.Context
             _connection.DropTable<UserDistrict>();
             _connection.CreateTable<UserDistrict>();
 
+			_connection.DropTable<AllDistricts>();
+			_connection.CreateTable<AllDistricts>();
+
             _connection.InsertOrReplace(new User { Name = "TestUser" });
 
             #region SoldierStats
@@ -320,15 +323,8 @@ namespace Assets.Model.Context
                 {
                     DistrictId = 2
                 },
-				new EnemyDistrict
-				{
-					DistrictId = 5
-				},
-				new EnemyDistrict
-				{
-					DistrictId = 6
-				}
             });
+			
             _connection.InsertAll(new List<UserDistrict>
             {
                 new UserDistrict
@@ -339,15 +335,51 @@ namespace Assets.Model.Context
                 {
                     DistrictId = 4
                 },
-				new UserDistrict
-				{
-					DistrictId = 7
-				},
-				new UserDistrict
-				{
-					DistrictId = 8
-				}
             });
+
+			_connection.InsertAll(new List<AllDistricts>
+				{
+					new AllDistricts
+					{
+						DistrictId = 1
+					},
+					new AllDistricts
+					{
+						DistrictId = 2
+					},
+					new AllDistricts
+					{
+						DistrictId = 3
+					},
+					new AllDistricts
+					{
+						DistrictId = 4
+					},
+					new AllDistricts
+					{
+						DistrictId = 5
+					},
+					new AllDistricts
+					{
+						DistrictId = 6
+					},
+					new AllDistricts
+					{
+						DistrictId = 7
+					},
+					new AllDistricts
+					{
+						DistrictId = 8
+					},
+					new AllDistricts
+					{
+						DistrictId = 9
+					},
+					new AllDistricts
+					{
+						DistrictId = 10
+					},
+				});
             #endregion
 
         }

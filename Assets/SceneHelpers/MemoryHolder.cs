@@ -17,10 +17,10 @@ namespace Assets.SceneHelpers
 
         public List<int> CompDistricts { get; set; }
         public List<int> UserDistricts { get; set; }
+		public Dictionary<int, District> CaschedDistricts { get; set; }
+		public List<int> NoOnesDisctricts { get; set; }
 		public int AttackedDistrict;
 		public string Winner;
-
-        public Dictionary<int, District> CaschedDistricts { get; set; }
 
         public Dictionary<int, SoldierStats> UserSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> CompSoldiers { get; set; }
@@ -46,8 +46,9 @@ namespace Assets.SceneHelpers
             Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             CompDistricts = new List<int>();
             UserDistricts = new List<int>();
+			NoOnesDisctricts = new List<int>();
 
-            CaschedDistricts = new Dictionary<int, District>();
+			CaschedDistricts = new Dictionary<int, District>();
             UserSoldiers = new Dictionary<int, SoldierStats>();
             CompSoldiers = new Dictionary<int, SoldierStats>();
 			UserFightingSoldiers = new Dictionary<int, SoldierStats>();

@@ -3,6 +3,7 @@ using Assets.Model.Buildings;
 using Assets.Model.Context;
 using Assets.SceneHelpers;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.CityScene.Scripts
 {
@@ -26,21 +27,20 @@ namespace Assets.CityScene.Scripts
 
         public void OnMouseDown()
         {
-            if (MemoryHolder.GetInstance().CompDistricts.Contains(InstanceId))
-            {
-                Panel.UpdateDistrict(this);
-                Panel.SelectPanel(Panel.EnemyDistrictPanel);
-            }
-            if (MemoryHolder.GetInstance().UserDistricts.Contains(InstanceId))
-            {
-                SetData();
-                if (Panel.SelectedPanel is EnemyDistrictPanel ||
-                    Panel.SelectedPanel == null)
-                {
-                    Panel.SelectPanel(Panel.PubPanel);
-                }
-                Panel.UpdateDistrict(this);
-            }
+			if (!EventSystem.current.IsPointerOverGameObject ()) {
+				if (!MemoryHolder.GetInstance ().UserDistricts.Contains (InstanceId)) {
+					Panel.UpdateDistrict (this);
+					Panel.SelectPanel (Panel.EnemyDistrictPanel);
+				}
+				if (MemoryHolder.GetInstance ().UserDistricts.Contains (InstanceId)) {
+					SetData ();
+					if (Panel.SelectedPanel is EnemyDistrictPanel ||
+					               Panel.SelectedPanel == null) {
+						Panel.SelectPanel (Panel.PubPanel);
+					}
+					Panel.UpdateDistrict (this);
+				}
+			}
         }
 
         private void Start ()
@@ -48,7 +48,9 @@ namespace Assets.CityScene.Scripts
 			if (MemoryHolder.GetInstance ().CompDistricts.Contains (InstanceId)) {
 				renderer.color = Color.red;
 			} else if (MemoryHolder.GetInstance ().UserDistricts.Contains (InstanceId)) {
-				renderer.color = Color.white;
+				renderer.color = Color.green;
+			} else {
+				renderer.color = Color.grey;
 			}
 			Debug.Log ("start");
 			canvas = GameObject.Find ("Panel");
