@@ -15,7 +15,7 @@ public class LoadCityScene : MonoBehaviour {
 			Data.UserDistricts.Add (Data.AttackedDistrict);
 			Data.CompDistricts.Remove (Data.AttackedDistrict);
 			Debug.Log ("User has the Dist");
-		} else if (Data.Winner == "teamB" && !Data.CompDistricts.Contains (Data.AttackedDistrict)) {
+		} else if (Data.Winner == "teamB" && !Data.CompDistricts.Contains (Data.AttackedDistrict) && Data.UserDistricts.Contains(Data.AttackedDistrict)) {
 			Data.CompDistricts.Add (Data.AttackedDistrict);
 			Data.UserDistricts.Remove (Data.AttackedDistrict);
 			Debug.Log ("Comp has the Dist");
@@ -27,6 +27,5 @@ public class LoadCityScene : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			SceneManager.LoadScene ("CityScene");
 		}
-
 	}
 }

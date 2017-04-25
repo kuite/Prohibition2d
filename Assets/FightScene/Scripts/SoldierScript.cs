@@ -72,7 +72,8 @@ public class SoldierScript : MonoBehaviour
 
 	void Fire(Vector2 enemyPos)
 	{
-		enemyPos += new Vector2(Random.Range (-0.5f, 0.5f), Random.Range (-0.5f, 0.5f));
+		float recoil = 0.2f + (rigi.velocity.magnitude / soldiersStats.Aim);
+		enemyPos += new Vector2(Random.Range (-recoil, recoil), Random.Range (-recoil, recoil));
 		if (Time.time - reloaded > 0.5f)
 		{
 			float bulletSpeed = 8.0f;
