@@ -26,6 +26,8 @@ namespace Assets.SceneHelpers
 		public Dictionary<int, SoldierStats> CompSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> UserFightingSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> EnemyFightingSoldiers { get; set; }
+		public Dictionary<int, SoldierStats> NeutralSoldiers { get; set; }
+		public Dictionary<int, SoldierStats> NeutralFightingSoldiers { get; set; }
 		public Dictionary<int, SoldierStats> AvailableSoldiers { get; set; }
 		public List<int> Map { get; set; }
 
@@ -58,14 +60,19 @@ namespace Assets.SceneHelpers
             CompSoldiers = new Dictionary<int, SoldierStats>();
 			UserFightingSoldiers = new Dictionary<int, SoldierStats>();
 			EnemyFightingSoldiers = new Dictionary<int, SoldierStats>();
+			NeutralFightingSoldiers = new Dictionary<int, SoldierStats>();
+			NeutralSoldiers = new Dictionary<int, SoldierStats>();
 			AvailableSoldiers = new Dictionary<int, SoldierStats>();
             var soldiers = Context.Table<SoldierStats>().ToList();
 			var enemySoldiers = Context.Table<SoldierStats>().ToList();
+			var neutralSoldiers = Context.Table<SoldierStats>().ToList();
 
             int soldId = 0;
 			soldiers.ForEach(s => AvailableSoldiers.Add(soldId++, s));
 			soldId = 0;
 			enemySoldiers.ForEach(s => CompSoldiers.Add(soldId++, s));
+			soldId = 0;
+			neutralSoldiers.ForEach(s => NeutralSoldiers.Add(soldId++, s));
 
             var enemyDistricts = Context.Table<EnemyDistrict>().ToList();
             var userDistricts = Context.Table<UserDistrict>().ToList();

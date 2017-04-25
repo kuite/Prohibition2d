@@ -50,10 +50,15 @@ public class SoldierScript : MonoBehaviour
 		destinationVector = transform.position;
 		choosen = false;
 
-		if(teamFriends == "teamA")
+		if (teamFriends == "teamA")
 			soldiersStats = Data.UserFightingSoldiers [SoldierISettingsId];
-		else
-			soldiersStats = Data.EnemyFightingSoldiers [SoldierISettingsId];
+		else {
+			if (Data.CompDistricts.Contains (Data.AttackedDistrict)) {
+				soldiersStats = Data.EnemyFightingSoldiers [SoldierISettingsId];
+			} else {
+				soldiersStats = Data.NeutralFightingSoldiers [SoldierISettingsId];
+			}
+		}
 	}
 
 	void OnDestroy(){		
@@ -80,8 +85,6 @@ public class SoldierScript : MonoBehaviour
 	}
 	// Update is called once per frame
 	void Update () {
-		//if (enemy != null && teamEnemy=="teamA")
-		//	Debug.Log ("enemy Alive");
 		if ((enemies.Length == 0)) {
 			EndGamebehaviour (teamFriends);
 		}
@@ -98,7 +101,11 @@ public class SoldierScript : MonoBehaviour
 					Data.UserSoldiers.Remove (SoldierISettingsId);
 				} else {
 					Debug.Log ("teamB REmoved" + (SoldierISettingsId.ToString()));
-					Data.CompSoldiers.Remove (SoldierISettingsId);
+					if (Data.CompDistricts.Contains (Data.AttackedDistrict)) {
+						Data.CompSoldiers.Remove (SoldierISettingsId);
+					} else {
+						Data.NeutralSoldiers.Remove (SoldierISettingsId);
+					}
 				}
 				alive = false;
 			}

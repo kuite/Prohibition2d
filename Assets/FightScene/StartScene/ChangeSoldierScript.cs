@@ -35,6 +35,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 
 	List <int> SoldiersList;
 	List <int> EnemySoldiersList;
+	List <int> NeutralSoldiersList;
 
 	int choice;
 
@@ -59,9 +60,11 @@ public class ChangeSoldierScript : MonoBehaviour {
 		Data = MemoryHolder.GetInstance ();
 		Data.UserFightingSoldiers.Clear ();
 		Data.EnemyFightingSoldiers.Clear ();
+		Data.NeutralFightingSoldiers.Clear ();
 
 		SoldiersList = new List <int> (Data.UserSoldiers.Keys);
 		EnemySoldiersList = new List <int> (Data.CompSoldiers.Keys);
+		NeutralSoldiersList = new List <int> (Data.NeutralSoldiers.Keys);
 
 		SpriteNumber = 0;
 		SpriteNumber1 = 1;
@@ -97,6 +100,7 @@ public class ChangeSoldierScript : MonoBehaviour {
 		Debug.Log ("SoldiersCount");
 		Debug.Log (SoldiersList.Count);
 		Debug.Log (EnemySoldiersList.Count);
+		Debug.Log (NeutralSoldiersList.Count);
 	}
 	
 	// Update is called once per frame
@@ -218,10 +222,18 @@ public class ChangeSoldierScript : MonoBehaviour {
 		if(SoldiersList.Count >= 3)
 			Data.UserFightingSoldiers.Add (SoldiersList [SpriteNumber2], Data.UserSoldiers[SoldiersList [SpriteNumber2]]);	
 
-		for (int i =  0; i < EnemySoldiersList.Count; i++) {
-			Data.EnemyFightingSoldiers.Add (EnemySoldiersList [i], Data.CompSoldiers [EnemySoldiersList [i]]);
-			if (i == 3)
-				break;
+		if (Data.CompDistricts.Contains (Data.AttackedDistrict)) {
+			for (int i = 0; i < EnemySoldiersList.Count; i++) {
+				Data.EnemyFightingSoldiers.Add (EnemySoldiersList [i], Data.CompSoldiers [EnemySoldiersList [i]]);
+				if (i == 3)
+					break;
+			}
+		} else {
+			for (int i = 0; i < NeutralSoldiersList.Count; i++) {
+				Data.NeutralFightingSoldiers.Add (NeutralSoldiersList [i], Data.NeutralSoldiers [NeutralSoldiersList [i]]);
+				if (i == 3)
+					break;
+			}
 		}
 		SceneManager.LoadScene ("FightScene");
 	}

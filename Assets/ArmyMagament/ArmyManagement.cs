@@ -39,7 +39,7 @@ public class ArmyManagement : MonoBehaviour {
 			SoldierImageRec.sprite = DefaultSprite;
 
 		if(SoldiersMgmtList.Count > 0)
-			SoldierImageMag.sprite = SetSprite (Data.AvailableSoldiers[SoldiersMgmtList[currentManaged]].ImageId);
+			SoldierImageMag.sprite = SetSprite (Data.UserSoldiers[SoldiersMgmtList[currentManaged]].ImageId);
 		else
 			SoldierImageMag.sprite = DefaultSprite;
 		//SoldierImageMag = 

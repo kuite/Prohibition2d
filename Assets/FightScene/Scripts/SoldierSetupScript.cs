@@ -24,19 +24,30 @@ public class SoldierSetupScript : MonoBehaviour {
 		Data = MemoryHolder.GetInstance ();
 		int iter = 0;
 		foreach (KeyValuePair<int, SoldierStats> entry in Data.UserFightingSoldiers) {
-			var soldat = (GameObject)Instantiate(soldierA, positionsTeamA[iter], soldierA.transform.rotation); 
+			var soldat = (GameObject)Instantiate (soldierA, positionsTeamA [iter], soldierA.transform.rotation); 
 			soldat.SendMessage ("TheStartingInformations", entry.Key);	
 			iter++;
 			if (iter == positionsTeamA.Length)
 				break;
 		}
+
 		iter = 0;
-		foreach (KeyValuePair<int, SoldierStats> obj in Data.EnemyFightingSoldiers) {
-			var soldat = (GameObject)Instantiate(soldierB, positionsTeamB[iter], soldierB.transform.rotation); 
-			soldat.SendMessage ("TheStartingInformations", obj.Key);	
-			iter++;
-			if (iter == positionsTeamB.Length)
-				break;
+		if (Data.CompDistricts.Contains (Data.AttackedDistrict)) {
+			foreach (KeyValuePair<int, SoldierStats> obj in Data.EnemyFightingSoldiers) {
+				var soldat = (GameObject)Instantiate (soldierB, positionsTeamB [iter], soldierB.transform.rotation); 
+				soldat.SendMessage ("TheStartingInformations", obj.Key);	
+				iter++;
+				if (iter == positionsTeamB.Length)
+					break;
+			}
+		} else {
+			foreach (KeyValuePair<int, SoldierStats> obj in Data.NeutralFightingSoldiers) {
+				var soldat = (GameObject)Instantiate (soldierB, positionsTeamB [iter], soldierB.transform.rotation); 
+				soldat.SendMessage ("TheStartingInformations", obj.Key);	
+				iter++;
+				if (iter == positionsTeamB.Length)
+					break;
+			}
 		}
 	}
 	
