@@ -69,33 +69,30 @@ public class ChangeSoldierScript : MonoBehaviour {
 
 		if (Data.UserSoldiers.Values.Count >= 1) {
 			Soldier1Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber]].ImageId);
+			p1aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Aim.ToString ();
+			p1wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].WeaponSkill.ToString ();
+			p1spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Speed.ToString ();
+			p1hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Hp.ToString ();
 		}
 		if (Data.UserSoldiers.Values.Count >= 2) {
 			Soldier2Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber1]].ImageId);
+			p2aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Aim.ToString ();
+			p2wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].WeaponSkill.ToString ();
+			p2spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Speed.ToString ();
+			p2hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Hp.ToString ();
 		} 
 		if (Data.UserSoldiers.Values.Count >= 3) {
 			Soldier3Image.sprite = SetSprite (Data.UserSoldiers [SoldiersList [SpriteNumber2]].ImageId);
+			p3aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Aim.ToString ();
+			p3wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].WeaponSkill.ToString ();
+			p3spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Speed.ToString ();
+			p3hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Hp.ToString ();
 		} 
 		if (Data.UserSoldiers.Values.Count < 4) {
 			button1right.interactable = false;
 			button2right.interactable = false;
 			button3right.interactable = false;
 		}
-
-		p1aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Aim.ToString ();
-		p1wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].WeaponSkill.ToString ();
-		p1spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Speed.ToString ();
-		p1hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber]].Hp.ToString ();
-
-		p2aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Aim.ToString ();
-		p2wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].WeaponSkill.ToString ();
-		p2spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Speed.ToString ();
-		p2hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber1]].Hp.ToString ();
-
-		p3aim.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Aim.ToString ();
-		p3wpn.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].WeaponSkill.ToString ();
-		p3spd.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Speed.ToString ();
-		p3hp.text = Data.UserSoldiers [SoldiersList [SpriteNumber2]].Hp.ToString ();
 
 		Debug.Log ("SoldiersCount");
 		Debug.Log (SoldiersList.Count);

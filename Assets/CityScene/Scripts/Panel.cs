@@ -14,6 +14,8 @@ namespace Assets.CityScene.Scripts
     {
         public District WorkingDistrict;
         public Text Logger;
+		public Text Money;
+		public Text Alkohol;
 
 		public PubPanel PubPanel;
         public EcoPanel EcoPanel;
@@ -71,6 +73,9 @@ namespace Assets.CityScene.Scripts
 
             HideAllPanels();
             //todo: For now in UI starting working district is hardcoded (with id = 1)
+			Money.text = MemoryHolder.GetInstance ().playerResources.Money.ToString();
+			Alkohol.text = MemoryHolder.GetInstance ().playerResources.Alkohol.ToString();
+
         }
 
         // Update is called once per frame
