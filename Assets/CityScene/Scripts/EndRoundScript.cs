@@ -100,17 +100,16 @@ public class EndRoundScript : MonoBehaviour {
 	}
 
 	void CassinoProcess(){
+		int CassinoMoney = 10;
 		foreach (int i in Data.UserDistricts) {
 			int randomInt = Random.Range (-4 , 5);
-			int income = Data.CaschedDistricts[i].Casino.Level * 100 + randomInt * CasinoSpendings;
+			int income = Data.CaschedDistricts[i].Casino.Level * CassinoMoney + randomInt * CasinoSpendings;
 			Data.playerResources.Money += income;
 		}
 		foreach (int i in Data.CompDistricts) {
 			int randomInt = Random.Range (-4 , 5);
-			int income = Data.CaschedDistricts[i].Casino.Level * 100 + randomInt * CasinoSpendings;
+			int income = Data.CaschedDistricts[i].Casino.Level * CassinoMoney + randomInt * CasinoSpendings;
 			Data.computerResources.Money += income;
 		}
 	}
-
-
 }

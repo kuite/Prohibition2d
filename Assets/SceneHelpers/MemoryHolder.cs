@@ -54,6 +54,7 @@ namespace Assets.SceneHelpers
 			computerResources = new PlayerResources ();
 			computerResources.Money = 100;
 			computerResources.Alkohol = 0;
+
             Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             CompDistricts = new List<int>();
             UserDistricts = new List<int>();
@@ -89,13 +90,6 @@ namespace Assets.SceneHelpers
             {
                 UserDistricts.Add(district.DistrictId);
             }
-
-			//WIP Map
-			/*for(int i = 0 ; i < 4; i++){
-				for (int j = 0; j < 4; j++) {
-					Map.Add (i * 4 + j);
-				}
-			}*/
         }
     }
 }
