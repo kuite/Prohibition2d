@@ -29,11 +29,11 @@ public class ComputerEconomyAI : MonoBehaviour {
 
 	void DistrictsDecisions(){
 		foreach (int i in Data.CompDistricts) {
-			Data.CaschedDistricts [i];	
-			switch (AgressionLevel) {
-			case 0:
-				Debug.Log ("AgresionLevel = 0");
-			}
+			//Data.CaschedDistricts [i];	
+			/*switch (AgressionLevel) {
+				case 0:
+					Debug.Log ("AgresionLevel = 0");
+			}*/
 		}
 	}
 }
