@@ -34,6 +34,7 @@ namespace Assets.SceneHelpers
         public SqliteContext Context { get; private set; }
 
 		public PlayerResources playerResources;
+		public PlayerResources computerResources;
 
         public static MemoryHolder GetInstance()
         {
@@ -50,6 +51,9 @@ namespace Assets.SceneHelpers
 			playerResources = new PlayerResources ();
 			playerResources.Money = 100;
 			playerResources.Alkohol = 0;
+			computerResources = new PlayerResources ();
+			computerResources.Money = 100;
+			computerResources.Alkohol = 0;
             Context = new SqliteContext(Application.dataPath + "\\SharedResources\\data.s3db");
             CompDistricts = new List<int>();
             UserDistricts = new List<int>();
